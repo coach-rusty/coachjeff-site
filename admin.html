@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coach Jeff — Admin</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #08101f; color: #f4f0e8; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; min-height: 100vh; padding: 32px 24px; }
+  h1 { color: #c9a875; font-size: 1.4rem; margin-bottom: 4px; }
+  .subtitle { color: #888; font-size: 0.85rem; margin-bottom: 28px; }
+  .stats { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 28px; }
+  .stat { background: #0f1e30; border: 1px solid #1e3050; border-radius: 8px; padding: 16px 20px; min-width: 120px; }
+  .stat-val { font-size: 1.8rem; font-weight: 700; color: #c9a875; }
+  .stat-label { font-size: 0.75rem; color: #888; margin-top: 2px; text-transform: uppercase; letter-spacing: .05em; }
+  .controls { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
+  input[type="text"], select {
+    background: #0f1e30; border: 1px solid #1e3050; border-radius: 6px;
+    color: #f4f0e8; padding: 8px 12px; font-size: 0.9rem; outline: none;
+  }
+  input[type="text"] { width: 260px; }
+  input[type="text"]:focus, select:focus { border-color: #c9a875; }
+  .btn { background: #c9a875; color: #08101f; border: none; border-radius: 6px; padding: 8px 16px; font-size: 0.9rem; font-weight: 700; cursor: pointer; }
+  .btn:hover { filter: brightness(1.1); }
+  .btn-ghost { background: transparent; border: 1px solid #1e3050; color: #888; }
+  .btn-ghost:hover { border-color: #c9a875; color: #c9a875; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th { color: #888; text-align: left; padding: 8px 12px; border-bottom: 1px solid #1e3050; font-weight: 600; cursor: pointer; white-space: nowrap; user-select: none; }
+  th:hover { color: #c9a875; }
+  th .sort-arrow { margin-left: 4px; opacity: 0.4; }
+  th.sorted .sort-arrow { opacity: 1; color: #c9a875; }
+  td { padding: 10px 12px; border-bottom: 1px solid #0f1e30; vertical-align: middle; }
+  tr:hover td { background: #0f1e30; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+  .badge-verified { background: rgba(52,211,153,.15); color: #34d399; }
+  .badge-pending  { background: rgba(251,191,36,.12); color: #fbbf24; }
+  .badge-exhausted { background: rgba(239,68,68,.12); color: #ef4444; }
+  .progress { background: #1e3050; border-radius: 3px; height: 6px; width: 80px; overflow: hidden; display: inline-block; vertical-align: middle; margin-left: 6px; }
+  .progress-fill { height: 100%; background: #c9a875; border-radius: 3px; }
+  .login-wrap { max-width: 360px; margin: 80px auto 0; }
+  .login-wrap h2 { color: #c9a875; margin-bottom: 20px; }
+  .login-wrap input { width: 100%; margin-bottom: 12px; display: block; }
+  .error-msg { color: #ef4444; font-size: 0.85rem; margin-top: 8px; }
+  .table-wrap { overflow-x: auto; }
+  #loginSection { display: block; }
+  #dashSection  { display: none; }
+  .empty { text-align: center; color: #555; padding: 48px; }
+  .refresh-note { color: #555; font-size: 0.8rem; }
+  a { color: #6bb5cc; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .tabs { display: flex; gap: 0; margin-bottom: 24px; border-bottom: 1px solid #1e3050; }
+  .tab { padding: 10px 20px; font-size: 0.9rem; font-weight: 600; color: #555; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+  .tab:hover { color: #c9a875; }
+  .tab.active { color: #c9a875; border-bottom-color: #c9a875; }
+  #eaSection { display: none; }
+</style>
+</head>
+<body>
+
+<!-- ── Login ── -->
+<div id="loginSection" class="login-wrap">
+  <h2>Coach Jeff Admin</h2>
+  <input type="password" id="pwdInput" placeholder="Admin password" autocomplete="current-password">
+  <button class="btn" onclick="doLogin()">Sign in</button>
+  <div id="loginError" class="error-msg"></div>
+</div>
+
+<!-- ── Dashboard ── -->
+<div id="dashSection">
+  <h1>Coach Jeff — Admin</h1>
+  <div class="subtitle" id="lastRefreshed">Loading...</div>
+
+  <div class="tabs">
+    <div class="tab active" id="tabTrial" onclick="switchTab('trial')">Trial Leads</div>
+    <div class="tab" id="tabEA" onclick="switchTab('ea')">Early Access</div>
+  </div>
+
+  <!-- Trial Leads -->
+  <div id="trialSection">
+  <div class="stats">
+    <div class="stat"><div class="stat-val" id="statTotal">—</div><div class="stat-label">Total signups</div></div>
+    <div class="stat"><div class="stat-val" id="statVerified">—</div><div class="stat-label">Verified</div></div>
+    <div class="stat"><div class="stat-val" id="statPending">—</div><div class="stat-label">Pending</div></div>
+    <div class="stat"><div class="stat-val" id="statUsed">—</div><div class="stat-label">Used trial</div></div>
+    <div class="stat"><div class="stat-val" id="statExhausted">—</div><div class="stat-label">Exhausted</div></div>
+  </div>
+
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search name, email, phone..." oninput="renderTable()">
+    <select id="filterStatus" onchange="renderTable()">
+      <option value="">All status</option>
+      <option value="verified">Verified</option>
+      <option value="pending">Pending</option>
+      <option value="exhausted">Exhausted</option>
+    </select>
+    <button class="btn btn-ghost" onclick="loadData()">Refresh</button>
+    <button class="btn btn-ghost" onclick="exportCsv()">Export CSV</button>
+    <span class="refresh-note" id="totalCount"></span>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th onclick="sortBy('name')">Name <span class="sort-arrow" id="arrow-name"></span></th>
+          <th onclick="sortBy('email')">Email <span class="sort-arrow" id="arrow-email"></span></th>
+          <th onclick="sortBy('phone')">Phone <span class="sort-arrow" id="arrow-phone"></span></th>
+          <th onclick="sortBy('verified')">Status <span class="sort-arrow" id="arrow-verified"></span></th>
+          <th onclick="sortBy('firstSeen')">Signed Up <span class="sort-arrow" id="arrow-firstSeen"></span></th>
+          <th onclick="sortBy('verifiedAt')">Verified <span class="sort-arrow" id="arrow-verifiedAt"></span></th>
+          <th onclick="sortBy('secsUsed')">Trial Used <span class="sort-arrow" id="arrow-secsUsed"></span></th>
+          <th onclick="sortBy('lastConvAt')">Last Talk <span class="sort-arrow" id="arrow-lastConvAt"></span></th>
+        </tr>
+      </thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div id="emptyMsg" class="empty" style="display:none;">No trial leads yet.</div>
+  </div>
+  </div><!-- /trialSection -->
+
+  <!-- Early Access -->
+  <div id="eaSection">
+    <div class="controls">
+      <input type="text" id="eaSearchInput" placeholder="Search name, email..." oninput="renderEATable()">
+      <button class="btn btn-ghost" onclick="loadEAData()">Refresh</button>
+      <button class="btn btn-ghost" onclick="exportEACsv()">Export CSV</button>
+      <span class="refresh-note" id="eaTotalCount"></span>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th onclick="sortEABy('name')">Name <span class="sort-arrow" id="ea-arrow-name"></span></th>
+            <th onclick="sortEABy('email')">Email <span class="sort-arrow" id="ea-arrow-email"></span></th>
+            <th onclick="sortEABy('signedUpAt')">Signed Up <span class="sort-arrow" id="ea-arrow-signedUpAt"></span></th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody id="eaTbody"></tbody>
+      </table>
+      <div id="eaEmptyMsg" class="empty" style="display:none;">No early access signups yet.</div>
+    </div>
+  </div><!-- /eaSection -->
+
+</div>
+
+<script>
+  const MAX_SECS = 300;
+  let allLeads   = [];
+  let allEALeads = [];
+  let sortKey    = 'firstSeen';
+  let sortDir    = -1;
+  let eaSortKey  = 'signedUpAt';
+  let eaSortDir  = -1;
+  let adminKey   = '';
+  let activeTab  = 'trial';
+
+  function switchTab(tab) {
+    activeTab = tab;
+    document.getElementById('tabTrial').classList.toggle('active', tab === 'trial');
+    document.getElementById('tabEA').classList.toggle('active', tab === 'ea');
+    document.getElementById('trialSection').style.display = tab === 'trial' ? '' : 'none';
+    document.getElementById('eaSection').style.display    = tab === 'ea'    ? '' : 'none';
+    if (tab === 'ea' && allEALeads.length === 0) loadEAData();
+  }
+
+  // ── Login ────────────────────────────────────────────────────────────────
+  function doLogin() {
+    const pwd = document.getElementById('pwdInput').value.trim();
+    if (!pwd) return;
+    adminKey = pwd;
+    sessionStorage.setItem('cja_key', pwd);
+    loadData();
+  }
+
+  document.getElementById('pwdInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doLogin();
+  });
+
+  // Auto-login if key stored in session
+  const storedKey = sessionStorage.getItem('cja_key');
+  if (storedKey) { adminKey = storedKey; loadData(); }
+
+  // ── Load data ─────────────────────────────────────────────────────────────
+  async function loadData() {
+    try {
+      const r = await fetch('/api/admin-leads', { headers: { 'X-Admin-Key': adminKey } });
+      if (r.status === 401) {
+        document.getElementById('loginError').textContent = 'Wrong password.';
+        sessionStorage.removeItem('cja_key');
+        return;
+      }
+      const data = await r.json();
+      if (!data.ok) throw new Error(data.error || 'Unknown error');
+
+      allLeads = data.leads || [];
+      document.getElementById('loginSection').style.display = 'none';
+      document.getElementById('dashSection').style.display  = 'block';
+      updateStats();
+      renderTable();
+      document.getElementById('lastRefreshed').textContent =
+        'Last refreshed: ' + new Date().toLocaleString('en-US', { timeZone: 'America/Phoenix' }) + ' AZ';
+    } catch (e) {
+      document.getElementById('loginError').textContent = 'Error: ' + e.message;
+    }
+  }
+
+  // ── Stats ─────────────────────────────────────────────────────────────────
+  function updateStats() {
+    const verified  = allLeads.filter(l => l.verified).length;
+    const pending   = allLeads.filter(l => !l.verified).length;
+    const usedAny   = allLeads.filter(l => (l.secsUsed || 0) > 0).length;
+    const exhausted = allLeads.filter(l => (l.secsRemaining || 0) <= 0 && l.verified).length;
+    document.getElementById('statTotal').textContent     = allLeads.length;
+    document.getElementById('statVerified').textContent  = verified;
+    document.getElementById('statPending').textContent   = pending;
+    document.getElementById('statUsed').textContent      = usedAny;
+    document.getElementById('statExhausted').textContent = exhausted;
+  }
+
+  // ── Sort ──────────────────────────────────────────────────────────────────
+  function sortBy(key) {
+    if (sortKey === key) { sortDir *= -1; }
+    else { sortKey = key; sortDir = -1; }
+    // Update arrows
+    document.querySelectorAll('[id^="arrow-"]').forEach(el => { el.textContent = ''; el.closest('th').classList.remove('sorted'); });
+    const arrow = document.getElementById(`arrow-${key}`);
+    if (arrow) { arrow.textContent = sortDir === -1 ? '▼' : '▲'; arrow.closest('th').classList.add('sorted'); }
+    renderTable();
+  }
+
+  // ── Render ────────────────────────────────────────────────────────────────
+  function renderTable() {
+    const search  = (document.getElementById('searchInput').value || '').toLowerCase();
+    const filter  = document.getElementById('filterStatus').value;
+
+    let rows = allLeads.filter(l => {
+      const hay = `${l.name||''} ${l.email||''} ${l.phone||''}`.toLowerCase();
+      if (search && !hay.includes(search)) return false;
+      if (filter === 'verified'  && !l.verified) return false;
+      if (filter === 'pending'   && l.verified)  return false;
+      if (filter === 'exhausted' && ((l.secsRemaining || 0) > 0 || !l.verified)) return false;
+      return true;
+    });
+
+    rows.sort((a, b) => {
+      let va = a[sortKey], vb = b[sortKey];
+      if (va === null || va === undefined) va = '';
+      if (vb === null || vb === undefined) vb = '';
+      if (typeof va === 'boolean') { va = va ? 1 : 0; vb = vb ? 1 : 0; }
+      if (typeof va === 'string') va = va.toLowerCase();
+      if (typeof vb === 'string') vb = vb.toLowerCase();
+      if (va < vb) return -sortDir;
+      if (va > vb) return  sortDir;
+      return 0;
+    });
+
+    document.getElementById('totalCount').textContent = `${rows.length} of ${allLeads.length}`;
+
+    const tbody = document.getElementById('tbody');
+    const empty = document.getElementById('emptyMsg');
+
+    if (rows.length === 0) {
+      tbody.innerHTML = '';
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+
+    tbody.innerHTML = rows.map(l => {
+      const secsUsed = l.secsUsed || 0;
+      const secsRem  = l.secsRemaining === undefined ? MAX_SECS : l.secsRemaining;
+      const pct      = Math.min(100, Math.round(secsUsed / MAX_SECS * 100));
+      const usedStr  = secsUsed > 0 ? fmtSecs(secsUsed) : '—';
+
+      let badge;
+      if (!l.verified) {
+        badge = '<span class="badge badge-pending">Pending</span>';
+      } else if (secsRem <= 0) {
+        badge = '<span class="badge badge-exhausted">Exhausted</span>';
+      } else {
+        badge = '<span class="badge badge-verified">Verified</span>';
+      }
+
+      return `<tr>
+        <td>${esc(l.name || '—')}</td>
+        <td><a href="mailto:${esc(l.email)}">${esc(l.email || '—')}</a></td>
+        <td>${esc(l.phone || '—')}</td>
+        <td>${badge}</td>
+        <td>${fmtDate(l.firstSeen)}</td>
+        <td>${fmtDate(l.verifiedAt)}</td>
+        <td>${usedStr}${secsUsed > 0 ? `<span class="progress"><span class="progress-fill" style="width:${pct}%"></span></span>` : ''}</td>
+        <td>${fmtDate(l.lastConvAt)}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  // ── Export CSV ────────────────────────────────────────────────────────────
+  function exportCsv() {
+    const headers = ['Name', 'Email', 'Phone', 'Verified', 'Signed Up', 'Verified At', 'Secs Used', 'Secs Remaining', 'Last Conversation'];
+    const rows = allLeads.map(l => [
+      l.name || '', l.email || '', l.phone || '',
+      l.verified ? 'Yes' : 'No',
+      l.firstSeen || '', l.verifiedAt || '',
+      l.secsUsed || 0, l.secsRemaining === undefined ? MAX_SECS : l.secsRemaining,
+      l.lastConvAt || ''
+    ].map(v => `"${String(v).replace(/"/g, '""')}"`).join(','));
+
+    const csv  = [headers.join(','), ...rows].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = `coach-jeff-leads-${new Date().toISOString().slice(0,10)}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  // ── Helpers ───────────────────────────────────────────────────────────────
+  function fmtSecs(s) {
+    const m = Math.floor(s / 60), sec = s % 60;
+    return `${m}:${String(sec).padStart(2,'0')}`;
+  }
+  function fmtDate(iso) {
+    if (!iso) return '—';
+    try {
+      return new Date(iso).toLocaleString('en-US', {
+        timeZone: 'America/Phoenix', month: 'short', day: 'numeric',
+        hour: 'numeric', minute: '2-digit', hour12: true
+      });
+    } catch { return iso; }
+  }
+  function esc(s) {
+    return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  // ── Early Access ───────────────────────────────────────────────────────────
+  async function loadEAData() {
+    try {
+      const r = await fetch('/api/admin-early-access', { headers: { 'X-Admin-Key': adminKey } });
+      if (r.status === 401) { sessionStorage.removeItem('cja_key'); return; }
+      const data = await r.json();
+      if (!data.ok) throw new Error(data.error || 'Unknown error');
+      allEALeads = data.leads || [];
+      renderEATable();
+    } catch (e) {
+      console.error('EA load error:', e.message);
+    }
+  }
+
+  function sortEABy(key) {
+    if (eaSortKey === key) { eaSortDir *= -1; }
+    else { eaSortKey = key; eaSortDir = -1; }
+    document.querySelectorAll('[id^="ea-arrow-"]').forEach(el => { el.textContent = ''; el.closest('th').classList.remove('sorted'); });
+    const arrow = document.getElementById(`ea-arrow-${key}`);
+    if (arrow) { arrow.textContent = eaSortDir === -1 ? '▼' : '▲'; arrow.closest('th').classList.add('sorted'); }
+    renderEATable();
+  }
+
+  function renderEATable() {
+    const search = (document.getElementById('eaSearchInput').value || '').toLowerCase();
+    let rows = allEALeads.filter(l => {
+      const hay = `${l.name||''} ${l.email||''}`.toLowerCase();
+      return !search || hay.includes(search);
+    });
+    rows.sort((a, b) => {
+      let va = a[eaSortKey], vb = b[eaSortKey];
+      if (!va) va = ''; if (!vb) vb = '';
+      if (typeof va === 'string') va = va.toLowerCase();
+      if (typeof vb === 'string') vb = vb.toLowerCase();
+      if (va < vb) return -eaSortDir;
+      if (va > vb) return  eaSortDir;
+      return 0;
+    });
+    document.getElementById('eaTotalCount').textContent = `${rows.length} of ${allEALeads.length}`;
+    const tbody = document.getElementById('eaTbody');
+    const empty = document.getElementById('eaEmptyMsg');
+    if (rows.length === 0) { tbody.innerHTML = ''; empty.style.display = 'block'; return; }
+    empty.style.display = 'none';
+    tbody.innerHTML = rows.map(l => `<tr>
+      <td>${esc(l.name || '—')}</td>
+      <td><a href="mailto:${esc(l.email)}">${esc(l.email || '—')}</a></td>
+      <td>${fmtDate(l.signedUpAt)}</td>
+      <td>${esc(l.source || '—')}</td>
+    </tr>`).join('');
+  }
+
+  function exportEACsv() {
+    const headers = ['Name', 'Email', 'Signed Up', 'Source'];
+    const rows = allEALeads.map(l => [l.name||'', l.email||'', l.signedUpAt||'', l.source||'']
+      .map(v => `"${String(v).replace(/"/g,'""')}"`).join(','));
+    const csv  = [headers.join(','), ...rows].join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url; a.download = `coach-jeff-early-access-${new Date().toISOString().slice(0,10)}.csv`;
+    a.click(); URL.revokeObjectURL(url);
+  }
+</script>
+</body>
+</html>
