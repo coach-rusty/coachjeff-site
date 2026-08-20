@@ -838,11 +838,26 @@
     #hero-bg {
       position: absolute;
       inset: 0;
+      /* HERO IMAGE — swap src= below when OpenShot video is ready */
       background-image: url('hero-hands-rain.jpg');
       background-size: cover;
-      background-position: center 35%;
+      background-position: center 30%;
       will-change: transform;
+      animation: hero-ken-burns 22s ease-in-out infinite alternate;
+      transform-origin: center center;
     }
+    @keyframes hero-ken-burns {
+      0%   { transform: scale(1.00) translate(0, 0); }
+      33%  { transform: scale(1.04) translate(-0.8%, 0.5%); }
+      66%  { transform: scale(1.06) translate(0.5%, -0.8%); }
+      100% { transform: scale(1.03) translate(-0.3%, 0.3%); }
+    }
+    /* When you have the OpenShot video, add this inside #hero and remove #hero-bg:
+    <video autoplay muted loop playsinline
+           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;">
+      <source src="hero-video.mp4" type="video/mp4">
+    </video>
+    */
 
     #hero-bg::after {
       content: '';
@@ -1007,6 +1022,56 @@
       max-width: 680px;
       line-height: 1.5;
       text-align: center;
+    }
+
+
+
+    /* ── Coach Jeff hero portrait ── */
+    #hero-portrait {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: clamp(220px, 28vw, 420px);
+      z-index: 2;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(to top, transparent 0%, black 22%), linear-gradient(to left, black 55%, transparent 100%);
+      -webkit-mask-composite: destination-in;
+      mask-image: linear-gradient(to top, transparent 0%, black 22%), linear-gradient(to left, black 55%, transparent 100%);
+      mask-composite: intersect;
+      opacity: 0.88;
+    }
+    #hero-portrait img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 860px) { #hero-portrait { display: none; } }
+
+    /* ── Drift-style glassmorphism CTA bar ── */
+    .glass-cta-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(0,0,0,0.28);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 18px;
+      padding: 10px 10px 10px 22px;
+      flex-wrap: wrap;
+    }
+    .glass-bar-tagline {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.02em;
+      margin: 0;
+      white-space: nowrap;
+    }
+    @media (max-width: 600px) {
+      .glass-bar-tagline { display: none; }
+      .glass-cta-bar { padding: 10px; }
     }
 
     .hero-actions {
@@ -1814,7 +1879,7 @@
     .gap-photo {
       position: absolute;
       inset: 0;
-      background-image: url('veteran-0200.jpg');
+      background-image: url('hero-hands-rain.jpg');
       background-size: cover;
       background-position: center right;
       filter: saturate(0.25) brightness(0.35);
@@ -3223,7 +3288,6 @@
 <body>
 <div id="page-loader"><span>Coach Jeff</span></div>
 <div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
 
   <!-- Floating particles -->
   <canvas id="particles-canvas"></canvas>
@@ -3296,7 +3360,9 @@
 
       <p style="font-family:var(--font-ui);font-size:13px;color:rgba(255,255,255,0.45);margin:0 0 28px;letter-spacing:0.02em;">Built for Veterans. Open to anyone who needs a real friend.</p>
 
-      <div class="hero-actions" id="hero-actions">
+      <div class="glass-cta-bar">
+        <p class="glass-bar-tagline">No noise. No system. Just a friend who gets it.</p>
+        <div class="hero-actions" id="hero-actions">
         <a href="#talk-to-jeff" class="btn-camo btn-magnetic" style="display:inline-flex;align-items:center;gap:10px;">
           <span style="display:inline-block;width:9px;height:9px;border-radius:50%;background:rgba(74,158,224,.9);box-shadow:0 0 8px rgba(74,158,224,.7);animation:tojPulse 2s ease-in-out infinite;flex-shrink:0;position:relative;z-index:1;"></span>
           <span style="position:relative;z-index:1;">Talk to Coach Jeff — Free</span>
@@ -3311,6 +3377,11 @@
           <span id="hero-play-label">Hear Coach Jeff's voice</span>
         </button>
       </div>
+      </div><!-- /glass-cta-bar -->
+    </div>
+
+    <div id="hero-portrait">
+      <img src="Coach Jeff Cofident Headshot.png" alt="Coach Jeff" loading="eager">
     </div>
 
     <div class="hero-scroll" id="hero-scroll">
@@ -3647,15 +3718,6 @@
             <span class="spot-duration">0:42</span>
           </div>
         </div>
-
-        <div class="spot-card anim" style="cursor:default;opacity:0.7;">
-          <div class="spot-number">02</div>
-          <div class="spot-label">Radio Spot</div>
-          <div class="spot-title">I've Got Your Six</div>
-          <div class="spot-desc">A friend who calls a friend. Some things shouldn't wait. Neither should this.</div>
-          <div class="spot-play-row">
-            <div style="font-family:var(--font-head);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--brass);opacity:.7;">Audio coming soon</div>
-          </div>
         </div>
 
       </div>
@@ -4560,18 +4622,6 @@
       transition: transform 0.15s cubic-bezier(0.16,1,0.3,1);
       will-change: left, top;
     }
-    .cursor-ring {
-      position: fixed; top: 0; left: 0;
-      width: 34px; height: 34px;
-      border: 1.5px solid rgba(201,168,117,0.45);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 99999;
-      transform: translate(-50%, -50%);
-      will-change: left, top;
-    }
-    .cursor-dot.on-link { transform: translate(-50%,-50%) scale(2.2); }
-    .cursor-ring.on-link { transform: translate(-50%,-50%) scale(1.6); border-color: rgba(201,168,117,0.85); }
   }
   /* Page loader */
   #page-loader {
@@ -5710,23 +5760,7 @@
     });
   })();
 
-  // Custom cursor
-  (function() {
-    if (!window.matchMedia('(pointer: fine)').matches) return;
-    var dot = document.querySelector('.cursor-dot');
-    var ring = document.querySelector('.cursor-ring');
-    if (!dot || !ring) return;
-    var mx = -100, my = -100, rx = -100, ry = -100;
-    document.addEventListener('mousemove', function(e) {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-    });
-    function lerp(a, b, t) { return a + (b - a) * t; }
-    (function tick() {
-      rx = lerp(rx, mx, 0.1); ry = lerp(ry, my, 0.1);
-      ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-      requestAnimationFrame(tick);
-    })();
+
     document.querySelectorAll('a, button, [role="button"], label').forEach(function(el) {
       el.addEventListener('mouseenter', function() { dot.classList.add('on-link'); ring.classList.add('on-link'); });
       el.addEventListener('mouseleave', function() { dot.classList.remove('on-link'); ring.classList.remove('on-link'); });
