@@ -5761,12 +5761,6 @@
   })();
 
 
-    document.querySelectorAll('a, button, [role="button"], label').forEach(function(el) {
-      el.addEventListener('mouseenter', function() { dot.classList.add('on-link'); ring.classList.add('on-link'); });
-      el.addEventListener('mouseleave', function() { dot.classList.remove('on-link'); ring.classList.remove('on-link'); });
-    });
-  })();
-
   // Page loader
   (function() {
     var loader = document.getElementById('page-loader');
