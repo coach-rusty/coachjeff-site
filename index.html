@@ -3283,7 +3283,87 @@
       }
     }
 
-  </style>
+  
+    /* ═══ MOTION UPGRADES ═══════════════════════════════════════════ */
+
+    /* 1. Hero parallax transition */
+    #hero-portrait, #hero-badge, #hero-america250-wrap {
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+      will-change: transform;
+    }
+
+    /* 2. Video-ready hero */
+    #hero-video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      z-index: 0;
+    }
+    #hero-video.loaded { opacity: 1; }
+
+    /* 3. Shimmer sweep on brass patch labels */
+    @keyframes shimmer-pass {
+      0%   { left: -120%; }
+      100% { left: 220%; }
+    }
+    .patch-label, .brass-label, .hero-badge-top, .hero-badge-bottom {
+      position: relative;
+      overflow: hidden;
+    }
+    .patch-label::after, .brass-label::after,
+    .hero-badge-top::after, .hero-badge-bottom::after {
+      content: '';
+      position: absolute;
+      top: -40%;
+      left: -120%;
+      width: 55%;
+      height: 180%;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
+      transform: skewX(-22deg);
+      animation: shimmer-pass 4s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    /* 4. Beacon pulse ring around the always-on dot */
+    @keyframes beacon-ring {
+      0%   { transform: scale(1);   opacity: 0.7; }
+      100% { transform: scale(3);   opacity: 0; }
+    }
+    .beacon-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .beacon-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: #4ecf6a;
+      animation: beacon-ring 2s ease-out infinite;
+      pointer-events: none;
+    }
+    .beacon-dot {
+      position: relative;
+      z-index: 1;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4ecf6a;
+      box-shadow: 0 0 8px rgba(78,207,106,.9);
+      animation: tojPulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+      display: inline-block;
+    }
+
+    /* 5. 3D card tilt */
+    .testi-card {
+      transition: transform 0.15s ease-out, border-color 0.3s, box-shadow 0.3s !important;
+      will-change: transform;
+    }
+</style>
 </head>
 <body>
 <div id="page-loader"><span>Coach Jeff</span></div>
@@ -3308,7 +3388,7 @@
 
   <!-- ═══ HERO ══════════════════════════════════════════ -->
   <section id="hero">
-    <div id="hero-bg"></div>
+    <div id="hero-bg"><video id="hero-video" autoplay muted loop playsinline poster="hero-hands-rain.jpg"><source src="hero-loop.mp4" type="video/mp4"></video></div>
     <div id="hero-camo-strip"></div>
     <canvas id="rain-canvas"></canvas>
     <div id="hero-glow"></div>
@@ -5760,6 +5840,82 @@
     });
   })();
 
+
+
+  // ═══ MOTION UPGRADES ════════════════════════════════════════════
+
+  // 1. Hero mouse parallax
+  (function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var hero = document.getElementById('hero');
+    if (!hero) return;
+    var portrait = document.getElementById('hero-portrait');
+    var badge    = document.getElementById('hero-badge');
+    var a250     = document.getElementById('hero-america250-wrap');
+    hero.addEventListener('mousemove', function(e) {
+      var r = hero.getBoundingClientRect();
+      var dx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+      var dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+      if (portrait) portrait.style.transform = 'translate(' + (dx * 14) + 'px,' + (dy * 7) + 'px)';
+      if (badge)    badge.style.transform    = 'translate(' + (dx * -6) + 'px,' + (dy * -4) + 'px)';
+      if (a250)     a250.style.transform     = 'translate(' + (dx * 10) + 'px,' + (dy * 5) + 'px)';
+    });
+    hero.addEventListener('mouseleave', function() {
+      if (portrait) portrait.style.transform = '';
+      if (badge)    badge.style.transform    = '';
+      if (a250)     a250.style.transform     = '';
+    });
+  })();
+
+  // 2. Stat counters (data-target already on elements)
+  (function() {
+    var counters = document.querySelectorAll('.gap-stat-num[data-target]');
+    if (!counters.length) return;
+    var started = false;
+    var obs = new IntersectionObserver(function(entries) {
+      if (started || !entries[0].isIntersecting) return;
+      started = true;
+      counters.forEach(function(el) {
+        var target = +el.getAttribute('data-target');
+        var suffix = el.innerHTML.replace(/[0-9]/g, '').trim(); // preserve % etc
+        var start = 0, duration = 1800;
+        var t0 = performance.now();
+        function tick(now) {
+          var p = Math.min((now - t0) / duration, 1);
+          var ease = 1 - Math.pow(1 - p, 3);
+          el.innerHTML = Math.round(ease * target) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function(el) { obs.observe(el); });
+  })();
+
+  // 3. 3D tilt on testimonial cards
+  (function() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('.testi-card').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var r = card.getBoundingClientRect();
+        var dx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+        var dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+        card.style.transform = 'translateY(-6px) perspective(900px) rotateX(' + (-dy * 5) + 'deg) rotateY(' + (dx * 5) + 'deg)';
+      });
+      card.addEventListener('mouseleave', function() {
+        card.style.transform = '';
+      });
+    });
+  })();
+
+  // 4. Video: fade in when ready
+  (function() {
+    var v = document.getElementById('hero-video');
+    if (!v) return;
+    v.addEventListener('canplaythrough', function() {
+      v.classList.add('loaded');
+    });
+  })();
 
   // Custom cursor dot
   (function() {
