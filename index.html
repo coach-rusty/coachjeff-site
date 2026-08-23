@@ -1040,7 +1040,7 @@
       mask-composite: intersect;
       opacity: 0.88;
     }
-    #hero-portrait img {
+    #hero-portrait img, #hero-portrait video {
       width: 100%;
       height: auto;
       display: block;
@@ -3462,7 +3462,10 @@
     </div>
 
     <div id="hero-portrait">
-      <img src="Coach Jeff Cofident Headshot.png" alt="Coach Jeff" loading="eager">
+      <video autoplay muted loop playsinline poster="Coach Jeff Cofident Headshot.png">
+        <source src="jeff-portrait.mp4" type="video/mp4">
+        <img src="Coach Jeff Cofident Headshot.png" alt="Coach Jeff" loading="eager">
+      </video>
     </div>
 
     <div class="hero-scroll" id="hero-scroll">
