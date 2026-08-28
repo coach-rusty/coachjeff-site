@@ -110,8 +110,30 @@ module.exports = async function handler(req, res) {
   if (req.method !== 'POST')    return res.status(405).json({ ok: false });
 
   // ── Honeypot — bots fill hidden fields; humans never touch this ───────────
-  const { name, email, hp } = req.body || {};
+  const { name, email, hp, tsToken } = req.body || {};
   if (hp) return res.status(200).json({ ok: true }); // silent swallow
+
+  // ── Cloudflare Turnstile verification ─────────────────────────────────────
+  const tsSecret = process.env.CF_TURNSTILE_SECRET;
+  if (tsSecret && tsToken) {
+    try {
+      const tsBody = `secret=${encodeURIComponent(tsSecret)}&response=${encodeURIComponent(tsToken)}`;
+      const tsResult = await new Promise((resolve) => {
+        const options = {
+          hostname: 'challenges.cloudflare.com',
+          path:     '/turnstile/v0/siteverify',
+          method:   'POST',
+          headers:  { 'Content-Type': 'application/x-www-form-urlencoded', 'Content-Length': Buffer.byteLength(tsBody) }
+        };
+        const r = https.request(options, res => { let d = ''; res.on('data', c => d += c); res.on('end', () => resolve(JSON.parse(d))); });
+        r.on('error', () => resolve({ success: true })); // fail open if CF is down
+        r.write(tsBody); r.end();
+      });
+      if (!tsResult.success) {
+        return res.status(400).json({ ok: false, error: 'Bot check failed. Please try again.' });
+      }
+    } catch (_) { /* fail open */ }
+  }
 
   // ── IP rate limit ─────────────────────────────────────────────────────────
   const ip      = getIp(req);
