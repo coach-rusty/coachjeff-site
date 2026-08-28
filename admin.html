@@ -306,6 +306,7 @@
           <option value="exhausted">Exhausted</option>
         </select>
         <button class="btn-sm" onclick="exportCsv()">Export CSV</button>
+        <button class="btn-sm" id="btnPurge" onclick="purgeUnverified()" style="border-color:rgba(248,113,113,.4);color:rgba(248,113,113,.7);">Purge Unverified</button>
         <span class="ctrl-count" id="totalCount"></span>
       </div>
 
@@ -566,12 +567,12 @@
     }).join('');
   }
 
-  // ── Delete lead ────────────────────────────────────────────────────
+  // ── Delete single lead ─────────────────────────────────────────────
   async function deleteLead(email, btn) {
     if (!confirm(`Delete ${email}? This cannot be undone.`)) return;
     btn.disabled = true; btn.textContent = '…';
     try {
-      const r = await fetch('/api/delete-lead', {
+      const r = await fetch('/api/admin-delete-lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-Admin-Key': adminKey },
         body: JSON.stringify({ email })
@@ -584,6 +585,30 @@
     } catch (e) {
       btn.disabled = false; btn.textContent = 'Delete';
       alert('Error: ' + e.message);
+    }
+  }
+
+  // ── Purge all unverified ───────────────────────────────────────────
+  async function purgeUnverified() {
+    const pending = allLeads.filter(l => !l.verified).length;
+    if (!pending) { alert('No unverified leads to purge.'); return; }
+    if (!confirm(`Delete all ${pending} unverified leads? This keeps only verified users. Cannot be undone.`)) return;
+    const btn = document.getElementById('btnPurge');
+    btn.textContent = 'Purging…'; btn.disabled = true;
+    try {
+      const r = await fetch('/api/admin-delete-lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Key': adminKey },
+        body: JSON.stringify({ purgeUnverified: true })
+      });
+      const d = await r.json();
+      if (!d.ok) throw new Error(d.error || 'Purge failed');
+      alert(`Done. Deleted ${d.deleted} bot/unverified leads. Kept ${d.kept} verified users.`);
+      loadData(); // reload fresh from KV
+    } catch (e) {
+      alert('Error: ' + e.message);
+    } finally {
+      btn.textContent = 'Purge Unverified'; btn.disabled = false;
     }
   }
 
