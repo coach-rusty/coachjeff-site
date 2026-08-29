@@ -3373,7 +3373,6 @@
 </head>
 <body>
 <div id="page-loader"><span>Coach Jeff</span></div>
-<div class="cursor-dot"></div>
 
   <!-- Floating particles -->
   <canvas id="particles-canvas"></canvas>
@@ -4699,27 +4698,6 @@
   .rise-reveal { clip-path: inset(100% 0 0 0); transition: clip-path 0.8s cubic-bezier(0.16,1,0.3,1); }
   .rise-reveal.revealed { clip-path: inset(0% 0 0 0); }
   @media (prefers-reduced-motion: reduce) { .wipe-reveal, .rise-reveal { clip-path: none !important; transition: none !important; } }
-  /* Custom cursor */
-  @media (pointer: fine) {
-    *, *::before, *::after { cursor: none !important; }
-    .cursor-dot {
-      position: fixed; top: 0; left: 0;
-      width: 14px; height: 14px;
-      background: radial-gradient(circle, #f0d090 0%, #c9a875 55%, rgba(201,168,117,0) 100%);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 100000;
-      transform: translate(-50%, -50%);
-      transition: transform 0.12s cubic-bezier(0.16,1,0.3,1), width 0.2s, height 0.2s, opacity 0.2s;
-      will-change: left, top;
-      box-shadow: 0 0 6px 2px rgba(201,168,117,0.5), 0 0 18px 4px rgba(201,168,117,0.2);
-    }
-    .cursor-dot.on-link {
-      width: 22px; height: 22px;
-      background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, #c9a875 45%, rgba(201,168,117,0) 100%);
-      box-shadow: 0 0 10px 4px rgba(201,168,117,0.7), 0 0 28px 8px rgba(201,168,117,0.3);
-    }
-  }
   /* Page loader */
   #page-loader {
     position: fixed; inset: 0; z-index: 100001;
@@ -5937,20 +5915,6 @@
     });
   })();
 
-  // Custom cursor dot
-  (function() {
-    if (!window.matchMedia('(pointer: fine)').matches) return;
-    var dot = document.querySelector('.cursor-dot');
-    if (!dot) return;
-    document.addEventListener('mousemove', function(e) {
-      dot.style.left = e.clientX + 'px';
-      dot.style.top = e.clientY + 'px';
-    });
-    document.querySelectorAll('a, button, [role="button"], label').forEach(function(el) {
-      el.addEventListener('mouseenter', function() { dot.classList.add('on-link'); });
-      el.addEventListener('mouseleave', function() { dot.classList.remove('on-link'); });
-    });
-  })();
 
   // Page loader
   (function() {
