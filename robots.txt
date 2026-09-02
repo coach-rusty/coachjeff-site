@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /admin
-Disallow: /admin/
-
-Sitemap: https://coachjeff.ai/sitemap.xml
