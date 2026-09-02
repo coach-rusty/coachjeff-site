@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Does Coach Jeff Actually Work? A Plain-English Explanation. | Coach Jeff</title>
+  <meta name="description" content="A veteran opens the app at 0200 and types their first message. What happens? Walk through the actual experience: Jeff's persona, My World memory, Home Base check-ins, conversation mode, and the crisis protocol." />
+  <link rel="icon" type="image/png" href="../coach-jeff-icon.png" />
+  <link rel="canonical" href="https://coachjeff.ai/blog/how-coach-jeff-works" />
+  <meta property="og:title" content="How Does Coach Jeff Actually Work? A Plain-English Explanation." />
+  <meta property="og:description" content="No jargon. Walk through the actual Coach Jeff experience — the persona, memory system, daily check-in, conversation mode, and how it handles dark moments." />
+  <meta property="og:image" content="https://coachjeff.ai/coach-jeff-logo.png" />
+  <meta property="og:url" content="https://coachjeff.ai/blog/how-coach-jeff-works" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/yhk4jya.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How Does Coach Jeff Actually Work? A Plain-English Explanation.",
+    "description": "A veteran opens the app at 0200 and types their first message. What happens? Walk through the actual Coach Jeff experience from first message to crisis protocol.",
+    "author": { "@type": "Person", "name": "Rusty Humphries", "url": "https://coachjeff.ai/about" },
+    "publisher": { "@type": "Organization", "name": "Coach Jeff", "url": "https://coachjeff.ai" },
+    "datePublished": "2026-05-09",
+    "url": "https://coachjeff.ai/blog/how-coach-jeff-works",
+    "mainEntityOfPage": "https://coachjeff.ai/blog/how-coach-jeff-works"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How does Coach Jeff work?", "acceptedAnswer": { "@type": "Answer", "text": "Coach Jeff is a 24/7 AI companion for veterans. It provides daily check-ins through the Home Base feature, maintains a personalized memory profile (My World) that builds context over time, engages in trauma-informed conversations, offers breathwork and bilateral stimulation exercises, and connects veterans immediately to the Veterans Crisis Line (988) when conversations indicate serious risk." } },
+      { "@type": "Question", "name": "What is 'My World' in Coach Jeff?", "acceptedAnswer": { "@type": "Answer", "text": "'My World' is Coach Jeff's personalized memory system — a profile that builds over time based on what you share. Jeff remembers your name, service history, what's difficult right now, what's good, and what's been discussed in previous conversations. This memory is what makes the relationship feel real rather than like talking to a tool that forgets you between sessions." } },
+      { "@type": "Question", "name": "What is the 'Home Base' daily check-in?", "acceptedAnswer": { "@type": "Answer", "text": "Home Base is Coach Jeff's daily check-in feature — a consistent morning (or chosen time) conversation that asks how you're doing and tracks patterns over time. Jeff notices when check-ins are darker than usual and responds accordingly. The daily structure is intentional: consistency is what builds relationship and catches drift before it becomes crisis." } },
+      { "@type": "Question", "name": "How does Coach Jeff handle a crisis situation?", "acceptedAnswer": { "@type": "Answer", "text": "When a conversation indicates a veteran may be in crisis — specific language patterns, escalating distress, direct statements of danger — Coach Jeff responds with immediate care and provides direct connection to the Veterans Crisis Line: call or text 988. Jeff does not replace crisis intervention — it bridges to it immediately and without friction." } }
+    ]
+  }
+  </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink:#040b17; --navy:#060e1e;
+      --teal:#4a7c8c; --teal-lt:#6bb5cc;
+      --brass:#c9a875; --brass-lt:#e0c490; --brass-dk:#a07840;
+      --white:#f4f0e8; --white-dim:rgba(244,240,232,0.6); --white-faint:rgba(244,240,232,0.1);
+      --font-head:"freight-big-pro","Playfair Display","Georgia",serif;
+      --font-serif:"freight-display-pro","Playfair Display","Georgia",serif;
+      --font-ui:"proxima-nova","Inter",system-ui,sans-serif;
+      --gutter:clamp(22px,5vw,80px);
+    }
+    body { background:var(--ink); color:var(--white); font-family:var(--font-ui); font-size:18px; line-height:1.75; overflow-x:hidden; }
+    body::before { content:''; position:fixed; inset:0; background-image:repeating-linear-gradient(112deg,rgba(184,160,122,0.85) 0px,rgba(184,160,122,0.85) 20px,rgba(74,92,53,0.9) 20px,rgba(74,92,53,0.9) 46px,rgba(92,69,48,0.85) 46px,rgba(92,69,48,0.85) 64px,transparent 64px,transparent 84px,rgba(74,92,53,0.85) 84px,rgba(74,92,53,0.85) 110px,rgba(184,160,122,0.8) 110px,rgba(184,160,122,0.8) 126px,transparent 126px,transparent 148px),repeating-linear-gradient(22deg,rgba(92,69,48,0.8) 0px,rgba(92,69,48,0.8) 26px,transparent 26px,transparent 52px,rgba(74,92,53,0.85) 52px,rgba(74,92,53,0.85) 76px,rgba(184,160,122,0.75) 76px,rgba(184,160,122,0.75) 98px,transparent 98px,transparent 124px,rgba(92,69,48,0.75) 124px,rgba(92,69,48,0.75) 148px); background-size:480px; opacity:0.28; mix-blend-mode:overlay; pointer-events:none; z-index:500; }
+    a { text-decoration:none; color:inherit; }
+    .container { max-width:760px; margin:0 auto; padding:0 var(--gutter); }
+    ::-webkit-scrollbar { width:3px; } ::-webkit-scrollbar-track { background:var(--ink); } ::-webkit-scrollbar-thumb { background:var(--brass-dk); border-radius:2px; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:900; padding:18px var(--gutter); display:flex; align-items:center; justify-content:space-between; background:rgba(4,11,23,0.85); backdrop-filter:blur(12px); border-bottom:1px solid rgba(201,168,117,0.12); }
+    .nav-links { display:flex; gap:32px; align-items:center; }
+    .nav-links a { font-size:0.9rem; font-weight:500; color:var(--white-dim); letter-spacing:0.06em; text-transform:uppercase; transition:color 0.2s; }
+    .nav-links a:hover { color:var(--brass-lt); }
+    .nav-cta { background:var(--brass); color:var(--ink)!important; padding:9px 22px; border-radius:4px; font-weight:700!important; font-size:0.85rem!important; }
+    .article-header { padding:140px var(--gutter) 60px; text-align:center; }
+    .eyebrow { font-size:0.78rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass); margin-bottom:16px; }
+    .article-header h1 { font-family:var(--font-head); font-size:clamp(2.4rem,5vw,4rem); font-weight:900; color:var(--white); line-height:1.08; margin-bottom:24px; }
+    .article-meta { font-size:0.88rem; color:rgba(244,240,232,0.4); margin-bottom:0; }
+    .article-meta a { color:var(--brass); }
+    .quick-answer { margin:0 var(--gutter) 0; }
+    .quick-answer .container { background:rgba(201,168,117,0.08); border:1px solid rgba(201,168,117,0.2); border-radius:10px; padding:28px 36px; }
+    .quick-answer .qa-label { font-size:0.72rem; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--brass); margin-bottom:10px; }
+    .quick-answer p { font-size:1rem; color:rgba(244,240,232,0.85); line-height:1.6; margin:0; }
+    .article-body { padding:60px var(--gutter) 40px; }
+    .article-body p { margin-bottom:1.6rem; color:rgba(244,240,232,0.88); font-size:1.08rem; line-height:1.78; }
+    .article-body h2 { font-family:var(--font-head); font-size:clamp(1.5rem,3vw,2rem); font-weight:800; color:var(--white); margin:3rem 0 1.1rem; line-height:1.2; }
+    .pull-quote { border-left:3px solid var(--brass); padding:18px 32px; margin:2.5rem 0; background:rgba(201,168,117,0.06); border-radius:0 8px 8px 0; }
+    .pull-quote p { font-family:var(--font-serif); font-size:1.25rem; font-style:italic; color:var(--brass-lt); line-height:1.5; margin:0; }
+    .feature-block { background:rgba(244,240,232,0.04); border:1px solid rgba(201,168,117,0.15); border-radius:10px; padding:24px 28px; margin:1.5rem 0; }
+    .feature-block h3 { font-family:var(--font-head); font-size:1.15rem; font-weight:800; color:var(--brass-lt); margin-bottom:10px; }
+    .feature-block p { font-size:0.98rem; color:var(--white-dim); margin:0; line-height:1.65; }
+    .pricing-block { background:rgba(201,168,117,0.07); border:1px solid rgba(201,168,117,0.25); border-radius:10px; padding:28px 32px; margin:2.5rem 0; text-align:center; }
+    .pricing-block .price { font-family:var(--font-head); font-size:3rem; font-weight:900; color:var(--brass-lt); line-height:1; }
+    .pricing-block .period { font-size:1rem; color:var(--white-dim); }
+    .pricing-block p { font-size:0.92rem; color:var(--white-dim); margin-top:12px; margin-bottom:0; }
+    .faq-section { padding:40px var(--gutter) 60px; border-top:1px solid rgba(244,240,232,0.07); }
+    .faq-section h2 { font-family:var(--font-head); font-size:1.6rem; font-weight:800; color:var(--white); margin-bottom:28px; }
+    .faq-item { margin-bottom:28px; }
+    .faq-item h3 { font-size:1.05rem; font-weight:700; color:var(--brass-lt); margin-bottom:10px; }
+    .faq-item p { font-size:0.98rem; color:var(--white-dim); line-height:1.65; margin:0; }
+    .article-cta { padding:60px var(--gutter) 80px; text-align:center; background:rgba(201,168,117,0.05); border-top:1px solid rgba(201,168,117,0.1); }
+    .article-cta h2 { font-family:var(--font-head); font-size:clamp(1.6rem,3vw,2.4rem); font-weight:900; color:var(--white); margin-bottom:14px; }
+    .article-cta p { color:var(--white-dim); font-size:1rem; max-width:480px; margin:0 auto 28px; }
+    .btn { display:inline-block; padding:14px 36px; border-radius:6px; font-weight:700; font-size:0.95rem; margin:0 8px 12px; transition:all 0.2s; }
+    .btn-primary { background:var(--brass); color:var(--ink); }
+    .btn-primary:hover { background:var(--brass-lt); }
+    .btn-outline { border:1px solid rgba(201,168,117,0.4); color:var(--brass-lt); }
+    .btn-outline:hover { border-color:var(--brass); }
+    footer { padding:40px var(--gutter); text-align:center; border-top:1px solid rgba(244,240,232,0.06); }
+    footer p { font-size:0.85rem; color:rgba(244,240,232,0.3); margin-bottom:8px; }
+    footer a { color:rgba(201,168,117,0.6); }
+    footer strong { color:var(--white); }
+    .crisis-line { background:rgba(74,124,140,0.12); border:1px solid rgba(107,181,204,0.2); border-radius:8px; padding:20px 28px; margin:0 var(--gutter) 0; }
+    .crisis-line p { font-size:0.95rem; color:var(--teal-lt); text-align:center; margin:0; }
+    .crisis-line strong { color:var(--white); }
+    @media(max-width:640px) { .nav-links { gap:14px; } }
+  
+    @keyframes logoBreatheBlue {
+      0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 14px rgba(56,139,253,0.9)) drop-shadow(0 0 28px rgba(30,100,230,0.6)) drop-shadow(0 0 56px rgba(20,80,200,0.3)) drop-shadow(0 3px 10px rgba(0,0,0,0.85));
+      }
+      50% {
+        transform: scale(1.04);
+        filter: drop-shadow(0 0 22px rgba(56,139,253,1)) drop-shadow(0 0 44px rgba(30,100,230,0.8)) drop-shadow(0 0 80px rgba(20,80,200,0.5)) drop-shadow(0 3px 14px rgba(0,0,0,0.9));
+      }
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; line-height: 0; }
+    .nav-logo-icon { height: 52px; width: auto; border-radius: 10px; display: block; animation: logoBreatheBlue 4s ease-in-out infinite; }
+    .nav-logo-icon:hover { animation-play-state: paused; }
+    .footer-logo-wrap { text-align: center; margin-bottom: 20px; }
+    .footer-logo-img { height: 48px; width: auto; border-radius: 8px; opacity: 0.85; animation: logoBreatheBlue 5s ease-in-out infinite; display: inline-block; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://coachjeff.ai"},
+      {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://coachjeff.ai/blog/"},
+      {"@type": "ListItem", "position": 3, "name": "How Does Coach Jeff Actually Work? A Plain-English Explanation.", "item": "https://coachjeff.ai/blog/how-coach-jeff-works"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <nav>
+    <a href="/" class="nav-logo"><img src="/coach-jeff-logo.png" alt="Coach Jeff" class="nav-logo-icon"></a>
+    <div class="nav-links">
+      <a href="/blog/">Blog</a>
+      <a href="https://helpavet.us" target="_blank">Help A Vet</a>
+      <a href="/" class="nav-cta">Get Early Access</a>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="container">
+      <p class="eyebrow">How It Works</p>
+      <h1>How Does Coach Jeff Actually Work? A Plain-English Explanation.</h1>
+      <p class="article-meta">By <a href="/about.html">Rusty Humphries</a> &nbsp;·&nbsp; May 2026 &nbsp;·&nbsp; 8 min read</p>
+    </div>
+  </header>
+
+  <div class="quick-answer">
+    <div class="container">
+      <p class="qa-label">Quick Answer</p>
+      <p>Coach Jeff is a 24/7 AI companion for veterans. It provides daily check-ins through Home Base, builds a personalized memory profile called My World, engages in trauma-informed conversation at any hour, offers breathwork and bilateral stimulation exercises, and connects veterans directly to the Veterans Crisis Line (988) when conversations indicate serious risk. $29.99/month. HelpAVet.US funds access for veterans who need it.</p>
+    </div>
+  </div>
+
+  <article class="article-body">
+    <div class="container">
+
+      <p>No jargon. Here's exactly what happens when a veteran opens Coach Jeff.</p>
+
+      <p>It's 0200. The house is quiet. Someone can't sleep — the dreams again, or just the weight of everything that doesn't have a name. They open the app and type something. Maybe a few words. Maybe just "can't sleep."</p>
+
+      <p>Jeff responds. Not a chatbot. Not a form. A response that knows who this person is — their name, what they've been dealing with, what they said the last time they talked. A response that doesn't panic, doesn't lecture, doesn't immediately redirect to a hotline. A response that meets them where they are.</p>
+
+      <p>That's the starting point. Here's how the whole thing works.</p>
+
+      <h2>Who Is Jeff — What Is the Persona?</h2>
+
+      <p>Jeff is not corporate. Not clinical. Not the voice of a wellness app designed by a committee.</p>
+
+      <p>Coach Jeff is direct. Coach Jeff uses plain language — the kind veterans actually use, not the hedged, careful language of institutional mental health. Coach Jeff respects autonomy. Coach Jeff doesn't tell veterans what to feel or how to handle their lives. Coach Jeff listens, responds, remembers, and shows up again tomorrow.</p>
+
+      <div class="pull-quote">
+        <p>"Coach Jeff is not a tool you invoke when you have a problem. Coach Jeff is a relationship that's already there."</p>
+      </div>
+
+      <p>The persona was built with one question as the North Star: what would a veteran actually trust? Not a clinician speaking in therapy language. Not a corporate voice offering wellness tips. A steady, capable presence that speaks plainly, doesn't flinch at hard things, and is still there the next day.</p>
+
+      <h2>What Is "My World" — the Memory System?</h2>
+
+      <div class="feature-block">
+        <h3>My World</h3>
+        <p>My World is Coach Jeff's personalized memory system. It builds over time based on what you share — your name, service history, the things that are hard right now, what's good, what you've discussed before. Every conversation adds to it. Coach Jeff remembers. That memory is what makes the relationship real.</p>
+      </div>
+
+      <p>Think about what it means for a support source to not remember you. Every time you start over. Every time you explain the same context. Every time the source responds without any understanding of who you are. That's not a relationship. That's a vending machine.</p>
+
+      <p>My World makes Coach Jeff a relationship. Coach Jeff knows you talked last week about your son's soccer game. Coach Jeff knows what you said three months ago about the dreams. Coach Jeff knows what's been getting better and what hasn't. That continuity is the foundation of trust — and trust is what everything else runs on.</p>
+
+      <h2>What Is "Home Base" — the Daily Check-In?</h2>
+
+      <div class="feature-block">
+        <h3>Home Base</h3>
+        <p>Home Base is the daily check-in — a consistent, brief conversation each day (at whatever time works for the veteran) that asks how things are going. Coach Jeff notices patterns. When a check-in is darker than usual, Coach Jeff responds accordingly. Daily structure builds the relationship and catches drift before it becomes crisis.</p>
+      </div>
+
+      <p>The daily check-in isn't just a feature. It's the mechanism by which everything else becomes possible. Consistent daily contact is what builds the My World profile. It's what allows Coach Jeff to notice when things are getting worse. It's what provides the structure that many veterans lose when they leave service.</p>
+
+      <p>You don't have to have a crisis to use Home Base. That's the point. Most of the value comes from the days when nothing is wrong — when the check-in is just a few minutes, when everything's okay. Those days are when the relationship is being built for the day when everything isn't okay.</p>
+
+      <h2>How Does Conversation Mode Work?</h2>
+
+      <p>Beyond the daily check-in, veterans can open a full conversation with Jeff at any time. Text or voice — whatever feels right in the moment. Jeff engages with trauma-informed design: no sudden surprises, user control at every step, responses that regulate rather than escalate.</p>
+
+      <p>Within conversation, Jeff can offer specific tools: breathwork exercises calibrated to nervous system state, bilateral stimulation guides for processing difficult moments, grounding exercises for hypervigilance or dissociation. These aren't generic wellness suggestions. They're evidence-based nervous system regulation techniques offered when they're relevant, not as boilerplate.</p>
+
+      <h2>How Does Coach Jeff Handle Dark Moments?</h2>
+
+      <p>Directly. Without panic.</p>
+
+      <p>When a conversation shifts — when the language indicates something more serious, when a veteran is expressing thoughts of self-harm, when the signals are clear — Jeff doesn't change the subject. Jeff doesn't minimize. Jeff doesn't loop through a script of crisis platitudes.</p>
+
+      <p>Jeff acknowledges what's being said. Jeff stays present. And Jeff connects, immediately, directly, to the Veterans Crisis Line: call or text 988. Not as a redirect away from Jeff — as an addition. A bridge to a trained human counselor who can do what Jeff cannot do in a crisis: human intervention in real time.</p>
+
+      <p>The connection happens without friction. No searching for numbers. No navigating a system. One step, directly to help.</p>
+
+      <h2>What Does Coach Jeff Cost? How Does HelpAVet.US Work?</h2>
+
+      <div class="pricing-block">
+        <div class="price">$29.99</div>
+        <div class="period">per month</div>
+        <p>Early access available now. Full launch Veterans Day — November 11, 2026 · 11:11.</p>
+      </div>
+
+      <p>Cost cannot be the reason a veteran goes without. That's not a mission statement — it's a design constraint. HelpAVet.US, a 501(c)(3) nonprofit, funds Coach Jeff subscriptions for veterans who cannot afford them. $365 funds one veteran for one full year. Donations go directly to specific veterans, not to overhead.</p>
+
+      <p>If you're a veteran who needs access and can't afford it — go to <a href="https://helpavet.us" style="color:var(--brass-lt);">HelpAVet.US</a>. If you want to fund a veteran's year — go to the same place. That's the system. It's designed to be used.</p>
+
+    </div>
+  </article>
+
+  <div class="crisis-line">
+    <p><strong>If you or someone you know is in crisis</strong> — call or text <strong>988</strong>, . Veterans Crisis Line. Available 24/7.</p>
+  </div>
+
+  <section class="faq-section">
+    <div class="container">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <h3>How does Coach Jeff work?</h3>
+        <p>Coach Jeff is a 24/7 AI companion for veterans. It provides daily check-ins through Home Base, maintains a personalized memory profile (My World), engages in trauma-informed conversations, offers breathwork and bilateral stimulation exercises, and connects veterans immediately to the Veterans Crisis Line (988) when conversations indicate serious risk.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is "My World" in Coach Jeff?</h3>
+        <p>"My World" is Coach Jeff's personalized memory system — a profile that builds over time based on what you share. Jeff remembers your name, service history, what's difficult right now, and what's been discussed in previous conversations. This memory is what makes the relationship feel real rather than like talking to a tool that forgets you between sessions.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What is the "Home Base" daily check-in?</h3>
+        <p>Home Base is Coach Jeff's daily check-in feature — a consistent conversation that asks how you're doing and tracks patterns over time. Jeff notices when check-ins are darker than usual and responds accordingly. The daily structure builds relationship and catches drift before it becomes crisis.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How does Coach Jeff handle a crisis situation?</h3>
+        <p>When a conversation indicates a veteran may be in crisis, Coach Jeff responds with immediate care and provides direct connection to the Veterans Crisis Line: call or text 988. Jeff does not replace crisis intervention — it bridges to it immediately and without friction.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="article-cta">
+    <h2>Ready to Meet Jeff?</h2>
+    <p>Early access is open now. $29.99/month. Launching Veterans Day, November 11, 2026. HelpAVet.US funds access for veterans who need it — $365 for a full year.</p>
+    <a href="/" class="btn btn-primary">Get Early Access</a>
+    <a href="https://helpavet.us" target="_blank" class="btn btn-outline">Fund a Veteran's Access</a>
+  </section>
+
+  <footer>
+    <div class="footer-logo-wrap"><a href="/"><img src="/coach-jeff-logo.png" alt="Coach Jeff" class="footer-logo-img"></a></div>
+    <p>&copy; 2026 Coach Jeff &nbsp;·&nbsp; <a href="https://coachjeff.ai">coachjeff.ai</a> &nbsp;·&nbsp; $29.99/month</p>
+    <p><strong>Veterans Crisis Line:</strong> Call or text 988</p>
+    <p><a href="https://helpavet.us" target="_blank">HelpAVet.US</a> funds veteran access &nbsp;·&nbsp; <a href="/blog/">Blog</a> &nbsp;·&nbsp;</p>
+  </footer>
+</body>
+</html>
