@@ -112,6 +112,27 @@ coachjeff-site/
 
 ---
 
+## SOCIAL-QUOTES IMAGE HOSTING
+
+All Coach Jeff social-media quote-card images live at `public/social-quotes/*.jpg` in this repo, and are served at `https://www.coachjeff.ai/social-quotes/*.jpg` (Vercel's Output Directory setting maps `public/` to site root -- do not add a `/social-quotes` rewrite in vercel.json, it's not needed and was tried/reverted once already, see commit c4fa0a7).
+
+To add new images: add files under `public/social-quotes/`, commit, push to `main` -- Vercel auto-deploys to Production. This is the ONLY correct hosting location for these images. (Two other repos -- `mybff-coach` and `mybffcoach-website` -- were checked and ruled out on 2026-09-02: neither hosts coachjeff.ai content; `mybffcoach-website`'s index.html title doesn't even match the live site.)
+
+---
+
+## ⚠️ GIT SAFETY -- NEVER USE SPARSE-CHECKOUT ON THIS REPO
+
+**Incident, 2026-09-02:** An AI assistant needed to add 16 images to `public/social-quotes/` and used a partial/sparse-checkout clone (`git clone --filter=blob:none --no-checkout` + `git sparse-checkout set public/social-quotes`) to avoid pulling the whole repo (which has several large video/audio files). This clone technique has a footgun: when you `git add` + `git commit` with sparse-checkout scoped to one folder, git commits a tree containing ONLY that folder -- every other file (index.html, vercel.json, all pages, logos, videos, api/, blog/, lib/, screenshots/, app-store-assets/) is silently deleted from the commit. That commit was pushed straight to `main` and took the live site down (full 404 on every page) for roughly an hour before it was caught and fixed with a follow-up commit that restored the full tree from the last known-good commit.
+
+**Rule going forward:** never use `git sparse-checkout` (or any partial/shallow clone technique) against this repo for a commit that will be pushed to `main`. If you need to add or change a handful of files without pulling the whole repo:
+- Use a full (non-sparse) clone -- the repo is at most a few hundred MB, fine for a one-time operation -- or
+- Add/update individual files directly via the GitHub API (`create_or_update_file` / `push_files`), which only touches the paths you specify and can't silently drop the rest of the tree, or
+- If a sparse/partial clone is truly necessary for speed, run `git sparse-checkout disable` (widening back to the full tree) *before* the first commit made from that clone -- never commit while scoped to a subset of the repo.
+
+Before ANY push to this repo's `main` branch: run `git ls-tree -r HEAD --name-only | wc -l` -- it should return roughly 170+ (the full site). If it returns anything close to 51 (just the social-quotes folder) or otherwise drops sharply from the prior commit, STOP -- do not push, the tree is missing files.
+
+---
+
 ## THE TRIAL GATE — HOW IT WORKS
 
 This is the most important system on the site. Every decision here is deliberate and security-critical.
