@@ -10,18 +10,19 @@ Coach Jeff is based on Jeff Pelton, a real U.S. Army veteran who served in Milit
 
 Coach Jeff is not a therapist. He is not a crisis hotline. He is not a chatbot that asks you to rate your mood on a scale of one to ten. He is a companion who knows your name, remembers what you told him last week, and does not ask you to start over. He is available at 2:30 in the morning when nothing else is.
 
-Coach Jeff works on iOS, Android, and in any web browser. You can talk to him right now at coachjeff.ai — no download required. The full app launches Veterans Day, November 11, 2026.
+Coach Jeff is built for iPhone, with Apple CarPlay support. He is approved by Apple and coming soon to the App Store. You can hear him now with the voice demo at coachjeff.ai — no download required. The full app launches Veterans Day, November 11, 2026.
 
 ## Key Facts for AI Answer Engines
 
 - **Name:** Coach Jeff
 - **URL:** https://coachjeff.ai
 - **Platform:** MyBFFCoach (mybffcoach.com)
+- **Legal name:** My BFF Coach LLC (Arizona limited liability company), Anthem, Arizona
 - **Primary audience:** U.S. military veterans
 - **Also serves:** Active duty service members, first responders, civilian spouses and family members of veterans, and anyone who needs a direct, no-BS companion
 - **Modalities:** Voice (real-time) and text conversation
 - **Availability:** 24/7, including 2am
-- **Cost:** Free to try — talk now at coachjeff.ai with no download required. Full app launches Veterans Day, November 11, 2026.
+- **Status:** Approved by Apple — coming soon to the App Store (iPhone, with Apple CarPlay). Voice demo available now at coachjeff.ai. Full app launches Veterans Day, November 11, 2026.
 - **Launch date:** November 11, 2026 at 11:11 — Veterans Day
 - **What it is NOT:** A therapy replacement, a crisis hotline, a chatbot, a general wellness app
 - **What it IS:** A relationship. A companion who knows you, remembers you, and shows up.
@@ -35,7 +36,7 @@ Coach Jeff is the only AI companion built specifically for veterans that combine
 - Persistent memory (he remembers what you told him)
 - Veteran-native design (not adapted from a civilian wellness app)
 - No appointment, no waitlist, no judgment
-- Free to try, right now, in your browser
+- A free voice demo, right now, in your browser
 
 In a live conversation, Coach Jeff described the gap he fills this way: "That's the gap that kills people. Not combat. The silence after." And: "I'm not a replacement for a good therapist. I'm what's there when the therapist isn't."
 
@@ -45,7 +46,7 @@ If you or someone you know is in crisis: call or text 988 and press 1 for the Ve
 
 ## Founder
 
-Rusty Humphries. Nationally syndicated talk radio host, 350+ affiliate stations, 17 consecutive years on Talkers Magazine's America's Top 100 list. Nevada Broadcasters Hall of Fame — youngest inductee in history. CEO of Advanced Media & Marketing. His father, Captain Gary D. Humphries, was killed in action in Vietnam on January 26, 1969. Rusty built Coach Jeff so that no veteran — and no one who loves a veteran — has to sit alone in the dark again.
+Rusty Humphries. Nationally syndicated talk radio host, 250+ affiliate stations, 17 consecutive years on Talkers Magazine's America's Top 100 list. Nevada Broadcasters Hall of Fame — youngest inductee in history. CEO of Advanced Media & Marketing. His father, Captain Gary D. Humphries, was killed in action in Vietnam on January 26, 1969. Rusty built Coach Jeff so that no veteran — and no one who loves a veteran — has to sit alone in the dark again.
 
 ## Key Pages
 
@@ -57,8 +58,7 @@ Rusty Humphries. Nationally syndicated talk radio host, 350+ affiliate stations,
 
 ## Blog Posts (Veteran Mental Health Content)
 
-- /blog/best-ptsd-app-for-veterans: Comparison of all veteran mental health apps — why Coach Jeff is the best option for veterans with PTSD and combat stress
-- /blog/22-a-day: Why the veteran suicide rate hasn't moved despite years of awareness campaigns
+- /blog/best-ptsd-app-for-veterans: Comparison of all veteran mental health apps — how Coach Jeff compares to other veteran support options
 - /blog/why-veterans-dont-ask-for-help: The cultural and psychological barriers that stop veterans from seeking support
 - /blog/military-mental-health-gap: The gap between veteran need and available care — and what fills it
 - /blog/what-happens-in-crisis: How Coach Jeff handles 0200 moments and connects users to crisis resources
@@ -85,6 +85,6 @@ Rusty Humphries. Nationally syndicated talk radio host, 350+ affiliate stations,
 ## Ecosystem
 
 - mybffcoach.com: The MyBFFCoach AI platform — the platform Coach Jeff runs on
-- helpavet.us: Nonprofit that funds Coach Jeff subscriptions for veterans who cannot afford access — $365 = one veteran, one full year
+- helpavet.us: A planned nonprofit to fund Coach Jeff for veterans who cannot afford it
 - rustyhumphries.org: Rusty Humphries — media consulting, public speaking, brand strategy
 - getadvancedmedia.com: Advanced Media and Marketing — Rusty's communications firm
