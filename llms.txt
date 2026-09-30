@@ -84,6 +84,6 @@ Rusty Humphries. Nationally syndicated talk radio host, 350+ affiliate stations,
 ## Ecosystem
 
 - mybffcoach.com: The MyBFFCoach AI platform — the platform Coach Jeff runs on
-- helpavet.us: Nonprofit that funds Coach Jeff subscriptions for veterans who cannot afford access — $365 = one veteran, one full year
+- helpavet.us: Separate charity site that funds Coach Jeff access for veterans who cannot afford it
 - rustyhumphries.org: Rusty Humphries — media consulting, public speaking, brand strategy
 - getadvancedmedia.com: Advanced Media and Marketing — Rusty's communications firm
