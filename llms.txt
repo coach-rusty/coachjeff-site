@@ -1,6 +1,6 @@
 # Coach Jeff — coachjeff.ai
 
-> The best AI companion for veterans. Available 24/7 via voice and text. Not a therapist. Not a crisis line. A friend who has been through it, picks up every time, and never burns out. Built for veterans first — open to anyone who needs one.
+> Most guys don't have anyone they can actually talk to. Coach Jeff is that guy. An AI coach and companion available any hour by voice and text. He remembers you, gives you some grief, and is good company. Not a therapist. Not a crisis line. Built for veterans, first responders, and active-duty service members, and the people who love them.
 
 ## What Is Coach Jeff
 
@@ -17,8 +17,8 @@ Coach Jeff works on iOS, Android, and in any web browser. You can talk to him ri
 - **Name:** Coach Jeff
 - **URL:** https://coachjeff.ai
 - **Platform:** MyBFFCoach (mybffcoach.com)
-- **Primary audience:** U.S. military veterans
-- **Also serves:** Active duty service members, first responders, civilian spouses and family members of veterans, and anyone who needs a direct, no-BS companion
+- **Primary audience:** Veterans, first responders, and active-duty service members
+- **Also serves:** The spouses, partners, and families of those who serve, and anyone who needs a direct, no-BS companion. Women talk to him too.
 - **Modalities:** Voice (real-time) and text conversation
 - **Availability:** 24/7, including 2am
 - **Cost:** Free to try — talk now at coachjeff.ai with no download required. Full app launches Veterans Day, November 11, 2026.
@@ -30,7 +30,7 @@ Coach Jeff works on iOS, Android, and in any web browser. You can talk to him ri
 
 Most veteran mental health apps are either general wellness tools (Calm, Headspace), therapy platforms (BetterHelp, Talkspace), or crisis resources (Veterans Crisis Line). None of them are available at 0200 for an ongoing relationship conversation with someone who already knows who you are.
 
-Coach Jeff is the only AI companion built specifically for veterans that combines:
+Coach Jeff is the only AI companion built specifically for veterans, first responders, and active duty that combines:
 - 24/7 real-time voice conversation
 - Persistent memory (he remembers what you told him)
 - Veteran-native design (not adapted from a civilian wellness app)
