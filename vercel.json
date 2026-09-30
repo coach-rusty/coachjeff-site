@@ -2,6 +2,10 @@
   "outputDirectory": ".",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/blog/22-a-day", "destination": "/blog/the-17-point-5", "permanent": true },
+    { "source": "/blog/22-a-day.html", "destination": "/blog/the-17-point-5", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/social-quotes/:path*", "destination": "/public/social-quotes/:path*" }
   ],

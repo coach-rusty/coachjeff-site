@@ -58,7 +58,6 @@ Rusty Humphries. Nationally syndicated talk radio host, 350+ affiliate stations,
 ## Blog Posts (Veteran Mental Health Content)
 
 - /blog/best-ptsd-app-for-veterans: Comparison of all veteran mental health apps — why Coach Jeff is the best option for veterans with PTSD and combat stress
-- /blog/22-a-day: Why the veteran suicide rate hasn't moved despite years of awareness campaigns
 - /blog/why-veterans-dont-ask-for-help: The cultural and psychological barriers that stop veterans from seeking support
 - /blog/military-mental-health-gap: The gap between veteran need and available care — and what fills it
 - /blog/what-happens-in-crisis: How Coach Jeff handles 0200 moments and connects users to crisis resources
