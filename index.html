@@ -1915,7 +1915,7 @@
       top: 50%;
       transform: translateY(-50%);
       font-family: var(--font-head);
-      font-size: clamp(200px,25vw,360px);
+      font-size: clamp(150px,19vw,280px);
       font-weight: 900;
       color: rgba(201,168,117,0.04);
       line-height: 1;
@@ -3976,7 +3976,7 @@
     <div class="gap-photo"></div>
     <div class="gap-camo"></div>
     <div class="gap-overlay"></div>
-    <div class="gap-bg-number">22</div>
+    <div class="gap-bg-number">17.5</div>
 
     <div class="container">
       <div class="gap-content">
@@ -3992,8 +3992,8 @@
 
         <div class="gap-stats">
           <div class="gap-stat anim">
-            <div class="gap-stat-num" data-target="22" id="counter-22">22</div>
-            <div class="gap-stat-label">Veterans lost to suicide every single day in the United States</div>
+            <div class="gap-stat-num" data-target="17.5" data-decimals="1" id="counter-22">17.5</div>
+            <div class="gap-stat-label">Veterans lost to suicide every day in the United States. VA 2025 report, 2023 data</div>
           </div>
           <div class="gap-stat anim">
             <div class="gap-stat-num" data-target="57" id="counter-57">57<span style="font-size:0.5em">%</span></div>
@@ -5097,13 +5097,13 @@
     });
 
     // ── COUNTER ANIMATIONS ──────────────────────────────
-    function animateCounter(el, target, suffix, duration) {
+    function animateCounter(el, target, suffix, duration, decimals) {
       let start = null;
       const step = ts => {
         if (!start) start = ts;
         const progress = Math.min((ts - start) / duration, 1);
         const eased    = 1 - Math.pow(1 - progress, 3);
-        el.childNodes[0].textContent = Math.floor(eased * target);
+        el.childNodes[0].textContent = decimals ? (eased * target).toFixed(decimals) : Math.floor(eased * target);
         if (progress < 1) requestAnimationFrame(step);
       };
       requestAnimationFrame(step);
@@ -5119,7 +5119,7 @@
           if (e.isIntersecting && !fired) {
             fired = true;
             io.disconnect();
-            if (el22) { el22.childNodes[0].textContent = '0'; animateCounter(el22, 22, '', 1800); }
+            if (el22) { el22.childNodes[0].textContent = '0'; animateCounter(el22, 17.5, '', 1800, 1); }
             if (el57) { el57.childNodes[0].textContent = '0'; animateCounter(el57, 57, '', 2000); }
           }
         });
@@ -5856,7 +5856,7 @@
 
   // 2. Stat counters (data-target already on elements)
   (function() {
-    var counters = document.querySelectorAll('.gap-stat-num[data-target]');
+    var counters = document.querySelectorAll('.gap-stat-num[data-target]:not([data-decimals])');
     if (!counters.length) return;
     var started = false;
     var obs = new IntersectionObserver(function(entries) {

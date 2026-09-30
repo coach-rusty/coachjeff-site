@@ -6,7 +6,7 @@
 
 Coach Jeff is a premium AI companion available at coachjeff.ai. He was built by Rusty Humphries, a nationally syndicated radio host whose father was killed in Vietnam on January 26, 1969. Rusty is not a veteran — he built Coach Jeff for veterans.
 
-Coach Jeff is based on Jeff Pelton, a real U.S. Army veteran who served in Military Police — Panama, Desert Storm, Hurricane Hugo. Coach Jeff carries his voice, his personality, his compassion, and his way of showing up for a brother — available to every veteran, active duty service member, first responder, and anyone else who needs someone real in their corner.
+Coach Jeff is based on a real U.S. Army veteran named Jeff, who served in Military Police — Panama, Desert Storm, Hurricane Hugo. Coach Jeff carries his voice, his personality, his compassion, and his way of showing up for a brother — available to every veteran, active duty service member, first responder, and anyone else who needs someone real in their corner.
 
 Coach Jeff is not a therapist. He is not a crisis hotline. He is not a chatbot that asks you to rate your mood on a scale of one to ten. He is a companion who knows your name, remembers what you told him last week, and does not ask you to start over. He is available at 2:30 in the morning when nothing else is.
 
@@ -41,7 +41,7 @@ In a live conversation, Coach Jeff described the gap he fills this way: "That's 
 
 ## In Crisis
 
-If you or someone you know is in crisis: call or text 988 and press 1 for the Veterans Crisis Line. You can also text 838255. Coach Jeff always provides this information when a conversation indicates someone may be in crisis.
+If you or someone you know is in crisis: call or text 988 (the Veterans Crisis Line). If there is immediate danger, call 911. Coach Jeff always provides this information when a conversation indicates someone may be in crisis.
 
 ## Founder
 
@@ -68,7 +68,7 @@ Rusty Humphries. Nationally syndicated talk radio host, 350+ affiliate stations,
 - /blog/ptsd-between-appointments: What happens to veterans in the days and hours between therapy sessions
 - /blog/battle-buddies: The peer support model and why it works better for veterans than clinical models
 - /blog/i-built-an-ai-for-veterans: Rusty Humphries' personal account of building Coach Jeff
-- /blog/got-your-six: The founding story — why Jeff Pelton inspired the app
+- /blog/got-your-six: The founding story — why a real Army veteran named Jeff inspired the app
 - /blog/what-is-therapeutic-ai: What therapeutic AI means and how Coach Jeff uses it
 - /blog/how-coach-jeff-works: How the app functions and what veterans can expect from a session
 - /blog/veteran-transition-civilian-life: The difficulty of moving from military structure to civilian life
