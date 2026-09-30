@@ -80,6 +80,10 @@ Rusty Humphries. Nationally syndicated talk radio host, 350+ affiliate stations,
 - /blog/america-250-launch: Why Coach Jeff is launching on Veterans Day — 11.11.26 at 11:11
 - /blog/why-coach-jeff-doesnt-improvise: Why Coach Jeff follows evidence-based protocols rather than improvising
 - /blog/what-silence-costs-your-family: What it costs a family when a veteran stays silent
+- /blog/first-responders-carry-it-too: The drive home after a bad call, and a friend who is not a debrief
+- /blog/a-friend-outside-the-chain-of-command: What Coach Jeff is for active-duty service members, and an honest look at what he cannot promise
+- /blog/if-you-love-someone-who-wont-talk: A word to the spouses and families of veterans, first responders, and service members
+- /blog/a-day-with-coach-jeff: What an ordinary day with Coach Jeff can look like
 
 ## Ecosystem
 
