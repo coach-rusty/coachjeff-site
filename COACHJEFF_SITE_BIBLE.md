@@ -360,10 +360,10 @@ Arizona · Harleys, Trucks & Open Roads
 ---
 
 ### 9. THE GAP `#the-gap`
-**The stakes section. 22/day.**
+**The stakes section. 17.5/day (VA 2025 report, 2023 data).**
 
 Stat counters animated via IntersectionObserver:
-- **22** veterans lost to suicide every day
+- **17.5** veterans lost to suicide every day (VA 2025 report: 6,398 in 2023; the retired "22 a day" figure is no longer used anywhere on the site)
 - **57%** who need mental health services never received it
 
 **Technical:** Defaults to real values in HTML. Observer fires once at 30% viewport visibility. Resets to 0, animates up over 1800-2000ms. IntersectionObserver used (not ScrollTrigger) because ScrollTrigger doesn't reliably fire on `file://` URLs.
@@ -480,7 +480,7 @@ Teal horizontal line sweeps top-to-bottom every 8s via `@keyframes`. Tactical fe
 
 ### IntersectionObserver — Stat Counters
 ```js
-// HTML defaults to real values (22, 57%) — numbers show even if JS fails
+// HTML defaults to real values (17.5, 57%) — numbers show even if JS fails
 // Observer fires once at 30% viewport visibility
 // Resets to 0, animates up over 1800-2000ms
 // Works on file://, http://, https:// — unlike ScrollTrigger
@@ -558,7 +558,7 @@ Before going live at `coachjeff.app`:
 |-----------|-------------|
 | **The Weenie** | Jeff IS the weenie. Audio placed early so veterans hear his voice before seeing features. |
 | **Pre-Show** | `#threshold` section — "You don't have to explain it yet." Crosses the veteran before the main attraction. |
-| **Progressive Disclosure** | Stats (22/day) placed AFTER "Who Jeff Is." Trust before urgency. |
+| **Progressive Disclosure** | Stats (17.5/day) placed AFTER "Who Jeff Is." Trust before urgency. |
 | **Avoid Blind Corners** | No unexpected pop-ups, no sudden modals, clear nav. |
 | **Character First** | Site leads with Jeff's voice, not features or screenshots. |
 | **Post-Show** | Pricing framed as "$1/day" — the action the veteran takes home. |
@@ -606,7 +606,7 @@ Jeff's face as dominant hero visual. Currently phones-dominant. Imagineers would
 The Imagineering case: Jeff's face is the emotional anchor. Portrait of Jeff (large, left side) with one iPhone to the right creates the "weenie" effect. **Approach:** Build as separate `index-jeff-hero.html` first. Never replace the working version without side-by-side comparison. Rusty must approve before swap.
 
 ### Micro-interactions on Stat Counters
-When `22` finishes counting, a very subtle red pulse or flag wave could deepen the emotional impact. Currently just a number count.
+When `17.5` finishes counting, a very subtle red pulse or flag wave could deepen the emotional impact. Currently just a number count.
 
 ### Jeff's Voice in the Dossier Section
 A short ambient audio cue that plays when the user lingers on the dossier card. Jeff's voice saying one line — "Yeah, that's me. A long time ago." Creates the sense Jeff is aware of being seen.
