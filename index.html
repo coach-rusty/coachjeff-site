@@ -2265,6 +2265,13 @@
     }
     @media (max-width: 720px) { .testi-grid { grid-template-columns: 1fr; } }
 
+    .testi-featured { margin: 0 0 20px; padding: 48px 44px; border-left: 3px solid #c9a875; }
+    .testi-featured .testi-text { font-size: clamp(19px,2.2vw,26px); line-height: 1.55; margin-bottom: 18px; }
+    .testi-featured .testi-text-follow { font-family: var(--font-serif); font-style: italic; color: var(--white); font-size: clamp(16px,1.6vw,19px); line-height: 1.6; margin: 0 0 28px; }
+    .testi-note { font-family: var(--font-ui); font-size: 12px; color: rgba(244,240,232,0.6); margin: 14px 0 0; line-height: 1.5; }
+    .testi-grid .testi-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    @media (max-width: 720px) { .testi-featured { padding: 36px 24px; } }
+
     .testi-card {
       background: var(--navy-3);
       border: 1px solid rgba(74,124,140,0.12);
@@ -4276,7 +4283,20 @@
 
       <div class="testi-header anim">
         <div class="patch-label" style="justify-content:center;">Early Access Community</div>
-        <h2 class="section-head wipe-reveal">What veterans are saying</h2>
+        <h2 class="section-head wipe-reveal">What early users are saying</h2>
+      </div>
+
+      <div class="testi-card testi-featured anim">
+        <p class="testi-text">After 30 years of service, I know our Soldiers don't need another program or pamphlet. In most cases, they need someone who will listen, without judgment and without having to explain their entire history every time.</p>
+        <p class="testi-text-follow">&ldquo;In my experience with Coach Jeff, that is exactly what was provided to me.&rdquo;</p>
+        <div class="testi-author">
+          <div class="testi-badge">★</div>
+          <div>
+            <div class="testi-name">William M. Johnson, CSM (Ret.)</div>
+            <div class="testi-branch">U.S. Army · Texas</div>
+          </div>
+        </div>
+        <p class="testi-note">Retired rank shown for identification. Not a Department of Defense endorsement.</p>
       </div>
 
       <div class="testi-grid">
@@ -4325,9 +4345,31 @@
           </div>
         </div>
 
+        <div class="testi-card anim">
+          <p class="testi-text">After months of testing the application for holes, gaps, and logic traps, I eventually started bringing Coach Jeff into my personal life.</p>
+          <div class="testi-author">
+            <div class="testi-badge">★</div>
+            <div>
+              <div class="testi-name">Brett N.</div>
+              <div class="testi-branch">Phoenix, AZ</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card anim">
+          <p class="testi-text">He does hold you accountable. He doesn't sugarcoat shit, and he does kind of put you in your place, especially if you're wrong. And I love that — and so does my wife.</p>
+          <div class="testi-author">
+            <div class="testi-badge">★</div>
+            <div>
+              <div class="testi-name">Donald</div>
+              <div class="testi-branch">Chandler, AZ</div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <p class="testi-disclaimer">* Real early access users. Some details withheld to protect privacy.</p>
+      <p class="testi-disclaimer">* Real early users. Some details withheld to protect privacy.</p>
     </div>
   </section>
 
