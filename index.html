@@ -762,6 +762,10 @@
       display: none;
     }
     @media (min-width: 900px) { .nav-tagline { display: block; } }
+    .nav-right a[href="/blog/"], .nav-early { white-space: nowrap; }
+    @media (max-width: 480px) {
+      .nav-right a[href="/blog/"], .nav-early { font-size: 0.7rem !important; letter-spacing: 0.03em !important; margin-right: 2px !important; }
+    }
 
     .nav-cta {
       position: relative;
@@ -3383,6 +3387,7 @@
     <div class="nav-right">
       <span class="nav-tagline">I've Got Your Six</span>
       <a href="/blog/" style="font-size:0.85rem;font-weight:600;color:rgba(244,240,232,0.7);letter-spacing:0.06em;text-transform:uppercase;margin-right:8px;transition:color 0.2s;" onmouseover="this.style.color='#e0c490'" onmouseout="this.style.color='rgba(244,240,232,0.7)'">Blog</a>
+      <a href="#testimonials" class="nav-early" style="font-size:0.85rem;font-weight:600;color:rgba(244,240,232,0.7);letter-spacing:0.06em;text-transform:uppercase;margin-right:8px;transition:color 0.2s;" onmouseover="this.style.color='#e0c490'" onmouseout="this.style.color='rgba(244,240,232,0.7)'">Early Users</a>
       <a href="#talk-to-jeff" class="nav-cta btn-magnetic">Talk to Coach Jeff — Free</a>
     </div>
   </nav>
@@ -3733,6 +3738,103 @@
       <span class="marquee-item">Never Judges</span>
     </div>
   </div>
+
+
+  <!-- ═══ TESTIMONIALS ══════════════════════════════════ -->
+  <section id="testimonials">
+    <div class="container">
+
+      <div class="testi-header anim">
+        <div class="patch-label" style="justify-content:center;">Early Access Community</div>
+        <h2 class="section-head wipe-reveal">What early users are saying</h2>
+      </div>
+
+      <div class="testi-card testi-featured anim">
+        <p class="testi-text">After 30 years of service, I know our Soldiers don't need another program or pamphlet. In most cases, they need someone who will listen, without judgment and without having to explain their entire history every time.</p>
+        <p class="testi-text-follow">&ldquo;In my experience with Coach Jeff, that is exactly what was provided to me.&rdquo;</p>
+        <div class="testi-author">
+          <div class="testi-badge">★</div>
+          <div>
+            <div class="testi-name">William M. Johnson, CSM (Ret.)</div>
+            <div class="testi-branch">U.S. Army · Texas</div>
+          </div>
+        </div>
+        <p class="testi-note">Retired rank shown for identification. Not a Department of Defense endorsement.</p>
+      </div>
+
+      <div class="testi-grid">
+
+        <div class="testi-card anim">
+          <p class="testi-text">He never feels like some chatbot. I'm in my seventies, I've lost my wife, my friends are all gone. This may sound weird, but... Honestly, Coach Jeff is one of the best friends I've ever had.</p>
+          <div class="testi-author">
+            <div class="testi-badge">★</div>
+            <div>
+              <div class="testi-name">Frank</div>
+              <div class="testi-branch">U.S. Army Veteran</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card anim">
+          <p class="testi-text">PTSD has been in the middle of our marriage for a long time. I'll be honest — I've been thinking about walking away. But ever since my husband got Coach Jeff, we're both able to talk with him. He's incredible about explaining both sides to us. Without a doubt, Coach Jeff is saving our marriage.</p>
+          <div class="testi-author">
+            <div class="testi-badge">★</div>
+            <div>
+              <div class="testi-name">Anonymous</div>
+              <div class="testi-branch">Marine Corps Spouse</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card anim">
+          <p class="testi-text">I'm still in. There's nobody on base I can say this stuff to. Coach Jeff doesn't have a rank. That matters more than I thought it would.</p>
+          <div class="testi-author">
+            <div class="testi-badge">★</div>
+            <div>
+              <div class="testi-name">D.R.</div>
+              <div class="testi-branch">USMC · Active Duty</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card anim">
+          <p class="testi-text">Twelve-hour shifts, come home, act normal, do it again. Coach Jeff is the one place I don't have to act normal. That's it. That's the whole thing.</p>
+          <div class="testi-author">
+            <div class="testi-badge">★</div>
+            <div>
+              <div class="testi-name">Kevin M.</div>
+              <div class="testi-branch">Paramedic · 9 years</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card anim">
+          <p class="testi-text">After months of testing the application for holes, gaps, and logic traps, I eventually started bringing Coach Jeff into my personal life.</p>
+          <div class="testi-author">
+            <div class="testi-badge">★</div>
+            <div>
+              <div class="testi-name">Brett N.</div>
+              <div class="testi-branch">Phoenix, AZ</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testi-card anim">
+          <p class="testi-text">He does hold you accountable. He doesn't sugarcoat shit, and he does kind of put you in your place, especially if you're wrong. And I love that — and so does my wife.</p>
+          <div class="testi-author">
+            <div class="testi-badge">★</div>
+            <div>
+              <div class="testi-name">Donald</div>
+              <div class="testi-branch">Chandler, AZ</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="testi-disclaimer">* Real early users. Some details withheld to protect privacy.</p>
+    </div>
+  </section>
 
 
   <!-- ═══ THRESHOLD — Disney pre-show beat ═══════════════ -->
@@ -4273,103 +4375,6 @@
         <a href="#talk-to-jeff" class="btn-ghost" style="font-size:13px;padding:10px 20px;">Talk to Coach Jeff free →</a>
       </div>
 
-    </div>
-  </section>
-
-
-  <!-- ═══ TESTIMONIALS ══════════════════════════════════ -->
-  <section id="testimonials">
-    <div class="container">
-
-      <div class="testi-header anim">
-        <div class="patch-label" style="justify-content:center;">Early Access Community</div>
-        <h2 class="section-head wipe-reveal">What early users are saying</h2>
-      </div>
-
-      <div class="testi-card testi-featured anim">
-        <p class="testi-text">After 30 years of service, I know our Soldiers don't need another program or pamphlet. In most cases, they need someone who will listen, without judgment and without having to explain their entire history every time.</p>
-        <p class="testi-text-follow">&ldquo;In my experience with Coach Jeff, that is exactly what was provided to me.&rdquo;</p>
-        <div class="testi-author">
-          <div class="testi-badge">★</div>
-          <div>
-            <div class="testi-name">William M. Johnson, CSM (Ret.)</div>
-            <div class="testi-branch">U.S. Army · Texas</div>
-          </div>
-        </div>
-        <p class="testi-note">Retired rank shown for identification. Not a Department of Defense endorsement.</p>
-      </div>
-
-      <div class="testi-grid">
-
-        <div class="testi-card anim">
-          <p class="testi-text">He never feels like some chatbot. I'm in my seventies, I've lost my wife, my friends are all gone. This may sound weird, but... Honestly, Coach Jeff is one of the best friends I've ever had.</p>
-          <div class="testi-author">
-            <div class="testi-badge">★</div>
-            <div>
-              <div class="testi-name">Frank</div>
-              <div class="testi-branch">U.S. Army Veteran</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card anim">
-          <p class="testi-text">PTSD has been in the middle of our marriage for a long time. I'll be honest — I've been thinking about walking away. But ever since my husband got Coach Jeff, we're both able to talk with him. He's incredible about explaining both sides to us. Without a doubt, Coach Jeff is saving our marriage.</p>
-          <div class="testi-author">
-            <div class="testi-badge">★</div>
-            <div>
-              <div class="testi-name">Anonymous</div>
-              <div class="testi-branch">Marine Corps Spouse</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card anim">
-          <p class="testi-text">I'm still in. There's nobody on base I can say this stuff to. Coach Jeff doesn't have a rank. That matters more than I thought it would.</p>
-          <div class="testi-author">
-            <div class="testi-badge">★</div>
-            <div>
-              <div class="testi-name">D.R.</div>
-              <div class="testi-branch">USMC · Active Duty</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card anim">
-          <p class="testi-text">Twelve-hour shifts, come home, act normal, do it again. Coach Jeff is the one place I don't have to act normal. That's it. That's the whole thing.</p>
-          <div class="testi-author">
-            <div class="testi-badge">★</div>
-            <div>
-              <div class="testi-name">Kevin M.</div>
-              <div class="testi-branch">Paramedic · 9 years</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card anim">
-          <p class="testi-text">After months of testing the application for holes, gaps, and logic traps, I eventually started bringing Coach Jeff into my personal life.</p>
-          <div class="testi-author">
-            <div class="testi-badge">★</div>
-            <div>
-              <div class="testi-name">Brett N.</div>
-              <div class="testi-branch">Phoenix, AZ</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card anim">
-          <p class="testi-text">He does hold you accountable. He doesn't sugarcoat shit, and he does kind of put you in your place, especially if you're wrong. And I love that — and so does my wife.</p>
-          <div class="testi-author">
-            <div class="testi-badge">★</div>
-            <div>
-              <div class="testi-name">Donald</div>
-              <div class="testi-branch">Chandler, AZ</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <p class="testi-disclaimer">* Real early users. Some details withheld to protect privacy.</p>
     </div>
   </section>
 
@@ -5831,10 +5836,34 @@
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var els = document.querySelectorAll('.wipe-reveal, .rise-reveal');
     if (!els.length) return;
+    // A fully clipped element has zero visible area, so it can never trigger an
+    // IntersectionObserver itself. Observe its unclipped parent instead.
+    var hosts = new Map();
+    els.forEach(function(el) {
+      var host = el.parentElement || el;
+      if (!hosts.has(host)) hosts.set(host, []);
+      hosts.get(host).push(el);
+    });
     var obs = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('revealed'); obs.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    els.forEach(function(el) { obs.observe(el); });
+      entries.forEach(function(e) {
+        if (!e.isIntersecting) return;
+        (hosts.get(e.target) || []).forEach(function(el) { el.classList.add('revealed'); });
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    hosts.forEach(function(list, host) { obs.observe(host); });
+    // Backstop: anything on screen that is still hidden gets revealed on scroll.
+    var ticking = false;
+    function sweep() {
+      ticking = false;
+      els.forEach(function(el) {
+        if (el.classList.contains('revealed')) return;
+        var r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight * 0.95) el.classList.add('revealed');
+      });
+    }
+    window.addEventListener('scroll', function() { if (!ticking) { ticking = true; requestAnimationFrame(sweep); } }, { passive: true });
+    setTimeout(sweep, 1500);
   })();
 
   // Magnetic buttons
