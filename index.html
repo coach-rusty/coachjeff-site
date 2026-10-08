@@ -1056,7 +1056,26 @@
       height: auto;
       display: block;
     }
-    @media (max-width: 860px) { #hero-portrait { display: none; } }
+    .hero-face-glow { display: none; }
+    /* Phones: Coach Jeff's face opens the page — slow blink and breath, gold hairline, voice glow behind it */
+    @media (max-width: 860px) {
+      #hero-portrait {
+        display: block; position: relative; right: auto; bottom: auto; order: 0;
+        width: min(210px, 56vw); aspect-ratio: 4 / 5; margin: 20px auto 16px; z-index: 3;
+        -webkit-mask-image: none; mask-image: none; opacity: 1;
+      }
+      #hero-portrait video, #hero-portrait img.hero-face-fallback {
+        position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 14%;
+        border-radius: 26px; border: 1px solid rgba(201,168,117,0.6);
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.5), 0 14px 40px rgba(0,0,0,0.55), 0 0 28px rgba(201,168,117,0.18);
+      }
+      .hero-face-glow {
+        display: block; position: absolute; left: 50%; top: 50%; width: 150%; height: 135%;
+        margin: -67.5% 0 0 -75%; border-radius: 50%; pointer-events: none; z-index: -1;
+        background: radial-gradient(circle, rgba(201,168,117,0.5) 0%, rgba(74,158,224,0.25) 40%, rgba(0,40,104,0) 70%);
+        opacity: 0.12; will-change: opacity, transform;
+      }
+    }
 
     /* ── Drift-style glassmorphism CTA bar ── */
     .glass-cta-bar {
@@ -3499,16 +3518,24 @@
     </div>
 
     <div id="hero-portrait">
-      <video id="hero-portrait-video" muted loop playsinline preload="none" poster="opt/coach-jeff-confident-840.webp" data-src="opt/jeff-portrait.mp4">
-        <img src="opt/coach-jeff-confident-840.webp" alt="Coach Jeff" loading="lazy">
+      <div class="hero-face-glow" id="hero-face-glow" aria-hidden="true"></div>
+      <video id="hero-portrait-video" muted loop playsinline preload="none" poster="opt/jeff-portrait-poster.webp" data-src="opt/jeff-portrait.mp4" aria-label="Coach Jeff">
+        <img class="hero-face-fallback" src="opt/jeff-portrait-poster.webp" alt="Coach Jeff" loading="lazy">
       </video>
       <script>
-        // The portrait is hidden on phones, so only fetch the video where it is shown.
+        // Coach Jeff's face: plays on every screen, pauses when scrolled away, stays a still photo
+        // for people who asked their phone for reduced motion or data saving.
         (function () {
           var v = document.getElementById('hero-portrait-video');
-          if (!v || !window.matchMedia('(min-width: 861px)').matches) return;
+          if (!v) return;
+          var still = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ||
+                      (navigator.connection && navigator.connection.saveData);
+          if (still) return;
           v.src = v.getAttribute('data-src');
-          var p = v.play(); if (p && p.catch) p.catch(function () {});
+          var go = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+          if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (es) { es[0].isIntersecting ? go() : v.pause(); }, { threshold: 0.1 }).observe(v);
+          } else { go(); }
         })();
       </script>
     </div>
@@ -5959,6 +5986,7 @@
     var halo = document.getElementById('hero-voice-halo');
     var ring = document.getElementById('hero-voice-ring');
     var stage = document.getElementById('hero-a250-stage');
+    var fglow = document.getElementById('hero-face-glow');
     if (!halo || !ring || !stage) return;
     var env = null, hz = 20, audio = null, raf = 0, level = 0, ringT = 0;
     fetch('opt/voice-envelope.json').then(function(r){ return r.json(); }).then(function(j){ env = j.v; hz = j.hz || 20; }).catch(function(){});
@@ -5974,6 +6002,7 @@
       level += (target - level) * (target > level ? 0.28 : 0.07);
       halo.style.opacity = (level * 0.95).toFixed(3);
       halo.style.transform = 'scale(' + (0.85 + level * 0.3).toFixed(3) + ')';
+      if (fglow) { fglow.style.opacity = (0.12 + level * 0.8).toFixed(3); fglow.style.transform = 'scale(' + (0.92 + level * 0.22).toFixed(3) + ')'; }
       stage.style.transform = (stage.dataset.tilt || '') + ' scale(' + (1 + level * 0.035).toFixed(4) + ')';
       if (level > 0.45 && ringT <= 0) ringT = 1;
       if (ringT > 0) {
@@ -5982,7 +6011,7 @@
         ringT -= 0.018; if (ringT < 0) { ringT = 0; ring.style.opacity = 0; }
       }
       if ((audio && !audio.paused) || level > 0.01 || ringT > 0) raf = requestAnimationFrame(frame);
-      else { halo.style.opacity = 0; ring.style.opacity = 0; stage.style.transform = stage.dataset.tilt || ''; }
+      else { halo.style.opacity = 0; ring.style.opacity = 0; if (fglow) fglow.style.opacity = 0.12; stage.style.transform = stage.dataset.tilt || ''; }
     }
     function kick() { if (!raf) raf = requestAnimationFrame(frame); }
 
