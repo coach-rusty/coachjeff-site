@@ -764,7 +764,19 @@
     @media (min-width: 900px) { .nav-tagline { display: block; } }
     .nav-right a[href="/blog/"], .nav-early { white-space: nowrap; }
     @media (max-width: 480px) {
-      .nav-right a[href="/blog/"], .nav-early { font-size: 0.7rem !important; letter-spacing: 0.03em !important; margin-right: 2px !important; }
+      .nav-right a[href="/blog/"], .nav-early { font-size: 0.75rem !important; letter-spacing: 0.03em !important; margin-right: 2px !important; }
+    }
+
+    /* ── Phone polish: readable type, no collisions, balanced headings ── */
+    h1, h2, .section-head, .faq-headline { text-wrap: balance; }
+    @media (max-width: 600px) {
+      .hero-scroll { display: none; }                      /* it collided with the countdown */
+      .hero-eyebrow { font-size: 11px !important; }
+      .marquee-item { font-size: 11px !important; }
+      .cta-form .btn-camo { width: 100%; justify-content: center; }
+      #audio-spots .section-head br { display: none; }       /* let the headline balance itself */
+      .patch-label, .spot-label, .cj-voice-label, .cj-attribution-sub, .gift-eyebrow, .jco-status,
+      .dossier-header, .dossier-label, h4 { font-size: 11px !important; }   /* 11px floor for older eyes */
     }
 
     .nav-cta {
@@ -3411,7 +3423,7 @@
 
     <!-- Phone preview — hero right side -->
     <div id="hero-america250-wrap">
-      <img src="coach-jeff-veterans-day.webp" class="hero-a250-icon" alt="Coach Jeff Veterans Day Edition">
+      <img src="opt/coach-jeff-veterans-day-720.webp" class="hero-a250-icon" alt="Coach Jeff Veterans Day Edition" width="720" height="720" decoding="async">
       <div id="hero-countdown">
         <div class="cd-label">Deploying</div>
         <div class="cd-units">
@@ -3468,10 +3480,18 @@
     </div>
 
     <div id="hero-portrait">
-      <video autoplay muted loop playsinline poster="Coach Jeff Cofident Headshot.png">
-        <source src="jeff-portrait.mp4" type="video/mp4">
-        <img src="Coach Jeff Cofident Headshot.png" alt="Coach Jeff" loading="eager">
+      <video id="hero-portrait-video" muted loop playsinline preload="none" poster="opt/coach-jeff-confident-840.webp" data-src="opt/jeff-portrait.mp4">
+        <img src="opt/coach-jeff-confident-840.webp" alt="Coach Jeff" loading="lazy">
       </video>
+      <script>
+        // The portrait is hidden on phones, so only fetch the video where it is shown.
+        (function () {
+          var v = document.getElementById('hero-portrait-video');
+          if (!v || !window.matchMedia('(min-width: 861px)').matches) return;
+          v.src = v.getAttribute('data-src');
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        })();
+      </script>
     </div>
 
     <div class="hero-scroll" id="hero-scroll">
@@ -3605,7 +3625,7 @@
               <div class="toj-app-status"><span class="toj-app-dot"></span>ON DUTY</div>
             </div>
             <div class="toj-app-portrait">
-              <img src="coach-jeff-headshot.png" alt="Coach Jeff" class="toj-app-logo">
+              <img src="opt/coach-jeff-headshot-256.webp" alt="Coach Jeff" class="toj-app-logo">
             </div>
             <div class="toj-app-modes">
               <span class="toj-mode-pill">ZERO DARK</span>
@@ -3935,7 +3955,7 @@
                 <div class="phone-island"></div>
                 <div style="display:flex;justify-content:space-between;align-items:center;padding:52px 18px 6px;font-size:0.52rem;color:rgba(255,255,255,0.6)"><span>2:17</span><span>●●●</span></div>
                 <div class="jeff-header" style="padding:8px 16px 10px;margin:0">
-                  <div class="jeff-avatar"><img src="jeff-portrait.jpg" alt="Coach Jeff"></div>
+                  <div class="jeff-avatar"><img src="opt/jeff-portrait.webp" alt="Coach Jeff" loading="lazy" decoding="async"></div>
                   <div class="jeff-name-block">
                     <div class="jeff-name">Coach Jeff</div>
                     <div class="jeff-status">● Always on duty</div>
@@ -3960,7 +3980,7 @@
           <div class="phone-device" style="animation-delay:-1.5s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(0,180,80,0.35),0 40px 120px rgba(0,0,0,0.9)">
             <div class="phone-inner">
               <div class="phone-screen" style="background:#020a04;position:relative;overflow:hidden">
-                <iframe src="screen01-homebase.html" frameborder="0" scrolling="no"
+                <iframe src="screen01-homebase.html" loading="lazy" frameborder="0" scrolling="no"
                   style="position:absolute;top:0;left:0;
                          width:390px;height:844px;border:none;display:block;
                          transform:scale(0.687);transform-origin:top left;
@@ -3976,7 +3996,7 @@
           <div class="phone-device" style="animation-delay:-3s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(59,130,246,0.4),0 40px 120px rgba(0,0,0,0.85)">
             <div class="phone-inner">
               <div class="phone-screen" style="background:#010204;overflow:hidden;position:relative;">
-                <iframe src="screen06-missioncontrol.html" frameborder="0" scrolling="no"
+                <iframe src="screen06-missioncontrol.html" loading="lazy" frameborder="0" scrolling="no"
                   style="position:absolute;top:0;left:0;
                          width:390px;height:844px;border:none;display:block;
                          transform:scale(0.687);transform-origin:top left;
@@ -4001,8 +4021,8 @@
 
         <div class="who-left-col">
           <figure class="who-images anim">
-            <img src="jeff-portrait.jpg" alt="Coach Jeff, U.S. Army veteran" class="who-img-main" />
-            <img src="jeff-harley.jpg" alt="Coach Jeff on his Harley — the kind of guy who shows up when you need him" class="who-img-accent" />
+            <img src="opt/jeff-portrait.webp" alt="Coach Jeff, U.S. Army veteran" class="who-img-main" loading="lazy" decoding="async" />
+            <img src="opt/jeff-harley.webp" alt="Coach Jeff on his Harley — the kind of guy who shows up when you need him" class="who-img-accent" loading="lazy" decoding="async" />
             <figcaption class="sr-only">Coach Jeff — U.S. Army veteran, Military Police, 1989–1997. Panama, Desert Storm, Hurricane Hugo.</figcaption>
           </figure>
 
@@ -4126,7 +4146,7 @@
         </div>
 
         <figure class="family-img-col anim">
-          <img src="family-arizona-night.jpg" alt="A veteran with his family under the Arizona night sky" class="family-img" />
+          <img src="opt/family-arizona-night.webp" alt="A veteran with his family under the Arizona night sky" class="family-img" loading="lazy" decoding="async" />
           <figcaption class="family-caption">
             <strong>Built for the whole unit.</strong>
             Veterans, first responders, active duty, and the people who love them.
@@ -4195,7 +4215,7 @@
                 <!-- Jeff header -->
                 <div class="jeff-header" style="padding:6px 12px 8px;margin:0">
                   <div class="jeff-avatar">
-                    <img src="coach-jeff-headshot.png" alt="Coach Jeff">
+                    <img src="opt/coach-jeff-headshot-256.webp" alt="Coach Jeff">
                   </div>
                   <div class="jeff-name-block">
                     <div class="jeff-name">Coach Jeff</div>
@@ -5461,7 +5481,7 @@
   <div id="jeff-chat-overlay" role="dialog" aria-label="Coach Jeff speaking">
     <div class="jco-header">
       <div class="jco-avatar">
-        <img src="coach-jeff-headshot.png" alt="Coach Jeff">
+        <img src="opt/coach-jeff-headshot-256.webp" alt="Coach Jeff">
       </div>
       <div>
         <div class="jco-name">Coach Jeff</div>
