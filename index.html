@@ -3468,7 +3468,7 @@
     <div class="hero-content container">
       <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(74,158,224,0.12);border:1px solid rgba(74,158,224,0.35);border-radius:40px;padding:6px 16px;margin-bottom:20px;cursor:pointer;" onclick="document.getElementById('talk-to-jeff')?.scrollIntoView({behavior:'smooth',block:'start'})" role="button">
         <span style="width:8px;height:8px;border-radius:50%;background:#4ecf6a;box-shadow:0 0 8px rgba(78,207,106,.9);animation:tojPulse 2s ease-in-out infinite;flex-shrink:0;display:inline-block;"></span>
-        <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);">Coach Jeff is live right now — tap to talk</span>
+        <span style="font-family:var(--font-head);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);text-wrap:balance;">Coach Jeff is live right now — tap to talk</span>
       </div>
 
       <div class="hero-eyebrow" id="hero-eyebrow">Built for the ones who serve, and the ones who love them</div>
@@ -3916,7 +3916,7 @@
 
       <div class="spots-header anim">
         <div class="patch-label">Hear it for yourself</div>
-        <h2 class="section-head flow-h">This is what it sounds like <br>to have a real one in your corner</h2>
+        <h2 class="section-head flow-h">This is what it sounds like to have a real one in your corner</h2>
         <p class="section-body" style="margin-top:16px;max-width:500px;margin-left:auto;margin-right:auto;">Not a chatbot. Not a hotline. A friend who picks up every single time.</p>
       </div>
 
@@ -4165,7 +4165,7 @@
 
         <div>
           <div class="patch-label anim">How It Works</div>
-          <h2 class="section-head flow-h">You open the app.<br>You talk to Coach Jeff.</h2>
+          <h2 class="section-head flow-h">You open the app.<br>You talk to<br>Coach Jeff.</h2>
           <div class="brass-rule anim"></div>
 
           <ol class="steps-list">
@@ -4236,7 +4236,7 @@
             </div>
           </div>
           <div class="phone-glow-base"></div>
-          <p style="font-family:var(--font-ui);font-size:12px;color:var(--white-dim);text-align:center;max-width:210px;line-height:1.5;letter-spacing:0.02em;">Available 24/7 · No appointment · No wait</p>
+          <p style="font-family:var(--font-ui);font-size:12px;color:var(--white-dim);text-align:center;max-width:270px;line-height:1.5;letter-spacing:0.02em;text-wrap:balance;"><span style="white-space:nowrap">Available 24/7 ·</span> <span style="white-space:nowrap">No appointment ·</span> <span style="white-space:nowrap">No wait</span></p>
         </div>
 
       </div>
@@ -4482,52 +4482,52 @@
           <tbody>
             <tr>
               <td>Available at 0200</td>
-              <td class="col-jeff"><span class="vcheck">✓</span></td>
-              <td><span class="vcross">—</span></td>
-              <td><span class="vpart">Crisis only</span></td>
-              <td><span class="vcross">—</span></td>
+              <td data-label="Coach Jeff" class="col-jeff"><span class="vcheck">✓</span></td>
+              <td data-label="Therapist"><span class="vcross">—</span></td>
+              <td data-label="Crisis Hotline"><span class="vpart">Crisis only</span></td>
+              <td data-label="Wellness Apps"><span class="vcross">—</span></td>
             </tr>
             <tr>
               <td>Remembers your history &amp; stories</td>
-              <td class="col-jeff"><span class="vcheck">✓</span></td>
-              <td><span class="vpart">Notes</span></td>
-              <td><span class="vcross">—</span></td>
-              <td><span class="vcross">—</span></td>
+              <td data-label="Coach Jeff" class="col-jeff"><span class="vcheck">✓</span></td>
+              <td data-label="Therapist"><span class="vpart">Notes</span></td>
+              <td data-label="Crisis Hotline"><span class="vcross">—</span></td>
+              <td data-label="Wellness Apps"><span class="vcross">—</span></td>
             </tr>
             <tr>
               <td>Talks about sports, bikes, life</td>
-              <td class="col-jeff"><span class="vcheck">✓</span></td>
-              <td><span class="vpart">Maybe?</span></td>
-              <td><span class="vcross">—</span></td>
-              <td><span class="vpart">Some</span></td>
+              <td data-label="Coach Jeff" class="col-jeff"><span class="vcheck">✓</span></td>
+              <td data-label="Therapist"><span class="vpart">Maybe?</span></td>
+              <td data-label="Crisis Hotline"><span class="vcross">—</span></td>
+              <td data-label="Wellness Apps"><span class="vpart">Some</span></td>
             </tr>
             <tr>
               <td>Never burns out or gets tired</td>
-              <td class="col-jeff"><span class="vcheck">✓</span></td>
-              <td><span class="vcross">—</span></td>
-              <td><span class="vcross">—</span></td>
-              <td><span class="vcheck">✓</span></td>
+              <td data-label="Coach Jeff" class="col-jeff"><span class="vcheck">✓</span></td>
+              <td data-label="Therapist"><span class="vcross">—</span></td>
+              <td data-label="Crisis Hotline"><span class="vcross">—</span></td>
+              <td data-label="Wellness Apps"><span class="vcheck">✓</span></td>
             </tr>
             <tr>
               <td>No appointment required</td>
-              <td class="col-jeff"><span class="vcheck">✓</span></td>
-              <td><span class="vcross">—</span></td>
-              <td><span class="vcheck">✓</span></td>
-              <td><span class="vcheck">✓</span></td>
+              <td data-label="Coach Jeff" class="col-jeff"><span class="vcheck">✓</span></td>
+              <td data-label="Therapist"><span class="vcross">—</span></td>
+              <td data-label="Crisis Hotline"><span class="vcheck">✓</span></td>
+              <td data-label="Wellness Apps"><span class="vcheck">✓</span></td>
             </tr>
             <tr>
               <td>Built for people who serve</td>
-              <td class="col-jeff"><span class="vcheck">✓</span></td>
-              <td><span class="vpart">Varies</span></td>
-              <td><span class="vpart">Varies</span></td>
-              <td><span class="vcross">—</span></td>
+              <td data-label="Coach Jeff" class="col-jeff"><span class="vcheck">✓</span></td>
+              <td data-label="Therapist"><span class="vpart">Varies</span></td>
+              <td data-label="Crisis Hotline"><span class="vpart">Varies</span></td>
+              <td data-label="Wellness Apps"><span class="vcross">—</span></td>
             </tr>
             <tr>
               <td>Lets you lead every conversation</td>
-              <td class="col-jeff"><span class="vcheck">✓</span></td>
-              <td><span class="vcross">—</span></td>
-              <td><span class="vcross">—</span></td>
-              <td><span class="vcross">—</span></td>
+              <td data-label="Coach Jeff" class="col-jeff"><span class="vcheck">✓</span></td>
+              <td data-label="Therapist"><span class="vcross">—</span></td>
+              <td data-label="Crisis Hotline"><span class="vcross">—</span></td>
+              <td data-label="Wellness Apps"><span class="vcross">—</span></td>
             </tr>
           </tbody>
         </table>
@@ -4755,6 +4755,33 @@
     body .cj-voice-label, body .cj-attribution-sub, body .gift-eyebrow, body .jco-status, body .footer-nav h4, body .crisis-box h4 { font-size: 11px; }
   }
   .chat-time, .jeff-status { font-size: 11px; }
+  /* Typography: no stranded words. Balance headlines, tidy paragraph endings. */
+  h1, h2, h3, h4, .section-head, .gift-headline, .origin-pullquote, .cj-quote-pull, .hero-eyebrow, .faq-q, .btn-camo { text-wrap: balance; }
+  p, li, td, th, .faq-a-inner, .testi-text, .section-body, .gift-sub, .dossier-value, .price-include-item,
+  .toj-body, .cta-note, .toj-form-fine, .footer-tagline, .origin-person-desc, .family-caption { text-wrap: pretty; }
+  footer a, footer h4 { text-wrap: balance; }
+  footer p a { white-space: nowrap; }
+  .gift-headline { max-width: 900px; margin-left: auto; margin-right: auto; }
+
+  /* Comparison table: stacked rows on phones so nothing is cut off or swiped */
+  @media (max-width: 700px) {
+    .vs-table-wrap { overflow: visible; }
+    .vs-table { min-width: 0; display: block; }
+    .vs-table thead { display: none; }
+    .vs-table tbody { display: block; }
+    .vs-table tr { display: grid; grid-template-columns: repeat(4, 1fr); padding: 16px 0 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .vs-table td { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; padding: 8px 2px; border: 0; }
+    .vs-table td:first-child { grid-column: 1 / -1; align-items: flex-start; text-align: left; padding: 0 2px 10px; font-size: 16px; color: var(--white); }
+    .vs-table td:not(:first-child)::before { content: attr(data-label); font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,240,232,0.42); text-align: center; line-height: 1.25; min-height: 2.5em; display: flex; align-items: flex-end; }
+    .vs-table td.col-jeff { background: rgba(201,168,117,0.07); border-radius: 4px; }
+    .vs-table td.col-jeff::before { color: var(--brass); }
+  }
+  @media (min-width: 701px) and (max-width: 900px) { .vs-table th { padding: 18px 6px; letter-spacing: 0.08em; } .vs-table td { padding: 15px 8px; } }
+  @media (max-width: 768px) {
+    .talks-about { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .talks-tag { text-align: center; padding-left: 4px; padding-right: 4px; }
+  }
+
   /* Real app screens */
   .screens-row { display:flex; justify-content:center; align-items:flex-end; flex-wrap:wrap; gap:36px 28px; padding-bottom:16px; }
   .shot-col { text-align:center; flex-shrink:0; }
@@ -6255,6 +6282,32 @@
     });
   }
   addEventListener('load', function () { setTimeout(scan, 600); setTimeout(scan, 4000); });
+})();
+</script>
+<script>
+/* Widow guard: keep the last two words of a text block together so no line ends with one stranded word */
+(function () {
+  var sel = 'p,li,td,th,.faq-a-inner,.testi-text,.testi-name,.dossier-value,.price-include-item,.gift-sub,.footer-tagline,.family-caption,.cj-quote-pull,.origin-person-desc,.origin-person-role,.origin-founder-byline,.cj-attribution-sub,.toj-form-fine,.cta-note,.section-body';
+  function glue(el) {
+    // keep separators (· — – •) attached to the word before them, so no line starts with one
+    var tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), tn;
+    while ((tn = tw.nextNode())) { if (/ [·—–•] /.test(tn.nodeValue)) tn.nodeValue = tn.nodeValue.replace(/ ([·—–•]) /g, '\u00A0$1 '); }
+    if (el.textContent.trim().split(/\s+/).length < 3) return;
+    var w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), last = null, n;
+    while ((n = w.nextNode())) { if (n.nodeValue.trim()) last = n; }
+    if (!last) return;
+    var m = last.nodeValue.match(/^([\s\S]*\S)\s+(\S+)(\s*)$/);
+    if (!m) return;
+    var prev = m[1].match(/(\S+)$/);
+    if (!prev || prev[1].length + m[2].length > 22) return;
+    last.nodeValue = m[1] + '\u00A0' + m[2] + m[3];
+  }
+  function glueButtons(el) {
+    var tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null), tn;
+    while ((tn = tw.nextNode())) { tn.nodeValue = tn.nodeValue.replace(/ — /g, '\u00A0—\u00A0'); }
+  }
+  function run() { [].forEach.call(document.querySelectorAll(sel), glue); [].forEach.call(document.querySelectorAll('.nav-cta,.btn-camo'), glueButtons); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
 })();
 </script>
 </body>
