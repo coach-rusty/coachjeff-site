@@ -4024,7 +4024,14 @@
 
         <div class="who-left-col">
           <figure class="who-images anim">
-            <img src="opt/jeff-portrait.webp" alt="Coach Jeff, U.S. Army veteran" class="who-img-main flow-shutter" loading="lazy" decoding="async" />
+            <div class="who-photo">
+              <div class="who-photo-drift"><img src="opt/jeff-portrait.webp" alt="Coach Jeff, U.S. Army veteran" class="who-img-main flow-shutter" loading="lazy" decoding="async" /></div>
+              <span class="who-light" aria-hidden="true"></span>
+              <div class="who-plate" aria-hidden="true">
+                <div><span class="who-plate-name">Coach Jeff</span><span class="who-plate-sub">U.S. Army · Military Police</span></div>
+              </div>
+              <span class="who-plate-live" aria-hidden="true"><i class="live-dot"></i>Always on duty</span>
+            </div>
             <img src="opt/jeff-harley.webp" alt="Coach Jeff on his Harley — the kind of guy who shows up when you need him" class="who-img-accent" loading="lazy" decoding="async" />
             <figcaption class="sr-only">Coach Jeff — U.S. Army veteran, Military Police, 1989–1997. Panama, Desert Storm, Hurricane Hugo.</figcaption>
           </figure>
@@ -4047,7 +4054,7 @@
               </div>
               <div class="dossier-field">
                 <div class="dossier-label">Deployments</div>
-                <div class="dossier-value">Panama · Desert Storm · Hurricane Hugo</div>
+                <div class="dossier-value"><span class="dep">Panama</span> <span class="dep">Desert Storm</span> <span class="dep">Hurricane Hugo</span></div>
               </div>
               <div class="dossier-field">
                 <div class="dossier-label">Based in</div>
@@ -4055,7 +4062,7 @@
               </div>
               <div class="dossier-field">
                 <div class="dossier-label">Status</div>
-                <div class="dossier-value">● Always on duty</div>
+                <div class="dossier-value dossier-status"><i class="live-dot" aria-hidden="true"></i>Always on duty</div>
               </div>
             </div>
             <p style="margin:14px 2px 2px;font-family:var(--font-ui);font-size:12px;line-height:1.5;color:rgba(244,240,232,0.6);">Coach Jeff's character is drawn from a real Army veteran: his service, his voice, the way he shows up for his brothers.</p>
@@ -4389,7 +4396,7 @@
           <div class="cj-attribution-badge"><svg width="18" height="18" viewBox="0 0 24 24" fill="#c9a875" aria-hidden="true"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div>
           <div>
             <div class="cj-attribution-name">Coach Jeff</div>
-            <div class="cj-attribution-sub">U.S. Army Veteran · Always on duty</div>
+            <div class="cj-attribution-sub">U.S. Army Veteran · <span class="live-text"><i class="live-dot" aria-hidden="true"></i>Always on duty</span></div>
           </div>
         </div>
       </div>
@@ -4932,6 +4939,38 @@
   .testi-card .testi-branch { color:rgb(var(--cr)); filter:brightness(1.12); }
   .testi-card .testi-text { transition:color .6s ease; }
   @media (prefers-reduced-motion: reduce) { .testi-card::after, .testi-card::before { transition:none; } }
+  /* ── COACH JEFF, PRESENT: the portrait breathes, the record fills in, the status is live ── */
+  .live-dot { display:inline-block; position:relative; width:9px; height:9px; border-radius:50%; background:#58d68d; box-shadow:0 0 10px 2px rgba(88,214,141,.65); margin-right:9px; vertical-align:middle; top:-1px; animation:liveCore 2.2s ease-in-out infinite; }
+  .live-dot::after { content:''; position:absolute; inset:0; border-radius:50%; border:2px solid #58d68d; animation:livePing 2.2s cubic-bezier(0,0,.2,1) infinite; }
+  @keyframes livePing { 0% { transform:scale(1); opacity:.85; } 70%,100% { transform:scale(2.5); opacity:0; } }
+  @keyframes liveCore { 0%,100% { opacity:1; } 50% { opacity:.5; } }
+  .dossier-status, .live-text { color:#7fe3a6; text-shadow:0 0 14px rgba(88,214,141,.4); }
+  .who-photo { position:relative; overflow:hidden; border-radius:2px; box-shadow:0 40px 90px rgba(0,0,0,.65); aspect-ratio:3/4; background:#0a1220; }
+  .who-photo-drift { position:absolute; left:0; right:0; top:-6%; bottom:-6%; }
+  .who-photo .who-img-main { width:100%; height:100%; aspect-ratio:auto; box-shadow:none; border-radius:0; }
+  .who-light { position:absolute; inset:0; pointer-events:none; background:linear-gradient(105deg, transparent 32%, rgba(255,214,150,.26) 50%, transparent 68%); transform:translate3d(-130%,0,0); }
+  .who-photo.in .who-light { transform:translate3d(130%,0,0); transition:transform 2.2s cubic-bezier(.3,.1,.2,1) .35s; }
+  .who-plate { position:absolute; left:0; right:0; bottom:0; display:flex; align-items:flex-end; justify-content:space-between; gap:10px; padding:44px 16px 14px; background:linear-gradient(to top, rgba(4,11,23,.92), rgba(4,11,23,.55) 55%, transparent); }
+  .who-plate-name { display:block; font-family:var(--font-head); font-size:18px; font-weight:800; color:#fff; line-height:1.15; }
+  .who-plate-sub { display:block; margin-top:2px; font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--brass-lt, #e0c490); }
+  .who-plate-live { position:absolute; top:14px; right:14px; display:inline-flex; align-items:center; padding:7px 13px 7px 12px; border-radius:999px; background:rgba(4,11,23,.78); border:1px solid rgba(88,214,141,.4); font-family:var(--font-ui); font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:#7fe3a6; white-space:nowrap; }
+  .who-plate-live .live-dot { margin:0 10px 0 1px; top:0; }
+  html.pol-on .who-plate-live { opacity:0; transition:opacity .8s ease 1.2s; }
+  html.pol-on .who-photo.in .who-plate-live { opacity:1; }
+  .dep { display:inline-block; margin:0 4px 6px 0; padding:2px 9px; border:1px solid rgba(201,168,117,.38); border-radius:999px; background:rgba(201,168,117,.08); font-size:12px; line-height:1.4; }
+  .jeff-dossier::after { content:''; position:absolute; inset:0; pointer-events:none; z-index:2; background:linear-gradient(to bottom, transparent calc(100% - 90px), rgba(224,196,144,.16) calc(100% - 2px), rgba(224,196,144,.95) 100%); transform:translate3d(0,-101%,0); opacity:0; }
+  .jeff-dossier.in::after { animation:dossierScan 1.5s cubic-bezier(.3,.1,.2,1) .15s 1 both; }
+  @keyframes dossierScan { 0% { transform:translate3d(0,-101%,0); opacity:1; } 88% { opacity:1; } 100% { transform:translate3d(0,0,0); opacity:0; } }
+  html.pol-on .jeff-dossier .dossier-field { opacity:0; transform:translate3d(0,10px,0); transition:opacity .6s ease, transform .7s cubic-bezier(.16,1,.3,1); transition-delay:calc(var(--i,0) * 120ms + 350ms); }
+  html.pol-on .jeff-dossier.in .dossier-field { opacity:1; transform:none; }
+  .jeff-dossier .dossier-field:nth-child(1) { --i:0; } .jeff-dossier .dossier-field:nth-child(2) { --i:1; } .jeff-dossier .dossier-field:nth-child(3) { --i:2; }
+  .jeff-dossier .dossier-field:nth-child(4) { --i:3; } .jeff-dossier .dossier-field:nth-child(5) { --i:4; } .jeff-dossier .dossier-field:nth-child(6) { --i:5; }
+  html.pol-on .jeff-dossier .dep { opacity:0; transform:scale(1.35); transition:opacity .35s ease, transform .5s cubic-bezier(.2,1.5,.4,1); transition-delay:calc(1050ms + var(--k,0) * 260ms); }
+  html.pol-on .jeff-dossier.in .dep { opacity:1; transform:none; }
+  .dep:nth-child(1) { --k:0; } .dep:nth-child(2) { --k:1; } .dep:nth-child(3) { --k:2; }
+  html.pol-on .who-plate { opacity:0; transform:translate3d(0,14px,0); transition:opacity .8s ease .9s, transform .9s cubic-bezier(.16,1,.3,1) .9s; }
+  html.pol-on .who-photo.in .who-plate { opacity:1; transform:none; }
+  @media (prefers-reduced-motion: reduce) { .live-dot, .live-dot::after { animation:none; } .live-dot::after { display:none; } .who-light, .jeff-dossier::after { display:none; } }
   /* app screens drift sideways as you scroll; the moment a finger touches the row, snapping comes back */
   @media (max-width:900px) { .screens-row.auto-pan { scroll-snap-type:none !important; } }
   @media (prefers-reduced-motion: reduce) { .origin-person, .origin-person::before, .origin-person::after, .hl-box::before { transition:none; } }
@@ -6633,6 +6672,18 @@
       es.forEach(function (e) { e.target.classList.toggle('lit', e.isIntersecting); });
     }, { threshold: 0, rootMargin: '-36% 0px -36% 0px' });
     [].forEach.call(document.querySelectorAll('.origin-person'), function (p) { pio.observe(p); });
+
+    /* the portrait breathes, the service record fills in */
+    var wio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); wio.unobserve(e.target); } });
+    }, { threshold: 0.25 });
+    [].forEach.call(document.querySelectorAll('.who-photo,.jeff-dossier'), function (el) { wio.observe(el); });
+    if (window.gsap && window.ScrollTrigger) {
+      var ph = document.querySelector('.who-photo');
+      if (ph) {
+        gsap.fromTo('.who-photo-drift', { yPercent: -3.6 }, { yPercent: 3.6, ease: 'none', scrollTrigger: { trigger: ph, start: 'top bottom', end: 'bottom top', scrub: true } });
+      }
+    }
 
     /* early users: the card you're reading lights in its own color */
     var tio = new IntersectionObserver(function (es) {
