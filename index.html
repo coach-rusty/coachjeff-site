@@ -9,8 +9,7 @@
   <link rel="icon" type="image/png" href="coach-jeff-icon.png" />
   <link rel="apple-touch-icon" href="coach-jeff-icon.png" />
 
-  <!-- Cloudflare Turnstile — bot protection for early-access form -->
-  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <!-- Cloudflare Turnstile loads on demand, only when a visitor nears the early-access form (see loadTurnstile) -->
   <!-- Metricool tracking -->
   <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"65366ff250f9715e90e07b7d42f67806"})});</script>
   <meta property="og:title" content="Coach Jeff — The friend who picks up at 0200" />
@@ -261,8 +260,7 @@
       background-image: repeating-linear-gradient(112deg, rgba(184,160,122,0.85) 0px, rgba(184,160,122,0.85) 20px, rgba(74,92,53,0.9) 20px, rgba(74,92,53,0.9) 46px, rgba(92,69,48,0.85) 46px, rgba(92,69,48,0.85) 64px, transparent 64px, transparent 84px, rgba(74,92,53,0.85) 84px, rgba(74,92,53,0.85) 110px, rgba(184,160,122,0.8) 110px, rgba(184,160,122,0.8) 126px, transparent 126px, transparent 148px), repeating-linear-gradient(22deg, rgba(92,69,48,0.8) 0px, rgba(92,69,48,0.8) 26px, transparent 26px, transparent 52px, rgba(74,92,53,0.85) 52px, rgba(74,92,53,0.85) 76px, rgba(184,160,122,0.75) 76px, rgba(184,160,122,0.75) 98px, transparent 98px, transparent 124px, rgba(92,69,48,0.75) 124px, rgba(92,69,48,0.75) 148px);
       background-size: 480px 480px;
       background-repeat: repeat;
-      opacity: 0.28;
-      mix-blend-mode: overlay;
+      opacity: 0.02;
       pointer-events: none;
       z-index: 500;
     }
@@ -645,18 +643,7 @@
       line-height: 1.6;
     }
 
-    /* Film grain overlay — premium analog texture */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size: 220px;
-      opacity: 0.024;
-      pointer-events: none;
-      z-index: 9997;
-      mix-blend-mode: overlay;
-    }
+    /* Film grain overlay removed: a full-screen fixed blend layer forced a re-blend of the whole page every scroll frame. */
 
     /* Anim: set by GSAP not CSS */
     .anim { }
@@ -3358,8 +3345,8 @@
 
     /* 3. Shimmer sweep on brass patch labels */
     @keyframes shimmer-pass {
-      0%   { left: -120%; }
-      100% { left: 220%; }
+      0%   { transform: translateX(0) skewX(-22deg); }
+      100% { transform: translateX(618%) skewX(-22deg); }
     }
     .patch-label, .brass-label, .hero-badge-top, .hero-badge-bottom {
       position: relative;
@@ -3375,6 +3362,7 @@
       height: 180%;
       background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.18) 50%, transparent 100%);
       transform: skewX(-22deg);
+      will-change: transform;
       animation: shimmer-pass 4s ease-in-out infinite;
       pointer-events: none;
     }
@@ -4026,7 +4014,7 @@
           <div class="phone-device" style="animation-delay:-1.5s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(0,180,80,0.35),0 40px 120px rgba(0,0,0,0.9)">
             <div class="phone-inner">
               <div class="phone-screen" style="background:#020a04;position:relative;overflow:hidden">
-                <iframe src="screen01-homebase.html" loading="lazy" frameborder="0" scrolling="no"
+                <iframe data-src="screen01-homebase.html" frameborder="0" scrolling="no"
                   style="position:absolute;top:0;left:0;
                          width:390px;height:844px;border:none;display:block;
                          transform:scale(0.687);transform-origin:top left;
@@ -4042,7 +4030,7 @@
           <div class="phone-device" style="animation-delay:-3s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(59,130,246,0.4),0 40px 120px rgba(0,0,0,0.85)">
             <div class="phone-inner">
               <div class="phone-screen" style="background:#010204;overflow:hidden;position:relative;">
-                <iframe src="screen06-missioncontrol.html" loading="lazy" frameborder="0" scrolling="no"
+                <iframe data-src="screen06-missioncontrol.html" frameborder="0" scrolling="no"
                   style="position:absolute;top:0;left:0;
                          width:390px;height:844px;border:none;display:block;
                          transform:scale(0.687);transform-origin:top left;
@@ -4635,7 +4623,7 @@
             <button type="submit" class="btn-camo" style="flex-shrink:0;">Get Early Access →</button>
           </div>
           <!-- Cloudflare Turnstile — invisible widget. Replace data-sitekey with your real key from dash.cloudflare.com/turnstile -->
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAEfkOuN2y4jn8vVe" data-theme="dark" data-size="invisible" id="cf-turnstile-widget"></div>
+          <div id="cf-turnstile-widget"></div>
           <div id="cta-error" style="color:#ef4444;font-size:0.85rem;display:none;"></div>
         </form>
 
@@ -4781,6 +4769,10 @@
   .flow-h .mw { display: inline-block; overflow: hidden; vertical-align: top; padding: .08em .12em .2em .02em; margin: -.08em -.12em -.2em -.02em; }
   .flow-h .mi { display: inline-block; transition: transform 1.05s cubic-bezier(.16,1,.3,1); transition-delay: calc(var(--i, 0) * 55ms); will-change: transform; }
   .flow-on .flow-h:not(.flow-in) .mi { transform: translate3d(0, 118%, 0); }
+  /* Photos open like a shutter: one-shot on entry (not scroll-scrubbed, so scrolling never repaints a big clipped image every frame) */
+  .flow-shutter { transition: clip-path 1.2s cubic-bezier(.16,1,.3,1), transform 1.2s cubic-bezier(.16,1,.3,1); }
+  .flow-on .flow-shutter:not(.flow-in) { clip-path: inset(14% 14% 14% 14%); transform: scale(1.1); }
+  @media (prefers-reduced-motion: reduce) { .flow-on .flow-shutter:not(.flow-in) { clip-path: none; transform: none; } .flow-shutter { transition: none; } }
   @media (prefers-reduced-motion: reduce) { .flow-on .flow-h:not(.flow-in) .mi { transform: none; } .flow-h .mi { transition: none; } }
   .wipe-reveal { clip-path: inset(0 100% 0 0); transition: clip-path 0.9s cubic-bezier(0.16,1,0.3,1); }
   .wipe-reveal.revealed { clip-path: inset(0 0% 0 0); }
@@ -5102,7 +5094,14 @@
         d.y += d.speed; d.x -= 0.5;
         if (d.y > canvas.height) { d.y = -d.len; d.x = Math.random() * canvas.width; }
       });
-      requestAnimationFrame(drawRain);
+      if (rainOn) requestAnimationFrame(drawRain); else rainIdle = true;
+    }
+    var rainOn = true, rainIdle = false;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        rainOn = es[0].isIntersecting;
+        if (rainOn && rainIdle) { rainIdle = false; requestAnimationFrame(drawRain); }
+      }).observe(document.getElementById('hero') || canvas);
     }
     drawRain();
     } // end !isMobile rain
@@ -5417,7 +5416,48 @@
       })();
     })();
 
-    // ── FORM ────────────────────────────────────────────
+    // ── TURNSTILE — loads only when someone nears the form ──────
+    var tsState = { loading: false, token: '', failed: false };
+    function loadTurnstile() {
+      if (tsState.loading) return;
+      tsState.loading = true;
+      window.__tsReady = function () {
+        try {
+          turnstile.render('#cf-turnstile-widget', {
+            sitekey: '0x4AAAAAAEfkOuN2y4jn8vVe', theme: 'dark', appearance: 'interaction-only',
+            callback: function (t) { tsState.token = t; },
+            'expired-callback': function () { tsState.token = ''; },
+            'error-callback': function () { tsState.failed = true; return true; }
+          });
+        } catch (err) {}
+      };
+      var sc = document.createElement('script');
+      sc.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=__tsReady';
+      sc.async = true; document.head.appendChild(sc);
+    }
+    function getTsToken() {
+      loadTurnstile();
+      return new Promise(function (resolve) {
+        var t0 = Date.now();
+        (function poll() {
+          var inp = document.querySelector('[name="cf-turnstile-response"]');
+          var tok = tsState.token || (inp && inp.value) || '';
+          if (tok || tsState.failed || Date.now() - t0 > 5000) return resolve(tok);
+          setTimeout(poll, 150);
+        })();
+      });
+    }
+    (function () {
+      var f = document.getElementById('cta-form'); if (!f) return;
+      f.addEventListener('focusin', loadTurnstile, { once: true });
+      f.addEventListener('pointerdown', loadTurnstile, { once: true });
+      if ('IntersectionObserver' in window) {
+        var o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { loadTurnstile(); o.disconnect(); } }, { rootMargin: '900px 0px' });
+        o.observe(f);
+      }
+    })();
+
+    // ── FORM ────────────────────────────------────
     function handleSubmit(e) {
       e.preventDefault();
       const name  = (document.getElementById('cta-name')  || {}).value || '';
@@ -5444,14 +5484,12 @@
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      // Get Cloudflare Turnstile token (invisible challenge)
-      const tsToken = document.querySelector('[name="cf-turnstile-response"]')?.value || '';
-
-      fetch('/api/early-access', {
+      // Cloudflare Turnstile token (loaded on demand; waits briefly if the check is still finishing)
+      getTsToken().then(function (tsToken) { return fetch('/api/early-access', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: nameVal, email: emailVal, hp, tsToken })
-      })
+      }); })
       .then(r => r.json())
       .then(d => {
         if (d.ok) {
@@ -5861,6 +5899,17 @@
   </script>
 
   <script>
+  // Phone-screen mockups load quietly after the page settles, never while the visitor is scrolling toward them
+  (function () {
+    var fr = [].slice.call(document.querySelectorAll('iframe[data-src]'));
+    function go() { fr.forEach(function (f) { if (f.dataset.src) { f.src = f.dataset.src; f.removeAttribute('data-src'); } }); }
+    function later() { (window.requestIdleCallback || function (c) { setTimeout(c, 1500); })(go, { timeout: 4000 }); }
+    if (document.readyState === 'complete') later(); else addEventListener('load', later);
+    setTimeout(go, 8000);
+  })();
+  </script>
+
+  <script>
   // Smart nav — hide on scroll down, reveal on scroll up
   (function() {
     var lastY = 0;
@@ -6141,6 +6190,18 @@
   setTimeout(sweep, 1200); setTimeout(sweep, 3000);
   if (!('IntersectionObserver' in window)) heads.forEach(show);
 
+  var shuts = [].slice.call(document.querySelectorAll('.flow-shutter'));
+  function openShut(i) { i.classList.add('flow-in'); }
+  if ('IntersectionObserver' in window) {
+    var so = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { openShut(e.target); so.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    shuts.forEach(function (i) { so.observe(i); });
+  } else { shuts.forEach(openShut); }
+  function sweepShut() { shuts.forEach(function (i) { if (!i.classList.contains('flow-in') && i.getBoundingClientRect().top < innerHeight * 0.9) openShut(i); }); }
+  addEventListener('scroll', sweepShut, { passive: true });
+  setTimeout(sweepShut, 1500); setTimeout(sweepShut, 3500);
+
   if (!window.gsap || !window.ScrollTrigger) return;
   gsap.registerPlugin(ScrollTrigger);
   ScrollTrigger.config({ ignoreMobileResize: true });
@@ -6165,12 +6226,7 @@
         scrollTrigger: { trigger: w, start: 'top 96%', end: 'top 58%', scrub: 0.8 } });
   });
 
-  /* 4 — photos open like a shutter */
-  gsap.utils.toArray('.flow-shutter').forEach(function (img) {
-    gsap.fromTo(img, { clipPath: 'inset(14% 14% 14% 14%)', scale: 1.1 },
-      { clipPath: 'inset(0% 0% 0% 0%)', scale: 1, ease: 'none',
-        scrollTrigger: { trigger: img, start: 'top 94%', end: 'top 42%', scrub: 0.8 } });
-  });
+  /* 4 — photos open like a shutter: handled above as a one-shot CSS transition */
 
   /* 5 — ticker speed follows scroll velocity */
   var track = document.querySelector('.marquee-track');
@@ -6187,6 +6243,30 @@
 
   addEventListener('load', function () { ScrollTrigger.refresh(); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { ScrollTrigger.refresh(); });
+})();
+</script>
+
+<script>
+/* Looping animations only run while they are on screen, so nothing animates out of sight while you scroll. */
+(function () {
+  if (!('IntersectionObserver' in window) || !document.getAnimations) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      (e.target.__loops || []).forEach(function (a) { try { e.isIntersecting ? a.play() : a.pause(); } catch (x) {} });
+    });
+  }, { rootMargin: '120px 0px' });
+  var seen = new WeakSet();
+  function scan() {
+    document.getAnimations().forEach(function (a) {
+      var t = a.effect && a.effect.target; if (!t || seen.has(a)) return;
+      var ct = a.effect.getComputedTiming && a.effect.getComputedTiming();
+      if (!ct || ct.iterations !== Infinity || a.constructor.name !== 'CSSAnimation') return;
+      seen.add(a);
+      if (!t.__loops) { t.__loops = []; io.observe(t); }
+      t.__loops.push(a);
+    });
+  }
+  addEventListener('load', function () { setTimeout(scan, 600); setTimeout(scan, 4000); });
 })();
 </script>
 </body>
