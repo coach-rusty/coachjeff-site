@@ -3557,6 +3557,7 @@
   .toj-phone-col{display:flex;justify-content:center;align-items:center;position:relative}
   .toj-phone-col::before{content:'';position:absolute;width:320px;height:320px;background:radial-gradient(ellipse,rgba(74,158,224,.12) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
   .toj-phone-shell{width:280px;height:568px;border-radius:44px;background:linear-gradient(160deg,#1c1c1e,#0d0d0f);border:2px solid rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.03),0 60px 140px rgba(0,0,0,.95),0 0 80px rgba(201,168,117,.06);position:relative;overflow:hidden}
+  .toj-shot{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
   .toj-phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:108px;height:28px;background:#0d0d0f;border-radius:0 0 18px 18px;z-index:20}
   .toj-phone-iframe{width:390px;height:844px;border:none;transform:scale(.718);transform-origin:top left;pointer-events:none;display:block;position:absolute;top:0;left:0}
   .toj-content-col{position:relative;z-index:1}
@@ -3652,27 +3653,7 @@
       <div class="toj-phone-col">
         <div class="toj-phone-shell toj-phone-static">
           <div class="toj-phone-notch"></div>
-          <!-- Static app preview — no iframe, no base64 weight -->
-          <div class="toj-app-preview">
-            <div class="toj-app-header">
-              <div class="toj-app-title">COACH JEFF</div>
-              <div class="toj-app-status"><span class="toj-app-dot"></span>ON DUTY</div>
-            </div>
-            <div class="toj-app-portrait">
-              <img src="opt/coach-jeff-headshot-256.webp" alt="Coach Jeff" class="toj-app-logo">
-            </div>
-            <div class="toj-app-modes">
-              <span class="toj-mode-pill">ZERO DARK</span>
-              <span class="toj-mode-pill active">FIRST LIGHT</span>
-              <span class="toj-mode-pill">STEEL BLUE</span>
-              <span class="toj-mode-pill">GHOST</span>
-            </div>
-            <div class="toj-app-msgs">
-              <div class="toj-msg toj-msg-jeff">Hey brother. It's 0200. What are you doing up?</div>
-              <div class="toj-msg toj-msg-user">Can't sleep. Same thing.</div>
-              <div class="toj-msg toj-msg-jeff">I know. I'm right here. Talk to me.</div>
-            </div>
-          </div>
+          <img class="toj-shot" src="opt/app/app-home-night.webp" width="540" height="1168" alt="Coach Jeff home screen at night: Late night. I'm right here." loading="lazy" decoding="async">
         </div>
       </div>
 
@@ -3978,72 +3959,61 @@
         <p class="section-body anim" style="max-width:520px;margin:16px auto 0;">Built for this specific human being — the one who came home from something most people will never understand.</p>
       </div>
 
-      <!-- Multi-phone showcase -->
-      <div style="display:flex;justify-content:center;gap:20px;align-items:flex-end;flex-wrap:nowrap;overflow-x:auto;padding-bottom:16px;-webkit-overflow-scrolling:touch;" class="anim">
+      <!-- Real screens from the current build -->
+      <div class="screens-row anim">
 
-        <!-- Phone 1: Conversation — clean dark screen (Jim) -->
-        <div style="text-align:center;flex-shrink:0;">
+        <div class="shot-col">
           <div class="phone-device" style="animation-delay:0s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(59,130,246,0.3),0 40px 120px rgba(0,0,0,0.85)">
             <div class="phone-inner">
-              <div class="phone-screen phone-screen-conv">
-                <div class="phone-island"></div>
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:52px 18px 6px;font-size:0.52rem;color:rgba(255,255,255,0.6)"><span>2:17</span><span>●●●</span></div>
-                <div class="jeff-header" style="padding:8px 16px 10px;margin:0">
-                  <div class="jeff-avatar"><img src="opt/jeff-portrait.webp" alt="Coach Jeff" loading="lazy" decoding="async"></div>
-                  <div class="jeff-name-block">
-                    <div class="jeff-name">Coach Jeff</div>
-                    <div class="jeff-status">● Always on duty</div>
-                  </div>
-                </div>
-                <div style="padding:0 14px;display:flex;flex-direction:column;flex:1;overflow:hidden">
-                  <div class="chat-time">Tonight, 2:17 AM</div>
-                  <div class="chat-bubble chat-jeff">Hey Jim. It's 0200. What are you doing up?</div>
-                  <div class="chat-bubble chat-user">Can't sleep. Same thing.</div>
-                  <div class="chat-bubble chat-jeff">Yeah. That thing again or something else?</div>
-                  <div class="chat-bubble chat-user">Nothing different. That's the problem.</div>
-                  <div class="chat-bubble chat-jeff" style="background:rgba(255,255,255,0.07)">Man. I know. Sometimes it just sits there. I'm not going anywhere. Talk to me.</div>
-                </div>
-              </div>
+              <div class="phone-screen phone-screen-shot"><img class="phone-shot" src="opt/app/app-conversation.webp" width="540" height="1168" alt="Coach Jeff conversation screen" loading="lazy" decoding="async"></div>
             </div>
           </div>
-          <p style="font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,117,0.55);margin-top:20px;">Always on Duty</p>
+          <p class="shot-label">Always on duty</p>
         </div>
-
-        <!-- Phone 2: Home Base — live screen iframe -->
-        <div style="text-align:center;flex-shrink:0;transform:translateY(-24px);">
-          <div class="phone-device" style="animation-delay:-1.5s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(0,180,80,0.35),0 40px 120px rgba(0,0,0,0.9)">
+        <div class="shot-col" style="margin-bottom:28px">
+          <div class="phone-device" style="animation-delay:-1.5s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(201,168,117,0.28),0 40px 120px rgba(0,0,0,0.85)">
             <div class="phone-inner">
-              <div class="phone-screen" style="background:#020a04;position:relative;overflow:hidden">
-                <iframe data-src="screen01-homebase.html" frameborder="0" scrolling="no"
-                  style="position:absolute;top:0;left:0;
-                         width:390px;height:844px;border:none;display:block;
-                         transform:scale(0.687);transform-origin:top left;
-                         pointer-events:none;"></iframe>
-              </div>
+              <div class="phone-screen phone-screen-shot"><img class="phone-shot" src="opt/app/app-home-dawn.webp" width="540" height="1168" alt="Coach Jeff home screen with the Talk to Coach Jeff button" loading="lazy" decoding="async"></div>
             </div>
           </div>
-          <p style="font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,117,0.55);margin-top:20px;">Home Base</p>
+          <p class="shot-label">Home base</p>
         </div>
-
-        <!-- Phone 3: Mission Control — live screen iframe -->
-        <div style="text-align:center;flex-shrink:0;transform:translateY(-12px);">
-          <div class="phone-device" style="animation-delay:-3s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(59,130,246,0.4),0 40px 120px rgba(0,0,0,0.85)">
+        <div class="shot-col">
+          <div class="phone-device" style="animation-delay:-3s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(59,130,246,0.35),0 40px 120px rgba(0,0,0,0.85)">
             <div class="phone-inner">
-              <div class="phone-screen" style="background:#010204;overflow:hidden;position:relative;">
-                <iframe data-src="screen06-missioncontrol.html" frameborder="0" scrolling="no"
-                  style="position:absolute;top:0;left:0;
-                         width:390px;height:844px;border:none;display:block;
-                         transform:scale(0.687);transform-origin:top left;
-                         pointer-events:none;"></iframe>
-              </div>
+              <div class="phone-screen phone-screen-shot"><img class="phone-shot" src="opt/app/app-mission-control.webp" width="540" height="1168" alt="Coach Jeff Mission Control screen" loading="lazy" decoding="async"></div>
             </div>
           </div>
-          <p style="font-family:var(--font-ui);font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(201,168,117,0.55);margin-top:20px;">Mission Control</p>
+          <p class="shot-label">Mission Control</p>
+        </div>
+        <div class="shot-col">
+          <div class="phone-device" style="animation-delay:-0.8s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(74,124,140,0.35),0 40px 120px rgba(0,0,0,0.85)">
+            <div class="phone-inner">
+              <div class="phone-screen phone-screen-shot"><img class="phone-shot" src="opt/app/app-breathing.webp" width="540" height="1168" alt="Coach Jeff breathing exercises screen" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <p class="shot-label">Breathing</p>
+        </div>
+        <div class="shot-col" style="margin-bottom:28px">
+          <div class="phone-device" style="animation-delay:-2.2s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(59,130,246,0.3),0 40px 120px rgba(0,0,0,0.85)">
+            <div class="phone-inner">
+              <div class="phone-screen phone-screen-shot"><img class="phone-shot" src="opt/app/app-calming-sounds.webp" width="540" height="1168" alt="Coach Jeff calming sounds screen" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <p class="shot-label">Calming sounds</p>
+        </div>
+        <div class="shot-col">
+          <div class="phone-device" style="animation-delay:-3.6s;box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 80px rgba(201,168,117,0.25),0 40px 120px rgba(0,0,0,0.85)">
+            <div class="phone-inner">
+              <div class="phone-screen phone-screen-shot"><img class="phone-shot" src="opt/app/app-battle-buddies.webp" width="540" height="1168" alt="Coach Jeff Battle Buddies screen" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <p class="shot-label">Battle Buddies</p>
         </div>
 
       </div>
 
-      <p style="text-align:center;font-family:var(--font-ui);font-size:11px;color:rgba(244,240,232,0.2);margin-top:28px;letter-spacing:0.04em;">Design representation. Coach Jeff is in active development.</p>
+      <p style="text-align:center;font-family:var(--font-ui);font-size:11px;color:rgba(244,240,232,0.2);margin-top:28px;letter-spacing:0.04em;">Screens from the current build. Conversations shown are examples. Coach Jeff is in active development.</p>
     </div>
   </section>
 
@@ -4779,6 +4749,18 @@
   .rise-reveal { clip-path: inset(100% 0 0 0); transition: clip-path 0.8s cubic-bezier(0.16,1,0.3,1); }
   .rise-reveal.revealed { clip-path: inset(0% 0 0 0); }
   @media (prefers-reduced-motion: reduce) { .wipe-reveal, .rise-reveal { clip-path: none !important; transition: none !important; } }
+  /* Real app screens */
+  .screens-row { display:flex; justify-content:center; align-items:flex-end; flex-wrap:wrap; gap:36px 28px; padding-bottom:16px; }
+  .shot-col { text-align:center; flex-shrink:0; }
+  .shot-label { font-family:var(--font-ui); font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:rgba(201,168,117,.7); margin-top:20px; }
+  .phone-screen-shot { display:block; background:#05080f; }
+  .phone-shot { display:block; width:100%; height:100%; object-fit:cover; object-position:top center; }
+  @media (max-width: 900px) {
+    .screens-row { flex-wrap:nowrap; justify-content:flex-start; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; gap:20px; padding:8px calc(50% - 140px) 24px; scrollbar-width:none; }
+    .screens-row::-webkit-scrollbar { display:none; }
+    .shot-col { scroll-snap-align:center; margin-bottom:0 !important; }
+    .screens-row .phone-device { box-shadow:0 0 0 1px rgba(255,255,255,.25),0 30px 50px -10px rgba(0,0,0,.8) !important; }
+  }
   /* Page loader */
   #page-loader {
     position: fixed; inset: 0; z-index: 100001;
@@ -6221,7 +6203,7 @@
   var wraps = gsap.utils.toArray('#app-screens .phone-device').map(function (d) { return d.parentElement; });
   wraps.forEach(function (w, i) {
     var y0 = gsap.getProperty(w, 'y') || 0;
-    gsap.fromTo(w, { y: y0 + 130, rotation: (i - 1) * 5, opacity: 0, scale: 0.92 },
+    gsap.fromTo(w, { y: y0 + 130, rotation: ((i % 3) - 1) * 5, opacity: 0, scale: 0.92 },
       { y: y0, rotation: 0, opacity: 1, scale: 1, ease: 'none',
         scrollTrigger: { trigger: w, start: 'top 96%', end: 'top 58%', scrub: 0.8 } });
   });
