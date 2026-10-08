@@ -52,6 +52,7 @@ Rusty Humphries. Nationally syndicated talk radio host, 350+ affiliate stations,
 - /: Main landing page, early access signup, and live Coach Jeff demo
 - /blog/: Veteran mental health content written by Rusty Humphries
 - /about: About Rusty Humphries and why he built Coach Jeff
+- /why-not-chatgpt: Why not just use ChatGPT for free? ChatGPT answers; Coach Jeff remembers, tells you straight, and was built for people who have carried what you have carried
 - /safety: Crisis resources, Veterans Crisis Line, and Coach Jeff's crisis protocol
 - /privacy: Privacy policy and data processor disclosures
 
