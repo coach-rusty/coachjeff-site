@@ -4161,83 +4161,82 @@
   <!-- ═══ HOW IT WORKS ══════════════════════════════════ -->
   <section id="how-it-works">
     <div class="container">
-      <div class="how-layout">
+      <div class="how-layout" id="how-layout">
 
-        <div>
+        <div class="how-head">
           <div class="patch-label anim">How It Works</div>
           <h2 class="section-head flow-h">You open the app.<br>You talk to<br>Coach Jeff.</h2>
           <div class="brass-rule anim"></div>
-
-          <ol class="steps-list">
-            <li class="step-item anim">
-              <span class="step-num">01</span>
-              <div class="step-body">
-                <h3>Start a conversation</h3>
-                <p>Text or voice. Coach Jeff opens like a friend — "Hey, what's going on?" Not "How are you feeling today?"</p>
-              </div>
-            </li>
-            <li class="step-item anim">
-              <span class="step-num">02</span>
-              <div class="step-body">
-                <h3>Talk about whatever</h3>
-                <p>Sports, work, your bike, your marriage. Or the heavier stuff. Coach Jeff follows your lead. Every single time.</p>
-              </div>
-            </li>
-            <li class="step-item anim">
-              <span class="step-num">03</span>
-              <div class="step-body">
-                <h3>Coach Jeff's got your back</h3>
-                <p>If things get dark, he's trained for that too. Breathing, grounding, the 0200 moments — and always 988 if it comes to it.</p>
-              </div>
-            </li>
-            <li class="step-item anim">
-              <span class="step-num">04</span>
-              <div class="step-body">
-                <h3>He gets to know you</h3>
-                <p>Coach Jeff learns you over time. The more you talk, the more he understands exactly what you need and when.</p>
-              </div>
-            </li>
-          </ol>
         </div>
 
-        <!-- REAL PHONE — conversation screen matching actual Conversation.tsx -->
-        <div class="phone-outer anim">
-          <div class="phone-device" style="box-shadow:0 0 0 1px rgba(255,255,255,0.25),0 0 60px rgba(74,124,140,0.3),0 40px 100px rgba(0,0,0,0.8)">
-            <div class="phone-inner">
-              <div class="phone-screen phone-screen-conv">
-                <div class="phone-island"></div>
-
-                <!-- Status bar -->
-                <div style="display:flex;justify-content:space-between;align-items:center;padding:40px 14px 4px;font-size:0.42rem;color:rgba(255,255,255,0.6)">
-                  <span>2:17</span><span>●●●</span>
-                </div>
-
-                <!-- Jeff header -->
-                <div class="jeff-header" style="padding:6px 12px 8px;margin:0">
-                  <div class="jeff-avatar">
-                    <img src="opt/coach-jeff-headshot-256.webp" alt="Coach Jeff">
+        <!-- Sticky phone: real app screens, changes with each step -->
+        <div class="how-phone" aria-hidden="true">
+          <div class="how-phone-stage">
+            <div class="how-phone-scale">
+              <div class="phone-device how-device">
+                <div class="phone-inner">
+                  <div class="phone-screen phone-screen-shot hp-screens">
+                    <div class="hp-screen is-on" data-screen="0">
+                      <img class="phone-shot" src="opt/app/app-home-night.webp" width="540" height="1168" alt="" decoding="async">
+                      <span class="hp-pulse hp-pulse-talk"></span>
+                    </div>
+                    <div class="hp-screen" data-screen="1">
+                      <img class="phone-shot hp-c-top" src="opt/app/app-conversation.webp" width="540" height="1168" alt="" decoding="async">
+                      <img class="phone-shot hp-c-mid" id="hp-mid" src="opt/app/app-conversation.webp" width="540" height="1168" alt="" decoding="async">
+                      <img class="phone-shot hp-c-bot" src="opt/app/app-conversation.webp" width="540" height="1168" alt="" decoding="async">
+                      <span class="hp-typing" id="hp-typing"><i></i><i></i><i></i></span>
+                    </div>
+                    <div class="hp-screen" data-screen="2">
+                      <img class="phone-shot" src="opt/app/app-breathing.webp" width="540" height="1168" alt="" decoding="async">
+                      <span class="hp-ring"></span><span class="hp-ring hp-ring-2"></span>
+                    </div>
+                    <div class="hp-screen" data-screen="3">
+                      <img class="phone-shot" src="opt/app/app-home-dawn.webp" width="540" height="1168" alt="" decoding="async">
+                      <div class="hp-memory" id="hp-memory">
+                        <img src="opt/coach-jeff-headshot-256.webp" width="256" height="256" alt="">
+                        <div><b>Coach Jeff</b><span>Last week it was the noise. That again?</span></div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="jeff-name-block">
-                    <div class="jeff-name">Coach Jeff</div>
-                    <div class="jeff-status">● Always on duty</div>
-                  </div>
-                </div>
-
-                <!-- Conversation -->
-                <div style="padding:0 10px;display:flex;flex-direction:column;flex:1;overflow:hidden;gap:0;" id="chat-container">
-                  <div class="chat-time">Tonight, 2:17 AM</div>
-                  <div class="chat-bubble chat-jeff" id="b1">Hey brother. It's 0200. What are you doing up?</div>
-                  <div class="chat-bubble chat-user" id="b2">Can't sleep. Same thing.</div>
-                  <div class="chat-bubble chat-jeff" id="b3">Last week it was the noise. That again?</div>
-                  <div class="chat-bubble chat-user" id="b4">Nothing different. That's the problem.</div>
-                  <div class="chat-bubble chat-jeff" id="b5" style="background:rgba(255,255,255,0.07);margin-bottom:4px;">Man. I know. I'm right here. Talk to me.</div>
                 </div>
               </div>
             </div>
           </div>
           <div class="phone-glow-base"></div>
-          <p style="font-family:var(--font-ui);font-size:12px;color:var(--white-dim);text-align:center;max-width:270px;line-height:1.5;letter-spacing:0.02em;text-wrap:balance;"><span style="white-space:nowrap">Available 24/7 ·</span> <span style="white-space:nowrap">No appointment ·</span> <span style="white-space:nowrap">No wait</span></p>
         </div>
+
+        <ol class="steps-list">
+          <li class="step-item" data-step="0">
+            <span class="step-num">01</span>
+            <div class="step-body">
+              <h3>Start a conversation</h3>
+              <p>Text or voice. Coach Jeff opens like a friend — "Hey, what's going on?" Not "How are you feeling today?"</p>
+            </div>
+          </li>
+          <li class="step-item" data-step="1">
+            <span class="step-num">02</span>
+            <div class="step-body">
+              <h3>Talk about whatever</h3>
+              <p>Sports, work, your bike, your marriage. Or the heavier stuff. Coach Jeff follows your lead. Every single time.</p>
+            </div>
+          </li>
+          <li class="step-item" data-step="2">
+            <span class="step-num">03</span>
+            <div class="step-body">
+              <h3>Coach Jeff's got your back</h3>
+              <p>If things get dark, he's trained for that too. Breathing, grounding, the 0200 moments — and always 988 if it comes to it.</p>
+            </div>
+          </li>
+          <li class="step-item" data-step="3">
+            <span class="step-num">04</span>
+            <div class="step-body">
+              <h3>He gets to know you</h3>
+              <p>Coach Jeff learns you over time. The more you talk, the more he understands exactly what you need and when.</p>
+            </div>
+          </li>
+        </ol>
+
+        <p class="how-foot"><span style="white-space:nowrap">Available 24/7 ·</span> <span style="white-space:nowrap">No appointment ·</span> <span style="white-space:nowrap">No wait</span></p>
 
       </div>
     </div>
@@ -4794,6 +4793,89 @@
     .shot-col { scroll-snap-align:center; margin-bottom:0 !important; }
     .screens-row .phone-device { box-shadow:0 0 0 1px rgba(255,255,255,.25),0 30px 50px -10px rgba(0,0,0,.8) !important; }
   }
+
+  /* ── HOW IT WORKS: sticky real-app phone that follows the steps ── */
+  .how-layout { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto auto; column-gap:100px; align-items:start; row-gap:0; }
+  .how-head { grid-column:1; grid-row:1; }
+  .steps-list { grid-column:1; grid-row:2; gap:56px; margin-top:8px; }
+  .how-foot { grid-column:1; grid-row:3; margin-top:44px; font-family:var(--font-ui); font-size:12px; color:var(--white-dim); line-height:1.5; letter-spacing:.02em; text-wrap:balance; }
+  .how-phone { grid-column:2; grid-row:1 / span 3; position:sticky; top:max(88px,calc(50vh - 330px)); align-self:start; display:flex; flex-direction:column; align-items:center; }
+  .how-phone-stage { height:600px; width:280px; position:relative; }
+  .how-phone-scale { width:280px; height:600px; transform-origin:top center; contain:layout paint; }
+  .how-device { animation:none !important; }
+  .hp-screens { position:relative; background:#05080f; }
+  .hp-screen { position:absolute; inset:0; opacity:0; visibility:hidden; transform:scale(1.045); transition:opacity .55s ease, transform .9s cubic-bezier(.16,1,.3,1), visibility 0s linear .95s; }
+  .hp-screen.is-on { opacity:1; visibility:visible; transform:none; z-index:2; transition-delay:0s; }
+  .hp-screen .phone-shot { position:absolute; inset:0; }
+  .hp-screen[data-screen="1"] { background:linear-gradient(180deg,#0f1f2e 26%,#0c1620 50%,#0b141c 73%); }
+  .hp-c-top { clip-path:inset(0 0 74% 0); }
+  .hp-c-bot { clip-path:inset(73% 0 0 0); }
+  .hp-c-mid { clip-path:inset(26% 0 27% 0); }
+  .hp-screen:not(.is-on) .hp-pulse, .hp-screen:not(.is-on) .hp-ring, .hp-screen:not(.is-on) .hp-typing i { animation-play-state:paused; }
+  .hp-typing { position:absolute; left:6%; top:28%; display:flex; gap:5px; align-items:center; padding:11px 15px; border-radius:18px; background:rgba(255,255,255,.1); opacity:0; }
+  .hp-typing i { width:6px; height:6px; border-radius:50%; background:rgba(244,240,232,.75); animation:hpDot 1.1s ease-in-out infinite; }
+  .hp-typing i:nth-child(2) { animation-delay:.15s; } .hp-typing i:nth-child(3) { animation-delay:.3s; }
+  @keyframes hpDot { 0%,60%,100% { transform:translateY(0); opacity:.45; } 30% { transform:translateY(-4px); opacity:1; } }
+  .hp-pulse { position:absolute; left:8%; right:8%; top:38.4%; height:6.8%; border-radius:999px; border:2px solid rgba(120,170,255,.55); animation:hpTalk 2.6s ease-out infinite; pointer-events:none; }
+  @keyframes hpTalk { 0% { transform:scale(1,1); opacity:.8; } 100% { transform:scale(1.12,1.9); opacity:0; } }
+  .hp-ring { position:absolute; left:27%; top:26.5%; width:46%; aspect-ratio:1; border-radius:50%; border:1px solid rgba(140,200,255,.5); animation:hpRing 4.2s ease-out infinite; pointer-events:none; }
+  .hp-ring-2 { animation-delay:2.1s; }
+  @keyframes hpRing { 0% { transform:scale(.92); opacity:.75; } 100% { transform:scale(1.28); opacity:0; } }
+  .hp-memory { position:absolute; left:6%; right:6%; bottom:9%; display:flex; gap:10px; align-items:center; padding:11px 13px; border-radius:18px; background:rgba(16,22,40,.82); border:1px solid rgba(201,168,117,.35); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); box-shadow:0 14px 30px rgba(0,0,0,.5), 0 0 24px rgba(201,168,117,.18); transform:translateY(26px) scale(.96); opacity:0; transition:transform .8s cubic-bezier(.16,1,.3,1) .5s, opacity .5s ease .5s; }
+  .hp-screen.is-on .hp-memory { transform:none; opacity:1; }
+  .hp-memory img { width:34px; height:34px; border-radius:50%; object-fit:cover; flex:none; border:1px solid rgba(201,168,117,.5); }
+  .hp-memory div { display:flex; flex-direction:column; gap:2px; text-align:left; min-width:0; }
+  .hp-memory b { font-family:var(--font-ui); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--brass); font-weight:700; }
+  .hp-memory span { font-family:var(--font-ui); font-size:12.5px; line-height:1.3; color:#f4f0e8; }
+  /* steps light up one at a time once the script is running */
+  .how-js .step-item { opacity:.38; transition:opacity .45s ease, transform .6s cubic-bezier(.16,1,.3,1); position:relative; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  .how-js .step-item::before { content:''; position:absolute; left:-18px; top:4px; bottom:4px; width:2px; border-radius:2px; background:linear-gradient(180deg,var(--brass),rgba(201,168,117,0)); transform:scaleY(0); transform-origin:top; transition:transform .6s cubic-bezier(.16,1,.3,1); }
+  .how-js .step-item.is-active { opacity:1; transform:translateX(4px); }
+  .how-js .step-item.is-active::before { transform:scaleY(1); }
+  .how-js .step-item.is-active .step-num { text-shadow:0 0 14px rgba(201,168,117,.7); }
+  @media (max-width:860px) {
+    .how-layout { display:block; }
+    .how-head { margin-bottom:6px; }
+    .how-phone { position:sticky; top:56px; z-index:6; margin:18px calc(var(--gutter) * -1) 4px; padding:14px 0 38px; background:linear-gradient(180deg,var(--navy) 0%,var(--navy) 80%,rgba(6,14,30,0) 100%); pointer-events:none; }
+    .how-phone-stage { height:372px; width:280px; }
+    .how-phone-scale { transform:scale(.62); }
+    .phone-glow-base { display:none; }
+    .steps-list { gap:0; margin-top:0; padding-left:0; }
+    .step-item { padding:22px 0 min(14vh,110px); }
+    .step-item:last-child { padding-bottom:36px; }
+    .how-js .step-item::before { left:-12px; top:26px; bottom:min(14vh,110px); }
+    .how-js .step-item:last-child::before { bottom:40px; }
+    .how-foot { margin-top:10px; text-align:center; }
+  }
+  @media (max-width:860px) and (min-height:860px) {
+    .how-phone-stage { height:420px; width:280px; }
+    .how-phone-scale { transform:scale(.7); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hp-pulse, .hp-ring, .hp-typing i { animation:none; }
+    .hp-screen { transition:opacity .2s linear; transform:none; }
+    .hp-memory { transition:none; transform:none; opacity:1; }
+    .how-js .step-item { transition:none; }
+  }
+
+  /* ── POLISH PASS: reading progress, word-by-word pull quotes, card landings, button pulse ── */
+  @keyframes cjProg { from { transform:scaleX(0); } to { transform:scaleX(1); } }
+  @supports (animation-timeline: scroll()) { #cj-progress { animation:cjProg linear both; animation-timeline:scroll(root block); will-change:auto; } }
+  #cj-progress { position:fixed; top:0; left:0; right:0; height:2px; z-index:1200; pointer-events:none; transform-origin:0 50%; transform:scaleX(0); background:linear-gradient(90deg,#8a6d3b,#c9a875 60%,#f0d9a8); will-change:transform; }
+  html.pol-on .pw { opacity:.18; transition:opacity .6s ease var(--d,0ms); }
+  html.pol-on .pw.on { opacity:1; }
+  html.pol-on .rd { opacity:.28; transform:translateY(14px); transition:opacity .8s ease, transform 1s cubic-bezier(.16,1,.3,1); }
+  html.pol-on .rd.on { opacity:1; transform:none; }
+  html.pol-on .brass-rule { scale:0 1; transform-origin:left center; transition:scale 1.1s cubic-bezier(.16,1,.3,1) .3s; }
+  html.pol-on .brass-rule.rule-in { scale:1 1; }
+  .btn-pulse::after { animation:ctaGloss 3.4s ease-in-out infinite; }
+  .btn-pulse:hover::after { animation:none; opacity:1; }
+  @keyframes ctaGloss { 0%,100% { opacity:0; } 45% { opacity:1; } 70% { opacity:.15; } }
+  .price-card::after { content:''; position:absolute; inset:-1px; border-radius:4px; pointer-events:none; box-shadow:0 0 0 1px rgba(201,168,117,.55), 0 0 44px rgba(201,168,117,.3); opacity:0; animation:cardBreath 5.5s ease-in-out infinite; }
+  @keyframes cardBreath { 0%,100% { opacity:0; } 50% { opacity:1; } }
+  .testi-card, .spot-card { transition:border-color .3s, transform .3s, scale .28s cubic-bezier(.16,1,.3,1); -webkit-tap-highlight-color:transparent; }
+  .testi-card:active, .spot-card:active { scale:.985; }
+  @media (prefers-reduced-motion: reduce) { .btn-pulse::after, .price-card::after { animation:none; } .price-card::after { opacity:.5; } }
   /* Page loader */
   #page-loader {
     position: fixed; inset: 0; z-index: 100001;
@@ -5125,7 +5207,6 @@
     gsap.registerPlugin(ScrollTrigger);
 
     // Set chat bubble initial state via GSAP (not inline CSS)
-    gsap.set(['#b1','#b2','#b3','#b4','#b5','#b6','#b7'], { opacity:0, y:10 });
 
     // Hero america250 & badge initial state (must set BEFORE timeline runs)
     gsap.set('#hero-america250-wrap', { opacity:0, y:20 });
@@ -5165,30 +5246,14 @@
     });
     Object.values(animGroups).forEach(group => {
       gsap.fromTo(group,
-        { opacity:0, y:44 },
-        { opacity:1, y:0, duration:0.95, ease:'power3.out', stagger:0.10,
+        { opacity:0, y:44, scale:(i,t)=>t.matches('.testi-card,.spot-card,.price-card,.gap-stat,.crisis-box')?0.955:1 },
+        { opacity:1, y:0, scale:1, duration:0.95, ease:'power3.out', stagger:0.10,
           scrollTrigger: { trigger:group[0], start:'top 90%', once:true }
         }
       );
     });
 
     // App screens — scroll-driven rise and fan: see FLOW PASS script at end of page
-
-    // Phone chat bubbles animate in sequence
-    ScrollTrigger.create({
-      trigger: '#how-it-works',
-      start: 'top 70%',
-      once: true,
-      onEnter: () => {
-        const bubbles = ['b1','b2','b3','b4','b5','b6','b7'];
-        bubbles.forEach((id, i) => {
-          gsap.fromTo(`#${id}`,
-            { opacity:0, y:14 },
-            { opacity:1, y:0, duration:0.55, ease:'power2.out', delay: i * 0.4 }
-          );
-        });
-      }
-    });
 
     // ── COUNTER ANIMATIONS ──────────────────────────────
     function animateCounter(el, target, suffix, duration, decimals) {
@@ -6308,6 +6373,157 @@
   }
   function run() { [].forEach.call(document.querySelectorAll(sel), glue); [].forEach.call(document.querySelectorAll('.nav-cta,.btn-camo'), glueButtons); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', run); else run();
+})();
+</script>
+<script>
+/* HOW IT WORKS — the phone follows the story. Real app screens swap as each step
+   comes into focus; the conversation plays out with typing; tapping a step jumps to it. */
+(function () {
+  var root = document.getElementById('how-layout');
+  if (!root) return;
+  var steps = [].slice.call(root.querySelectorAll('.step-item'));
+  var screens = [].slice.call(root.querySelectorAll('.hp-screen'));
+  var phone = root.querySelector('.how-phone');
+  var mid = document.getElementById('hp-mid');
+  var typing = document.getElementById('hp-typing');
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cur = -1, tl = null, chatDone = false;
+  var FULL = 'inset(26% 0% 27% 0%)';
+  root.classList.add('how-js');
+
+  function playChat() {
+    if (rm || !window.gsap) { return; }
+    if (tl) tl.kill();
+    gsap.killTweensOf([mid, typing]);
+    gsap.set(mid, { clipPath: 'inset(26% 0% 74% 0%)' });
+    gsap.set(typing, { opacity: 0, top: '28%', scale: .9, transformOrigin: 'left center' });
+    var rev = function (b, d) { return { clipPath: 'inset(26% 0% ' + b + '% 0%)', duration: d, ease: 'power2.out' }; };
+    tl = gsap.timeline({ delay: .35, onComplete: function () { chatDone = true; } });
+    tl.to(typing, { opacity: 1, scale: 1, duration: .25 })
+      .to(typing, { opacity: 0, duration: .2 }, '+=.75')
+      .to(mid, rev(61, .5), '<')
+      .to(mid, rev(51.5, .45), '+=.45')
+      .set(typing, { top: '49%' }, '+=.35')
+      .to(typing, { opacity: 1, scale: 1, duration: .25 })
+      .to(typing, { opacity: 0, duration: .2 }, '+=.75')
+      .to(mid, rev(38.5, .5), '<')
+      .to(mid, rev(29.5, .45), '+=.5')
+      .to(mid, rev(27, .3), '+=.05');
+  }
+
+  function setActive(i) {
+    if (i === cur) return;
+    var was = cur; cur = i;
+    steps.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+    screens.forEach(function (s, k) { s.classList.toggle('is-on', k === i); });
+    if (i === 1 && was !== 1) { chatDone ? (mid.style.clipPath = FULL) : playChat(); }
+    if (i === 1 && was !== 1 && chatDone) { /* already played once: show it complete */ }
+  }
+
+  var io = null, rz = null;
+  function build() {
+    if (io) io.disconnect();
+    if (!('IntersectionObserver' in window)) { setActive(0); return; }
+    var vh = window.innerHeight, line;
+    if (window.innerWidth <= 860) { var pb = 56 + 14 + root.querySelector('.how-phone-stage').offsetHeight; line = pb + (vh - pb) * .38; }
+    else { line = vh * .5; }
+    io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) setActive(steps.indexOf(e.target)); });
+    }, { rootMargin: '-' + Math.round(line - 24) + 'px 0px -' + Math.max(0, Math.round(vh - line - 24)) + 'px 0px', threshold: 0 });
+    steps.forEach(function (s) { io.observe(s); });
+  }
+
+  steps.forEach(function (s, k) {
+    s.addEventListener('click', function () { setActive(k); });
+  });
+  window.addEventListener('resize', function () { clearTimeout(rz); rz = setTimeout(build, 200); }, { passive: true });
+  if (rm) { mid.style.clipPath = FULL; }
+  setActive(0); build();
+})();
+</script>
+<script>
+/* POLISH PASS — page-level life: a brass reading-progress line, pull quotes that light word by word,
+   paragraphs that arrive as you reach them, brass rules that draw themselves, cards that land with a
+   brass edge-flash, and a quiet pulse on the two buttons that matter. All transform/opacity.
+   Skipped for people who asked their device for reduced motion. */
+(function () {
+  var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+
+  /* progress line */
+  var bar = document.createElement('div'); bar.id = 'cj-progress'; bar.setAttribute('aria-hidden', 'true'); document.body.appendChild(bar);
+  if (window.CSS && CSS.supports && CSS.supports('animation-timeline', 'scroll()')) { /* compositor-driven: no JS needed */ } else {
+  var tk = false, maxS = 1;
+  function measure() { maxS = Math.max(1, root.scrollHeight - window.innerHeight); }
+  function prog() { tk = false; bar.style.transform = 'scaleX(' + Math.min(1, window.scrollY / maxS) + ')'; }
+  window.addEventListener('scroll', function () { if (!tk) { tk = true; requestAnimationFrame(prog); } }, { passive: true });
+  window.addEventListener('resize', function () { measure(); prog(); }, { passive: true });
+  window.addEventListener('load', function () { measure(); prog(); setTimeout(function () { measure(); prog(); }, 2500); });
+  measure(); prog();
+  }
+
+  if (rm || !('IntersectionObserver' in window)) return;
+
+  function setup() {
+    /* word-by-word pull quotes (split after the widow guard has run; only regular spaces split, so glued words stay glued) */
+    var quotes = [].slice.call(document.querySelectorAll('.cj-quote-pull,.origin-pullquote,.gift-headline'));
+    quotes.forEach(function (q) {
+      var i = 0;
+      (function split(node) {
+        [].slice.call(node.childNodes).forEach(function (k) {
+          if (k.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            k.nodeValue.split(/([ \t\r\n]+)/).forEach(function (t) {
+              if (!t) return;
+              if (/^[ \t\r\n]+$/.test(t)) { frag.appendChild(document.createTextNode(t)); return; }
+              var s = document.createElement('span'); s.className = 'pw'; s.style.setProperty('--d', Math.min(i++ * 42, 900) + 'ms'); s.textContent = t; frag.appendChild(s);
+            });
+            node.replaceChild(frag, k);
+          } else if (k.nodeType === 1 && k.tagName !== 'BR') { split(k); }
+        });
+      })(q);
+    });
+    var paras = [].slice.call(document.querySelectorAll('.cj-quote-body p'));
+    paras.forEach(function (p) { p.classList.add('rd'); });
+    root.classList.add('pol-on');
+
+    var qio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        [].forEach.call(e.target.querySelectorAll('.pw'), function (w) { w.classList.add('on'); });
+        qio.unobserve(e.target);
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+    quotes.forEach(function (q) { qio.observe(q); });
+
+    var pio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); pio.unobserve(e.target); } });
+    }, { threshold: 0.3, rootMargin: '0px 0px -12% 0px' });
+    paras.forEach(function (p) { pio.observe(p); });
+
+    /* brass rules draw themselves when the heading above them arrives (zero-width targets are unreliable to observe) */
+    var rules = [].slice.call(document.querySelectorAll('.brass-rule')), rmap = new Map();
+    var rio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { var r = rmap.get(e.target); if (r) r.classList.add('rule-in'); rio.unobserve(e.target); } });
+    }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+    rules.forEach(function (r) { var t = r.previousElementSibling || r.parentElement; rmap.set(t, r); rio.observe(t); });
+
+    /* cards land with a brass edge-flash */
+    if (window.gsap) {
+      var cio = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          gsap.from(e.target, { borderColor: 'rgba(201,168,117,0.75)', duration: 1.8, ease: 'power2.out', delay: 0.15 });
+          cio.unobserve(e.target);
+        });
+      }, { threshold: 0.35 });
+      [].forEach.call(document.querySelectorAll('.testi-card,.spot-card,.price-card'), function (c) { cio.observe(c); });
+    }
+
+    /* quiet pulse on the two buttons that matter */
+    [].forEach.call(document.querySelectorAll('#hero-actions .btn-camo,#early-access .btn-camo'), function (b) { b.classList.add('btn-pulse'); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
 })();
 </script>
 </body>
