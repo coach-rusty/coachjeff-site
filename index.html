@@ -4565,7 +4565,7 @@
 
         <div class="price-right">
           <div class="patch-label anim">The Honest Case</div>
-          <h2 class="section-head flow-h" style="font-size:clamp(32px,3.8vw,54px);">The friend who never burns out, burns off, or hangs up.</h2>
+          <h2 class="section-head flow-h" style="font-size:clamp(32px,3.8vw,54px);">The friend who never burns out, hangs up, or ghosts you.</h2>
           <div class="brass-rule anim"></div>
           <p class="section-body anim">Most veterans who could use support never get it — not because they don't want it, but because booking an appointment feels like admitting something they're not ready to admit. Coach Jeff removes that barrier entirely.</p>
           <p class="section-body anim" style="margin-top:18px;">He's there when something's wrong. He's there when everything's fine and you just want to talk about the game. He's there at 0200 when you're not going to call anyone — but you might open an app.</p>
@@ -4887,11 +4887,12 @@
   .nav-right a[href="/blog/"]::after, .nav-early::after, .btn-ghost::after { content:''; position:absolute; left:-6px; right:-6px; top:-13px; bottom:-13px; }
 
   /* ── QUOTES THAT LIGHT UP: key lines get a marker, the box gets a glow, voices get their own color ── */
-  .hl { color:#eee3c8; background:linear-gradient(rgba(201,168,117,.34),rgba(201,168,117,.34)) 0 90% / 100% 40% no-repeat; padding:0 2px; border-radius:2px; -webkit-box-decoration-break:clone; box-decoration-break:clone; font-style:inherit; }
-  html.pol-on .hl { background-size:0% 40%; transition:background-size 1.1s cubic-bezier(.16,1,.3,1) .45s, color .8s ease .45s; color:inherit; }
-  html.pol-on .lit .hl { background-size:100% 40%; color:#eee3c8; }
-  .hl-blue .hl { color:#bfe6f2; background-image:linear-gradient(rgba(107,181,204,.4),rgba(107,181,204,.4)); }
-  html.pol-on .hl-blue.lit .hl { color:#bfe6f2; }
+  /* key lines: a real marker, bright fill with dark ink so they pop off the page */
+  .hl { color:#1b1406; font-weight:700; background:linear-gradient(#e6c887,#e6c887) 0 55% / 100% 100% no-repeat; padding:1px 5px; border-radius:3px; -webkit-box-decoration-break:clone; box-decoration-break:clone; font-style:inherit; }
+  html.pol-on .hl { background-size:0% 100%; color:inherit; font-weight:inherit; transition:background-size .9s cubic-bezier(.16,1,.3,1) .3s, color .35s ease .65s; }
+  html.pol-on .hl-box:not(.cj-voice-quote).lit .hl, html.pol-on .cj-quote-body p.seen .hl { background-size:100% 100%; color:#1b1406; font-weight:700; }
+  .hl-blue .hl { color:#04141c; background-image:linear-gradient(#8fd0e3,#8fd0e3); }
+  html.pol-on .hl-blue.lit .hl { color:#04141c; }
   .hl-box { position:relative; isolation:isolate; --hc:201,168,117; }
   .hl-blue { --hc:107,181,204; }
   .hl-box::before { content:''; position:absolute; inset:-16px -14px; z-index:-1; border-radius:14px; background:radial-gradient(110% 95% at 0% 50%, rgba(var(--hc),.2), rgba(var(--hc),.05) 55%, transparent 75%); opacity:0; transition:opacity 1s ease; pointer-events:none; }
@@ -4899,8 +4900,8 @@
   html:not(.pol-on) .hl-box::before { opacity:.7; }
   .cj-voice-quote { transition:border-color .9s ease; }
   .cj-voice-quote.lit { border-left-color:rgba(201,168,117,.85); }
-  html.pol-on .cj-quote-body p { opacity:.4; transition:opacity .6s ease, color .6s ease; }
-  html.pol-on .cj-quote-body p.lit { opacity:1; color:#f4f0e8; }
+  html.pol-on .cj-quote-body p { color:rgba(244,240,232,.42); transition:color .6s ease; }
+  html.pol-on .cj-quote-body p.lit, html.pol-on .cj-quote-body p.seen { color:#f4f0e8; }
   html.pol-on .cj-quote-pull .pw { transition:opacity .6s ease var(--d,0ms), color .9s ease var(--d,0ms), text-shadow .9s ease var(--d,0ms); }
   html.pol-on .cj-quote-pull .pw.on { color:#f4ecd8; text-shadow:0 0 28px rgba(201,168,117,.32); }
   /* the people behind Coach Jeff: each one gets a light of their own as you reach them */
@@ -4912,6 +4913,25 @@
   .origin-person .origin-person-initial, .origin-person .origin-person-name { transition:box-shadow .8s ease, border-color .8s ease, text-shadow .8s ease, color .8s ease; }
   .origin-person.lit .origin-person-initial { border-color:rgb(var(--cr)); box-shadow:0 0 0 4px rgba(var(--cr),.16), 0 0 24px rgba(var(--cr),.6); }
   .origin-person.lit .origin-person-name { color:#fff; text-shadow:0 0 18px rgba(var(--cr),.75); }
+  /* early users: every voice gets its own light, so the wall of quotes reads as people, not a block */
+  .testi-card { --cr:232,170,90; isolation:isolate; border-top:2px solid rgba(var(--cr),.6); }
+  .testi-featured { border-left-color:rgba(var(--cr),.9); }
+  .testi-grid .testi-card:nth-child(1) { --cr:146,196,110; }
+  .testi-grid .testi-card:nth-child(2) { --cr:176,150,230; }
+  .testi-grid .testi-card:nth-child(3) { --cr:107,181,204; }
+  .testi-grid .testi-card:nth-child(4) { --cr:238,128,104; }
+  .testi-grid .testi-card:nth-child(5) { --cr:96,206,178; }
+  .testi-grid .testi-card:nth-child(6) { --cr:230,140,186; }
+  .testi-card::before { color:rgba(var(--cr),.45); transition:color .7s ease; }
+  .testi-card::after { content:''; position:absolute; inset:-1px; z-index:-1; border-radius:2px; pointer-events:none; background:radial-gradient(120% 140% at 0% 0%, rgba(var(--cr),.2), rgba(var(--cr),.05) 55%, transparent 80%); box-shadow:0 0 0 1px rgba(var(--cr),.7), 0 18px 56px -18px rgba(var(--cr),.55); opacity:0; transition:opacity .8s ease; }
+  .testi-card.lit::after { opacity:1; }
+  .testi-card.lit::before { color:rgba(var(--cr),.95); }
+  .testi-card .testi-badge, .testi-card .testi-branch, .testi-card .testi-name { transition:color .8s ease, border-color .8s ease, box-shadow .8s ease, background-color .8s ease; }
+  .testi-card .testi-badge { color:rgb(var(--cr)); border-color:rgba(var(--cr),.5); background:rgba(var(--cr),.12); }
+  .testi-card.lit .testi-badge { box-shadow:0 0 0 4px rgba(var(--cr),.14), 0 0 22px rgba(var(--cr),.5); }
+  .testi-card .testi-branch { color:rgb(var(--cr)); filter:brightness(1.12); }
+  .testi-card .testi-text { transition:color .6s ease; }
+  @media (prefers-reduced-motion: reduce) { .testi-card::after, .testi-card::before { transition:none; } }
   /* app screens drift sideways as you scroll; the moment a finger touches the row, snapping comes back */
   @media (max-width:900px) { .screens-row.auto-pan { scroll-snap-type:none !important; } }
   @media (prefers-reduced-motion: reduce) { .origin-person, .origin-person::before, .origin-person::after, .hl-box::before { transition:none; } }
@@ -6551,7 +6571,8 @@
       var cio = new IntersectionObserver(function (es) {
         es.forEach(function (e) {
           if (!e.isIntersecting) return;
-          gsap.from(e.target, { borderColor: 'rgba(201,168,117,0.75)', duration: 1.8, ease: 'power2.out', delay: 0.15 });
+          var cr = (getComputedStyle(e.target).getPropertyValue('--cr') || '201,168,117').trim() || '201,168,117';
+          gsap.from(e.target, { borderColor: 'rgba(' + cr + ',0.8)', duration: 1.8, ease: 'power2.out', delay: 0.15 });
           cio.unobserve(e.target);
         });
       }, { threshold: 0.35 });
@@ -6603,7 +6624,7 @@
 
     /* long quote: teleprompter, the paragraph you're on glows, the rest dim */
     var tp = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { e.target.classList.toggle('lit', e.isIntersecting); });
+      es.forEach(function (e) { e.target.classList.toggle('lit', e.isIntersecting); if (e.isIntersecting) e.target.classList.add('seen'); });
     }, { threshold: 0, rootMargin: '-32% 0px -32% 0px' });
     [].forEach.call(document.querySelectorAll('.cj-quote-body p'), function (p) { tp.observe(p); });
 
@@ -6612,6 +6633,12 @@
       es.forEach(function (e) { e.target.classList.toggle('lit', e.isIntersecting); });
     }, { threshold: 0, rootMargin: '-36% 0px -36% 0px' });
     [].forEach.call(document.querySelectorAll('.origin-person'), function (p) { pio.observe(p); });
+
+    /* early users: the card you're reading lights in its own color */
+    var tio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.target.classList.toggle('lit', e.isIntersecting); });
+    }, { threshold: 0, rootMargin: '-44% 0px -44% 0px' });
+    [].forEach.call(document.querySelectorAll('.testi-card'), function (c) { tio.observe(c); });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
 })();
