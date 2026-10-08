@@ -97,7 +97,7 @@
         "name": "Is Coach Jeff a replacement for therapy?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Coach Jeff is not a replacement for professional mental health treatment. He is the friend veterans needed long before they ever needed therapy — available at 0200, no appointment required, no judgment."
+          "text": "No. Coach Jeff is not a replacement for professional mental health treatment. He is the friend you needed long before you ever needed therapy — available at 0200, no appointment required, no judgment."
         }
       },
       {
@@ -145,7 +145,7 @@
         "name": "How is Coach Jeff different from other veteran mental health apps?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Coach Jeff is not a chatbot, not a crisis hotline, and not a therapy replacement. He is a relationship — a companion who knows your name, remembers your stories, and shows up every time without burning out. Built specifically for veterans at coachjeff.ai. The closest thing to having a buddy who has been through it and is always available."
+          "text": "Coach Jeff is not a chatbot, not a crisis hotline, and not a therapy replacement. He is a relationship — a companion who knows your name, remembers your stories, and shows up every time without burning out. Built for veterans, first responders, and active-duty service members. The closest thing to having a buddy who has been through it and is always available."
         }
       },
       {
@@ -3539,7 +3539,7 @@
   <div id="intro-band">
     <div class="band-item">★ Premium Companion</div>
     <div class="band-dot"></div>
-    <div class="band-item">Veterans. First Responders. Active Duty.</div>
+    <div class="band-item">Active Duty. Veterans. First Responders.</div>
     <div class="band-dot"></div>
     <div class="band-item">Available 24/7 — Every Night</div>
     <div class="band-dot"></div>
@@ -3955,8 +3955,8 @@
     <div class="container" style="position:relative;z-index:1;">
       <div style="text-align:center;margin-bottom:56px;">
         <div class="patch-label anim" style="justify-content:center;">Inside the App</div>
-        <h2 class="section-head flow-h">What a veteran sees.</h2>
-        <p class="section-body anim" style="max-width:520px;margin:16px auto 0;">Built for this specific human being — the one who came home from something most people will never understand.</p>
+        <h2 class="section-head flow-h">What you'll see inside.</h2>
+        <p class="section-body anim" style="max-width:520px;margin:16px auto 0;">Built for the ones who carry what most people will never understand.</p>
       </div>
 
       <!-- Real screens from the current build -->
@@ -4140,8 +4140,8 @@
           <h2 class="section-head flow-h">You've been<br>carrying this too.</h2>
           <div class="brass-rule anim"></div>
           <p class="section-body anim">You watch him go quiet after a bad night. You learn which conversations to avoid. You love him — and you don't always know what to do with what you see.</p>
-          <p class="section-body anim" style="margin-top:18px;">Coach Jeff doesn't replace you. He gives your veteran somewhere to put the things he doesn't want to put on you. Some of the weight comes off the marriage. Off the kids. Off you.</p>
-          <p class="section-body anim" style="margin-top:18px;color:var(--white);font-style:italic;">"When the veteran is better, everyone around him is better."</p>
+          <p class="section-body anim" style="margin-top:18px;">Coach Jeff doesn't replace you. He gives the one you love somewhere to put the things he doesn't want to put on you. Some of the weight comes off the marriage. Off the kids. Off you.</p>
+          <p class="section-body anim" style="margin-top:18px;color:var(--white);font-style:italic;">"When he's better, everyone around him is better."</p>
           <a href="#early-access" class="btn-camo anim" style="margin-top:36px;display:inline-flex;">Get Early Access →</a>
         </div>
 
@@ -4516,7 +4516,7 @@
               <td><span class="vcheck">✓</span></td>
             </tr>
             <tr>
-              <td>Built for veteran culture</td>
+              <td>Built for people who serve</td>
               <td class="col-jeff"><span class="vcheck">✓</span></td>
               <td><span class="vpart">Varies</span></td>
               <td><span class="vpart">Varies</span></td>
@@ -4748,6 +4748,13 @@
   .rise-reveal { clip-path: inset(100% 0 0 0); transition: clip-path 0.8s cubic-bezier(0.16,1,0.3,1); }
   .rise-reveal.revealed { clip-path: inset(0% 0 0 0); }
   @media (prefers-reduced-motion: reduce) { .wipe-reveal, .rise-reveal { clip-path: none !important; transition: none !important; } }
+  /* Legibility floor: no label under 11px on desktop (phones already handled) */
+  @media (min-width: 901px) {
+    body .nav-logo-sub, body .hero-badge-top, body .hero-badge-bottom, body .hero-eyebrow, body .scroll-label,
+    body .marquee-item, body .patch-label, body .spot-label, body .dossier-header, body .dossier-label,
+    body .cj-voice-label, body .cj-attribution-sub, body .gift-eyebrow, body .jco-status, body .footer-nav h4, body .crisis-box h4 { font-size: 11px; }
+  }
+  .chat-time, .jeff-status { font-size: 11px; }
   /* Real app screens */
   .screens-row { display:flex; justify-content:center; align-items:flex-end; flex-wrap:wrap; gap:36px 28px; padding-bottom:16px; }
   .shot-col { text-align:center; flex-shrink:0; }
@@ -4799,7 +4806,7 @@
             <span class="faq-q-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-a" role="region">
-            <div class="faq-a-inner">No. Coach Jeff is not a replacement for professional mental health treatment. He is the friend veterans needed long before they ever needed therapy — available at 0200, no appointment required, no judgment. A real therapist is still a real therapist. Coach Jeff is what's there when the therapist isn't.</div>
+            <div class="faq-a-inner">No. Coach Jeff is not a replacement for professional mental health treatment. He is the friend you needed long before you ever needed therapy — available at 0200, no appointment required, no judgment. A real therapist is still a real therapist. Coach Jeff is what's there when the therapist isn't.</div>
           </div>
         </div>
 
@@ -4839,7 +4846,7 @@
             <span class="faq-q-icon" aria-hidden="true">+</span>
           </button>
           <div class="faq-a" role="region">
-            <div class="faq-a-inner">Coach Jeff is not a chatbot, not a crisis hotline, and not a therapy replacement. He is a relationship — a companion who knows your name, remembers your stories, and shows up every time without burning out. Built specifically for veterans. The closest thing to having a buddy who has been through it and is always available.</div>
+            <div class="faq-a-inner">Coach Jeff is not a chatbot, not a crisis hotline, and not a therapy replacement. He is a relationship — a companion who knows your name, remembers your stories, and shows up every time without burning out. Built for veterans, first responders, and active-duty service members. The closest thing to having a buddy who has been through it and is always available.</div>
           </div>
         </div>
 
