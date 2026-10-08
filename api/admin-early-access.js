@@ -2,7 +2,7 @@
 // Returns all early access signups stored in KV.
 // Password protected via ADMIN_PASSWORD env var.
 // Rate limited: 5 failed attempts per IP per 15 minutes.
-// Used by /admin.html — the early access tab.
+// Used by the private desk page — the early access tab.
 //
 // Required env vars: KV_REST_API_URL, KV_REST_API_TOKEN, ADMIN_PASSWORD
 

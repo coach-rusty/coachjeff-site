@@ -1,0 +1,6 @@
+# Internal notes and tooling: never deploy
+*.md
+.DS_Store
+.git
+.gitignore
+vercel.json.bak

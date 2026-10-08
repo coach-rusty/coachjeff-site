@@ -3,20 +3,103 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/blog/22-a-day", "destination": "/blog/the-17-point-5", "permanent": true },
-    { "source": "/blog/22-a-day.html", "destination": "/blog/the-17-point-5", "permanent": true }
+    {
+      "source": "/blog/22-a-day",
+      "destination": "/blog/the-17-point-5",
+      "permanent": true
+    },
+    {
+      "source": "/blog/22-a-day.html",
+      "destination": "/blog/the-17-point-5",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)\\.md",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/lib/:path*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/admin",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/admin.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/screen01-homebase",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/screen03-breathing",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/screen06-missioncontrol",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/jeff-preview",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sample-additions",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/screenshots/:path*",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/app-store-assets/:path*",
+      "destination": "/",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/social-quotes/:path*", "destination": "/public/social-quotes/:path*" }
+    {
+      "source": "/social-quotes/:path*",
+      "destination": "/public/social-quotes/:path*"
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Frame-Options",        "value": "SAMEORIGIN" },
-        { "key": "X-Content-Type-Options",  "value": "nosniff" },
-        { "key": "Referrer-Policy",         "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy",      "value": "camera=(), microphone=(self), geolocation=()" }
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(self), geolocation=()"
+        }
       ]
     }
   ]

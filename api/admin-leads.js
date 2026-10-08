@@ -1,11 +1,11 @@
 // api/admin-leads.js
 // Returns all trial leads. Password protected via ADMIN_PASSWORD env var.
-// Used by /admin.html — the live sortable dashboard.
+// Used by the private desk page — the live sortable dashboard.
 //
 // Security:
 //   - Rate limited: 5 failed attempts per IP per 15 minutes → locked out
 //   - Logs every access attempt (IP + timestamp) to KV
-//   - noindex on admin.html, /admin disallowed in robots.txt
+//   - noindex on the desk page, path not published
 //
 // Required env vars: KV_REST_API_URL, KV_REST_API_TOKEN, ADMIN_PASSWORD
 
