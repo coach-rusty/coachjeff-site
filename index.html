@@ -6636,7 +6636,16 @@
   if (row && !rm) {
     var auto = true, tick = false;
     var stop = function () { auto = false; row.classList.remove('auto-pan'); };
-    ['touchstart', 'pointerdown', 'wheel', 'keydown'].forEach(function (ev) { row.addEventListener(ev, stop, { passive: true, once: true }); });
+    /* only a real sideways swipe (or a trackpad/keyboard move) hands control to the visitor; a thumb scrolling the page down must not */
+    var sx = 0, sy = 0;
+    row.addEventListener('touchstart', function (e) { var t = e.touches[0]; sx = t.clientX; sy = t.clientY; }, { passive: true });
+    row.addEventListener('touchmove', function (e) {
+      if (!auto) return;
+      var t = e.touches[0], dx = Math.abs(t.clientX - sx), dy = Math.abs(t.clientY - sy);
+      if (dx > 14 && dx > dy * 1.4) stop();
+    }, { passive: true });
+    row.addEventListener('wheel', function (e) { if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) stop(); }, { passive: true });
+    row.addEventListener('keydown', stop, { passive: true, once: true });
     row.classList.add('auto-pan');
     var upd = function () {
       tick = false;
