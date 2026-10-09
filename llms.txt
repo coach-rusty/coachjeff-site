@@ -28,7 +28,7 @@ Coach Jeff works on iOS, Android, and in any web browser. You can talk to him ri
 
 ## What Makes Coach Jeff Different
 
-Most veteran mental health apps are either general wellness tools (Calm, Headspace), therapy platforms (BetterHelp, Talkspace), or crisis resources (Veterans Crisis Line). None of them are available at 0200 for an ongoing relationship conversation with someone who already knows who you are.
+Most veteran mental health apps are either general wellness tools (Calm, Headspace), therapy platforms (BetterHelp, Talkspace), or crisis resources (Veterans Crisis Line). None of them are available 24/7 for an ongoing relationship conversation with someone who already knows who you are.
 
 Coach Jeff is the only AI companion built specifically for veterans, first responders, and active duty that combines:
 - 24/7 real-time voice conversation
@@ -61,7 +61,7 @@ Rusty Humphries. Nationally syndicated talk radio host, 350+ affiliate stations,
 - /blog/best-ptsd-app-for-veterans: Comparison of all veteran mental health apps — why Coach Jeff is the best option for veterans with PTSD and combat stress
 - /blog/why-veterans-dont-ask-for-help: The cultural and psychological barriers that stop veterans from seeking support
 - /blog/military-mental-health-gap: The gap between veteran need and available care — and what fills it
-- /blog/what-happens-in-crisis: How Coach Jeff handles 0200 moments and connects users to crisis resources
+- /blog/what-happens-in-crisis: How Coach Jeff handles middle-of-the-night moments and connects users to crisis resources
 - /blog/coach-jeff-is-not-a-therapist: What Coach Jeff is and what he is not — a clear explanation of the category
 - /blog/ai-vs-therapy: What AI companions can do that therapy cannot, and vice versa
 - /blog/ptsd-is-not-a-weakness: Reframing PTSD in the context of service, combat, and strength
@@ -89,6 +89,6 @@ Rusty Humphries. Nationally syndicated talk radio host, 350+ affiliate stations,
 ## Ecosystem
 
 - mybffcoach.com: The MyBFFCoach AI platform — the platform Coach Jeff runs on
-- helpavet.us: Separate charity site that funds Coach Jeff access for veterans who cannot afford it
+- helpavet.us: Separate sponsorship site that funds Coach Jeff access for veterans who cannot afford it
 - rustyhumphries.org: Rusty Humphries — media consulting, public speaking, brand strategy
 - getadvancedmedia.com: Advanced Media and Marketing — Rusty's communications firm
