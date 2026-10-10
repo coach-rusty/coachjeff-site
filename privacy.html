@@ -1,99 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy — Coach Jeff / MyBFFCoach</title>
-<style>
-  :root { --ink:#1c1c1e; --muted:#5c5c60; --rule:#e3e3e6; --accent:#0b3d6b; }
-  * { box-sizing:border-box; }
-  body { margin:0; padding:2.5rem 1.25rem 5rem; background:#fff; color:var(--ink);
-         font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
-  main { max-width:44rem; margin:0 auto; }
-  h1 { font-size:1.9rem; line-height:1.2; margin:0 0 .35rem; letter-spacing:-.01em; }
-  h2 { font-size:1.15rem; margin:2.4rem 0 .6rem; padding-top:1.4rem; border-top:1px solid var(--rule); letter-spacing:-.005em; }
-  h3 { font-size:1rem; margin:1.5rem 0 .4rem; }
-  .updated { color:var(--muted); font-size:.9rem; margin:0 0 2rem; }
-  ul { padding-left:1.25rem; }
-  li { margin:.4rem 0; }
-  table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.94rem; }
-  th,td { text-align:left; vertical-align:top; padding:.6rem .5rem; border-bottom:1px solid var(--rule); }
-  th { font-weight:600; }
-  .callout { background:#f4f7fa; border-left:3px solid var(--accent); padding:.9rem 1rem; margin:1.4rem 0; }
-  .callout strong { color:var(--accent); }
-  a { color:var(--accent); }
-  footer { margin-top:3rem; padding-top:1.4rem; border-top:1px solid var(--rule); color:var(--muted); font-size:.9rem; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Coach Jeff</title>
+  <meta name="description" content="Privacy Policy for Coach Jeff: what MyBFFCoach collects, how it is used, who receives it, and your choices." />
+  <link rel="icon" type="image/png" href="coach-jeff-icon.png" />
+  <link rel="apple-touch-icon" href="coach-jeff-icon.png" />
+  <link rel="canonical" href="https://coachjeff.ai/privacy" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.typekit.net/yhk4jya.css" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #040b17;
+      --navy:       #060e1e;
+      --navy-2:     #080f1f;
+      --teal:       #4a7c8c;
+      --teal-lt:    #6bb5cc;
+      --brass:      #c9a875;
+      --brass-lt:   #e0c490;
+      --brass-dk:   #a07840;
+      --white:      #f4f0e8;
+      --white-dim:  rgba(244,240,232,0.6);
+      --white-faint:rgba(244,240,232,0.1);
+      --font-head: "freight-big-pro","Playfair Display","Georgia",serif;
+      --font-ui:   "proxima-nova","Inter",system-ui,sans-serif;
+      --gutter: clamp(22px,5vw,80px);
+    }
+
+    html { scroll-behavior: auto; }
+
+    body {
+      background: var(--ink);
+      color: var(--white);
+      font-family: var(--font-ui);
+      font-size: 17px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(112deg, rgba(184,160,122,0.85) 0px, rgba(184,160,122,0.85) 20px, rgba(74,92,53,0.9) 20px, rgba(74,92,53,0.9) 46px, rgba(92,69,48,0.85) 46px, rgba(92,69,48,0.85) 64px, transparent 64px, transparent 84px, rgba(74,92,53,0.85) 84px, rgba(74,92,53,0.85) 110px, rgba(184,160,122,0.8) 110px, rgba(184,160,122,0.8) 126px, transparent 126px, transparent 148px),
+        repeating-linear-gradient(22deg, rgba(92,69,48,0.8) 0px, rgba(92,69,48,0.8) 26px, transparent 26px, transparent 52px, rgba(74,92,53,0.85) 52px, rgba(74,92,53,0.85) 76px, rgba(184,160,122,0.75) 76px, rgba(184,160,122,0.75) 98px, transparent 98px, transparent 124px, rgba(92,69,48,0.75) 124px, rgba(92,69,48,0.75) 148px);
+      background-size: 480px 480px;
+      opacity: 0.28;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+      z-index: 500;
+    }
+
+    img { display: block; max-width: 100%; }
+    a   { text-decoration: none; color: inherit; }
+
+    ::-webkit-scrollbar       { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--ink); }
+    ::-webkit-scrollbar-thumb { background: var(--brass-dk); border-radius: 2px; }
+
+    /* ── NAV ── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 12px var(--gutter);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(4,11,23,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,168,117,0.12);
+    }
+
+    @keyframes logoBreatheBlue {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 14px rgba(56,139,253,0.9)) drop-shadow(0 0 28px rgba(30,100,230,0.6)) drop-shadow(0 0 56px rgba(20,80,200,0.3)) drop-shadow(0 3px 10px rgba(0,0,0,0.85)); }
+      50%       { transform: scale(1.05); filter: drop-shadow(0 0 22px rgba(56,139,253,1)) drop-shadow(0 0 44px rgba(30,100,230,0.8)) drop-shadow(0 0 80px rgba(20,80,200,0.5)) drop-shadow(0 3px 14px rgba(0,0,0,0.9)); }
+    }
+    @keyframes arrowSlide {
+      0%, 100% { transform: translateX(0); }
+      50%       { transform: translateX(6px); }
+    }
+
+    .nav-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+    .nav-logo-icon {
+      height: 72px; width: auto; max-width: 220px; border-radius: 12px;
+      animation: logoBreatheBlue 4s ease-in-out infinite;
+    }
+    .nav-logo-sub {
+      font-family: var(--font-ui); font-size: 9px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(56,139,253,0.75); display: flex; align-items: center; gap: 4px;
+    }
+    .nav-logo-sub-arrow { display: inline-block; animation: arrowSlide 1.8s ease-in-out infinite; }
+    .nav-right { display: flex; align-items: center; gap: 28px; }
+
+    .nav-cta {
+      position: relative; overflow: hidden;
+      font-family: var(--font-ui); font-size: 12px; font-weight: 800;
+      letter-spacing: 0.12em; text-transform: uppercase; color: #f4f0e8;
+      background-image:
+        repeating-linear-gradient(112deg, rgba(184,160,122,0.9) 0px, rgba(184,160,122,0.9) 16px, rgba(74,92,53,0.95) 16px, rgba(74,92,53,0.95) 36px, rgba(92,69,48,0.9) 36px, rgba(92,69,48,0.9) 52px, transparent 52px, transparent 66px, rgba(74,92,53,0.9) 66px, rgba(74,92,53,0.9) 86px, rgba(184,160,122,0.85) 86px, rgba(184,160,122,0.85) 100px, transparent 100px, transparent 116px),
+        repeating-linear-gradient(22deg, rgba(92,69,48,0.85) 0px, rgba(92,69,48,0.85) 20px, transparent 20px, transparent 40px, rgba(74,92,53,0.9) 40px, rgba(74,92,53,0.9) 60px, rgba(184,160,122,0.8) 60px, rgba(184,160,122,0.8) 78px, transparent 78px, transparent 96px);
+      background-size: 160px; background-color: #4a5a28;
+      padding: 10px 22px; border-radius: 2px; border: 1px solid rgba(201,168,117,0.45);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.7); transition: filter 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+    .nav-cta::before { content: ''; position: absolute; inset: 0; background: rgba(8,16,4,0.38); pointer-events: none; transition: background 0.2s; }
+    .nav-cta:hover { filter: brightness(1.2); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(0,0,0,0.5), 0 0 0 1px rgba(201,168,117,0.5), 0 0 20px rgba(201,168,117,0.18); }
+    .nav-cta:hover::before { background: rgba(8,16,4,0.1); }
+
+    @media (max-width: 900px) { .nav-logo { display: none; } }
+
+    /* ── PAGE CONTENT ── */
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 140px var(--gutter) 100px;
+    }
+
+    .page-eyebrow {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(201,168,117,0.7);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .page-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: rgba(201,168,117,0.4);
+    }
+
+    .page-title {
+      font-family: var(--font-head);
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .page-meta {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      color: rgba(244,240,232,0.4);
+      margin-top: 8px;
+    }
+
+    .page-divider {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--brass), transparent);
+      margin: 28px 0 40px;
+      border-radius: 2px;
+    }
+
+    .doc-section { margin-bottom: 44px; }
+
+    .doc-section-title {
+      font-family: var(--font-ui);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(201,168,117,0.18);
+    }
+
+    .doc-body {
+      font-family: var(--font-ui);
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(244,240,232,0.82);
+    }
+
+    .doc-body p + p { margin-top: 16px; }
+    .doc-body strong { font-weight: 700; color: var(--white); }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    @media (max-width: 560px) { .plan-grid { grid-template-columns: 1fr; } }
+
+    .plan-card {
+      background: rgba(8,15,31,0.6);
+      border: 1px solid rgba(201,168,117,0.2);
+      border-radius: 6px;
+      padding: 22px 24px;
+    }
+
+    .plan-name {
+      font-family: var(--font-ui);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 8px;
+    }
+
+    .plan-price {
+      font-family: var(--font-head);
+      font-size: 32px;
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .plan-price span {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(244,240,232,0.5);
+    }
+
+    .plan-detail {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      color: rgba(244,240,232,0.6);
+      line-height: 1.55;
+      margin-top: 8px;
+    }
+
+    .trial-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(74,92,53,0.2);
+      border: 1px solid rgba(100,140,60,0.35);
+      border-radius: 4px;
+      padding: 10px 16px;
+      margin: 16px 0;
+      font-family: var(--font-ui);
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(180,220,100,0.85);
+    }
+
+    .trial-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: rgba(140,200,60,0.8);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .notice-box {
+      background: rgba(201,168,117,0.07);
+      border: 1px solid rgba(201,168,117,0.2);
+      border-left: 3px solid rgba(201,168,117,0.5);
+      border-radius: 4px;
+      padding: 18px 22px;
+      margin: 20px 0;
+    }
+
+    .notice-box p {
+      font-family: var(--font-ui);
+      font-size: 15px;
+      color: rgba(244,240,232,0.8);
+      line-height: 1.65;
+    }
+
+    .warning-box {
+      background: rgba(179,33,52,0.08);
+      border: 1px solid rgba(179,33,52,0.3);
+      border-left: 3px solid rgba(220,50,60,0.7);
+      border-radius: 4px;
+      padding: 18px 22px;
+      margin: 20px 0;
+    }
+
+    .warning-box p {
+      font-family: var(--font-ui);
+      font-size: 15px;
+      color: rgba(244,240,232,0.85);
+      line-height: 1.65;
+    }
+
+    .warning-box strong { color: var(--white); font-weight: 700; }
+
+    .contact-link {
+      color: var(--teal-lt);
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: var(--white); }
+
+    /* ── FOOTER ── */
+    #footer {
+      background: var(--navy-2, #080f1f);
+      border-top: 1px solid rgba(201,168,117,0.1);
+      padding: 60px var(--gutter) 36px;
+    }
+
+    .footer-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+    @media (max-width: 720px) { .footer-inner { grid-template-columns: 1fr; gap: 36px; } }
+    .footer-tagline { font-family: var(--font-ui); font-size: 13px; color: var(--white-dim); line-height: 1.6; margin-top: 14px; }
+    .footer-nav h4 { font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brass); margin-bottom: 18px; }
+    .footer-nav a { display: block; font-family: var(--font-ui); font-size: 14px; color: var(--white-dim); margin-bottom: 10px; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--white); }
+    .crisis-box { background: rgba(179,33,52,0.08); border: 1px solid rgba(179,33,52,0.25); border-radius: 6px; padding: 24px; }
+    .crisis-box h4 { font-family: var(--font-ui); font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(220,80,80,0.9); margin-bottom: 10px; }
+    .crisis-box p { font-family: var(--font-ui); font-size: 13px; color: var(--white-dim); line-height: 1.55; }
+    .crisis-num { font-family: var(--font-head); font-size: 28px; font-weight: 900; color: var(--white); margin: 10px 0 4px; letter-spacing: 0.04em; }
+    .footer-bottom { max-width: 1180px; margin: 0 auto; padding-top: 24px; border-top: 1px solid rgba(244,240,232,0.06); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-family: var(--font-ui); font-size: 12px; color: rgba(244,240,232,0.25); }
+    .footer-bottom a { color: var(--teal-lt); transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--white); }
+  
+    /* legal body: lists, subheads, links (added for Render-text mirror) */
+    .doc-body ul { margin: 14px 0 0 22px; }
+    .doc-body li { margin: 10px 0; }
+    .doc-body li::marker { color: rgba(201,168,117,0.7); }
+    .doc-body h3 { font-family: var(--font-ui); font-size: 15px; font-weight: 700; color: var(--white); margin: 26px 0 8px; letter-spacing: 0.01em; }
+    .doc-body a { color: var(--teal-lt); text-decoration: underline; text-underline-offset: 3px; }
+    .doc-body a:hover { color: var(--white); }
+    .doc-body p { overflow-wrap: anywhere; }
+  </style>
 </head>
 <body>
-<main>
-<h1>Privacy Policy</h1>
-<p class="updated">Coach Jeff, by MyBFFCoach, LLC &middot; Last updated: August 18, 2026</p>
-<p>Coach Jeff is a voice-first conversational support app for veterans and first responders. People tell Coach Jeff things they have not told anyone. This policy explains, in plain language, exactly what happens to what you say.</p>
-<div class="callout">
-<strong>The short version.</strong> Coach Jeff is powered by artificial intelligence. To answer you, what you say is sent to the AI companies that power him &mdash; <strong>OpenAI</strong>, <strong>Anthropic</strong>, and <strong>ElevenLabs</strong>. We do not sell your information, we do not share it with advertisers, and you can delete your account and everything in it from inside the app at any time. If you never want your voice to leave your phone, you can use Coach Jeff in <strong>text-only mode</strong>.
-</div>
-<h2>1. Who we are</h2>
-<p>Coach Jeff is operated by MyBFFCoach, LLC. You can reach us any time at <a href="mailto:rusty@mybffcoach.com">rusty@mybffcoach.com</a>.</p>
-<h2>2. Coach Jeff is an AI, and your conversations are processed by AI</h2>
-<p>Coach Jeff is not a person, a therapist, a counselor, or a medical professional, and conversations with Coach Jeff are not therapy. Coach Jeff is a machine. He is not a medical device: he has not been evaluated or cleared by the FDA and is not intended to diagnose, treat, cure, or prevent any condition.</p>
-<p>To respond to you, the content of your conversation &mdash; what you type, or the transcript of what you say &mdash; is transmitted to third-party artificial-intelligence providers. This is not optional for the conversation feature to work, which is why we ask for your explicit permission before your first conversation.</p>
-<h2>3. What we collect</h2>
-<ul>
-  <li><strong>Account identifiers</strong> &mdash; the email address and user ID used to secure your account.</li>
-  <li><strong>Conversation content</strong> &mdash; what you say or type to Coach Jeff, and his replies.</li>
-  <li><strong>Audio</strong> &mdash; voice recordings, and voice characteristics (a voiceprint) used solely to turn your speech into text. Only if you grant voice consent.</li>
-  <li><strong>What Coach Jeff remembers about you</strong> &mdash; the personal profile you build up over time: your name or callsign, important people in your life, and context you choose to share. This is what lets Coach Jeff know you between conversations.</li>
-  <li><strong>Sensitive content you choose to share</strong> &mdash; including what you tell him about your mental health, your emotional state, and your relationships.</li>
-  <li><strong>Battle Buddies</strong> &mdash; up to three trusted contacts you add. You may import them from your device contacts or type them in manually; importing is never required.</li>
-  <li><strong>Safety event records</strong> &mdash; a record that a crisis escalation occurred and was handled. This does not include the conversation content itself.</li>
-  <li><strong>App usage and diagnostics</strong> &mdash; crash reports and performance data used to keep the app stable.</li>
-</ul>
-<h2>4. Who receives your information</h2>
-<h3>The AI providers that power Coach Jeff</h3>
-<p>Coach Jeff's ability to hold a conversation comes from artificial-intelligence services operated by <strong>OpenAI</strong>, <strong>Anthropic</strong>, and <strong>ElevenLabs</strong>. Conversation content &mdash; what you say or type, and the transcript of your speech &mdash; is transmitted to these providers so that Coach Jeff can understand you and reply, and so that he can speak out loud.</p>
-<p>They process that content only to deliver the conversation back to you. We name them because you have a right to know which companies handle what you tell Coach Jeff, and we ask for your explicit permission before the first word of your first conversation is sent to any of them.</p>
-<h3>Everyone else</h3>
-<p>Like any app, Coach Jeff relies on ordinary service providers for the plumbing: cloud hosting and databases, encrypted backups, crash and performance diagnostics, transactional email, push notifications, and app updates. Each receives only the narrow slice of data its function requires, is bound by contract to use it only to provide that service, and none of them receives your data for their own purposes.</p>
-<h3>Payment</h3>
-<p>All payments are handled by <strong>Apple</strong>. We never see your card number. We receive only the record that a subscription or purchase is active.</p>
-<p>We may also disclose information if we are legally required to, or where we believe in good faith that disclosure is necessary to prevent imminent serious harm to you or someone else.</p>
-<h2>5. What we do not do</h2>
-<ul>
-  <li>We do not sell your information.</li>
-  <li>We do not share your conversations, your voiceprint, or anything you tell Coach Jeff with advertisers.</li>
-  <li>We do not track you across other apps or websites.</li>
-  <li>We do not collect financial information. Apple handles payment.</li>
-  <li>We do not collect Health app (HealthKit) data.</li>
-</ul>
-<h2>6. Quality and safety review</h2>
-<p>We may review conversations to check how Coach Jeff is doing &mdash; how he talks with people, whether his responses are safe, whether he follows his rules, and how he handles crisis moments. This review is performed by MyBFFCoach staff. We do this because the alternative is shipping a product for people in distress and never checking whether it is helping them.</p>
-<h2>7. Crisis situations</h2>
-<p>Coach Jeff is designed to recognize serious distress. At his highest alert level he stops generating custom responses entirely, uses only pre-approved language, and directs you to 988 &mdash; <strong>call or text</strong>. In immediate danger, call 911.</p>
-<p><strong>Coach Jeff is not a crisis service.</strong> Crisis routing is never gated, never metered, and never behind a paywall: it works with no subscription, with an expired subscription, and at zero remaining minutes. Safety events are logged &mdash; the fact that an escalation occurred, not the conversation content &mdash; and may be reviewed by MyBFFCoach staff.</p>
-<h2>8. How long we keep things, and how to delete them</h2>
-<p>Your conversations are kept while your account is open. When you delete your account, the conversations linked to it are deleted from our systems and from our voice provider as part of the same deletion.</p>
-<h3>Deleting your account</h3>
-<p>Open the menu, choose <strong>Mission Control</strong>, and tap <strong>Delete My Account</strong> under Danger Zone. If the app ever locks you out, email <a href="mailto:rusty@mybffcoach.com">rusty@mybffcoach.com</a> and we will handle it for you.</p>
-<h2>9. Your rights and your choices</h2>
-<ul>
-  <li><strong>Text-only mode.</strong> You may decline voice consent entirely and still use Coach Jeff by typing. Your voice never leaves your device.</li>
-  <li><strong>Granular consent.</strong> Before your first conversation we ask separately about AI processing, voice analysis, storage of what you share about your mental health, storage of safety-event records, and storage of your personal profile.</li>
-  <li><strong>Access, correction, deletion, and a copy of your data.</strong> Email <a href="mailto:rusty@mybffcoach.com">rusty@mybffcoach.com</a>, or delete everything yourself in the app.</li>
-  <li><strong>Voice data questions.</strong> To ask what voice data is held about you, or to confirm every recording is gone, email the same address.</li>
-</ul>
-<p>Depending on where you live, you may have additional rights under laws such as the GDPR or the CCPA. We honor those requests regardless of where you live.</p>
-<h2>10. Age</h2>
-<p>Coach Jeff is for adults. You must confirm you are 18 or older to complete setup. We do not knowingly collect information from anyone under 18. If you believe a minor has created an account, email us and we will delete it.</p>
-<h2>11. Security</h2>
-<p>We use industry-standard encryption in transit and at rest, and access to production data is limited to staff who need it. No system is perfectly secure, and we will not pretend otherwise.</p>
-<h2>12. Changes to this policy</h2>
-<p>We may update this policy. Material changes to who receives your data will be reflected here with a revised date, and where the change requires it, we will ask for your consent again inside the app.</p>
-<h2>13. Contact</h2>
-<p>MyBFFCoach, LLC &mdash; <a href="mailto:rusty@mybffcoach.com">rusty@mybffcoach.com</a></p>
-<footer>
-&copy; 2026 MyBFFCoach, LLC. If you are in crisis, call or text <strong>988</strong>. If someone is in immediate danger, call 911.
-</footer>
-</main>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">
+      <img class="nav-logo-icon" src="coach-jeff-logo.png" alt="Coach Jeff">
+      <span class="nav-logo-sub">I've Got Your Six <span class="nav-logo-sub-arrow">→</span></span>
+    </a>
+    <div class="nav-right">
+      <a href="https://coachjeff.ai/#early-access" class="nav-cta">Get Early Access</a>
+    </div>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <main class="page-wrap">
+
+    <div class="page-eyebrow">Legal</div>
+    <h1 class="page-title">Privacy Policy</h1>
+    <div class="page-meta">Updated October 1, 2026 &nbsp;·&nbsp; Policy version 4 &nbsp;·&nbsp; MyBFFCoach, LLC</div>
+    <div class="page-divider"></div>
+
+    <div class="doc-section"><div class="doc-body">
+        <p>Coach Jeff is an AI companion, not a therapist, healthcare provider or emergency service. This policy explains what MyBFFCoach collects, how information is used, and your choices. Contact <a href="mailto:rusty@mybffcoach.com">rusty@mybffcoach.com</a> for access, correction, recovery or deletion help.</p>
+    </div></div>
+
+    <div class="doc-section">
+      <div class="doc-section-title">Information you provide</div>
+      <div class="doc-body">
+        <p>We store account identifiers (phone number, email and name), a protected password credential for older accounts, conversation messages, memories, and information you choose to put in My World. That can include health, relationships, military history, faith, political views, recovery and safety-plan information. We use it to operate your account, personalize conversations and support safety. We do not sell it or use it for advertising.</p>
+        <p>My World and its PIN credential are stored in our PostgreSQL database. The PIN is verified by the server; it is not a device-only password. The app may hold temporary profile data while open and stores sign-in credentials in protected native storage. Earlier app versions may have left local caches; account deletion attempts to clear them.</p>
+        <p>On iOS, CarPlay sign-in tokens are stored in Keychain. Web fallbacks use browser local storage, which is not encrypted by the app; do not use shared browsers for private information.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-title">Text-message sign-in</div>
+      <div class="doc-body">
+        <p>Twilio Verify receives your phone number and verification requests to send and check sign-in codes. We retain your verified phone number on your account and temporary verification records to prevent code reuse and abuse. We do not store the text-message code as an account password. Twilio processes delivery and security records under its <a href="https://www.twilio.com/en-us/legal/privacy">privacy notice</a>. New accounts use text-message codes; older accounts can connect a verified phone while keeping their existing data. If you lose access to that phone number, contact support for identity-verified recovery.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-title">AI processing and your consent</div>
+      <div class="doc-body">
+        <p>Before AI features start, we ask permission to send messages, relevant memories and permitted profile context to our AI providers. Anthropic powers phone and text responses and supporting memory features. Google Gemini, Cerebras and OpenAI may support configured alternatives or supporting features. ElevenLabs supplies synthesized speech. Phone and CarPlay conversations can use the shared backend with Anthropic for responses, Deepgram for speech recognition and Google Gemini for transcription and uncertain tone cues only during crisis mode. These cues are model guesses, not clinical assessments; they do not determine or reduce the app’s crisis response. The app uses them for the current turn and does not save them to your account or include them in app logs or analytics. Transcripts and permitted memories are saved to your account. Configured legacy voice paths may use an ElevenLabs-hosted agent and its model providers, including Anthropic. OpenAI may process dictation and photos that you explicitly choose to scan. Search queries may go to Tavily for current news and places. Configured legacy news searches may send your search terms to The Guardian or NewsAPI.</p>
+        <p>Typed My World medical diagnoses, medications, healthcare records, therapist session notes and relapse-history fields are excluded from profile context sent to AI. If you say or type health information in a conversation, that message is processed by AI like other messages. The optional medication scanner sends the selected image to OpenAI to read its label; entering the form manually does not send those fields to AI.</p>
+        <p>Providers process submitted information under their service terms and retention settings. Retention can include security and abuse-monitoring records. We do not promise immediate erasure of every provider log. Google data-use protections depend on the service plan; the linked terms explain these differences. We may review conversations for quality and safety; this is not live crisis monitoring.</p>
+        <ul>
+          <li><a href="https://ai.google.dev/gemini-api/terms">Google Gemini API terms</a></li>
+          <li><a href="https://www.cerebras.ai/privacy-policy">Cerebras privacy</a></li>
+          <li><a href="https://openai.com/policies/privacy-policy/">OpenAI privacy</a></li>
+          <li><a href="https://www.anthropic.com/legal/privacy">Anthropic privacy</a></li>
+          <li><a href="https://elevenlabs.io/privacy-policy">ElevenLabs privacy</a></li>
+          <li><a href="https://deepgram.com/privacy">Deepgram privacy</a></li>
+          <li><a href="https://www.tavily.com/privacy">Tavily privacy</a></li>
+        </ul>
+        <h3>What never reaches OpenAI or the other conversation models</h3>
+        <p>Typed medical and wellness fields, therapist session notes and relapse details are excluded from profile context sent to conversation models. If you choose Pill-Bottle Scan, the photo is sent to OpenAI to read its label. Health information you say or type in a conversation is processed as conversation content under your AI consent.</p>
+        <h3>Quality and safety review</h3>
+        <p>We may review conversations to see how Coach Jeff is doing — how he talks with people, whether his responses are safe, whether he follows his rules, and how he handles crisis moments.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-title">Voice, HealthKit and device permissions</div>
+      <div class="doc-body">
+        <p>Voice is optional. After you accept the updated voice disclosure, microphone audio is transmitted for speech recognition, uncertain temporary tone cues and voice conversation. Existing users must review fresh consent for this change; declining voice keeps text available after completing the required privacy choices. We do not use it to identify you biometrically or sell a voiceprint. You can use text instead. Voice providers may retain call recordings; linked ElevenLabs conversations are included in account deletion.</p>
+        <p>With separate Apple Health permission, the iOS app can read heart rate. A heart-rate value may be shared in enabled voice context to support the interaction. It is not a diagnosis, emergency detector or medical measurement service. You can deny or revoke Health access in iOS. We do not use HealthKit data for advertising or marketing.</p>
+        <p>Contacts access lets you choose Battle Buddies; selected names and contact details are saved in your profile. Optional location lookup lets you save a city or area for local search. With separate explicit opt-in, precise live location shares your current city, coordinates, observation time and accuracy with our backend while the app is open or a call is active, including supported unified CarPlay calls. Existing city-only permission remains city-only until you opt into precise sharing. iOS and Apple Maps use your position for nearby-place searches; Coach Jeff receives city context, place results and calculated approximate straight-line distances, rather than your coordinates in ordinary conversation prompts. Coordinates stay in temporary session memory; precise samples are used for up to one minute and city context for up to five minutes. Sharing stops outside those sessions. City names, place addresses and distances may appear in saved conversation answers. Other web/news search providers receive city-level queries. Turn off live location sharing in Mission Control or revoke location permission in iOS Settings. We do not request Always Allow tracking. Manual city entry remains available. Camera/photo access supports user-selected scans and profile images. You can enter information manually where offered. Apple manages permission settings.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-title">Storage, purchases and diagnostics</div>
+      <div class="doc-body">
+        <p>Render hosts our service and PostgreSQL data. Cloudflare R2 may hold encrypted backups, and legacy Upstash records remain subject to migration and deletion handling. Network connections use encryption. No system is risk-free.</p>
+        <p>Apple handles App Store payments. We retain transaction identifiers, subscription tier and entitlement status to verify access and restore purchases; we do not receive your payment-card details. Trial-code claims link a single-use Apple offer to your account to prevent code reuse. Account deletion removes that link while retaining a deidentified record that the code was claimed. Device/push identifiers support notifications. Usage events help operate the service. Firebase analytics and Sentry diagnostics may collect interactions, crash and performance information; diagnostic handling aims to exclude direct personal identifiers and message content.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-title">Retention, deletion and recovery</div>
+      <div class="doc-body">
+        <p>Account data and conversation history are retained while your account is open unless removed through an available control. Delete My Account in Mission Control (Settings) closes access and requests deletion of account data, linked recordings and backups. Cleanup can continue after sign-out. Keep the deletion receipt on the sign-in screen and use Check deletion status to see whether cleanup is pending or complete. Failed provider cleanup is retried; it is not reported as complete.</p>
+        <p>We retain a non-content account-generation hash to prevent old credentials or delayed callbacks from recreating a deleted account. A limited deletion record and necessary provider identifiers are retained to finish cleanup and report status. Provider identifiers and the account identifier in that job are removed when cleanup completes. Independent provider security/abuse records may remain subject to their terms.</p>
+        <p>Deleting the app alone does not delete your account. Deleting your account does not cancel Apple subscription billing: <a href="https://apps.apple.com/account/subscriptions">manage your subscription with Apple</a>. You can request immediate account deletion without first cancelling. Password reset uses your recovery email. If you have an older phone-only account or cannot access that email, contact support for identity-verified recovery; never send your password.</p>
+      </div>
+    </div>
+
+    <div class="doc-section">
+      <div class="doc-section-title">Safety, age and policy changes</div>
+      <div class="doc-body">
+        <p>Coach Jeff is for adults aged 18 or older. AI can make mistakes and miss distress. Safety behavior differs between phone and CarPlay; neither is an emergency service. In a crisis, Dial 988 then Press 1 for the Veterans Crisis Line. In immediate danger, call 911.</p>
+        <p>We may keep limited safety-event metadata and review conversations for safety and quality. Material changes to AI sharing require updated in-app consent. Privacy requests and questions: <a href="mailto:rusty@mybffcoach.com">rusty@mybffcoach.com</a>.</p>
+        <p><a href="/terms">Terms of Use</a></p>
+        <p>For account-linked usage analytics, we record your name, email address when supplied, platform, session duration, message counts and screens used. These records are not anonymous. Session analytics and daily activity records expire automatically after 90 days; registration records and longer-lived indexes remain until account deletion.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div>
+        <img src="coach-jeff-logo.png" alt="Coach Jeff" style="height:80px;width:auto;border-radius:12px;filter:drop-shadow(0 0 10px rgba(74,160,230,0.5)) drop-shadow(0 2px 8px rgba(0,0,0,0.7));">
+        <p class="footer-tagline">Premium AI companion for veterans.<br>Available 24/7. No appointment required.</p>
+        <p class="footer-tagline" style="margin-top:14px;">Part of the <a href="https://helpavet.us" style="color:var(--teal-lt);transition:color 0.2s;" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--teal-lt)'">HelpAVet.us</a> family.</p>
+      </div>
+      <div class="footer-nav">
+        <h4>Navigate</h4>
+        <a href="/">Home</a>
+        <a href="/age-suitability">Age Suitability</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Use</a>
+        <a href="/support">Support</a>
+        <a href="https://helpavet.us" style="color:var(--teal-lt);">HelpAVet.us</a>
+        <a href="https://helpavet.us/donate" style="color:var(--brass);font-weight:700;">Donate to Help a Veteran</a>
+      </div>
+      <div class="crisis-box">
+        <h4>Veterans Crisis Line</h4>
+        <p>If you or someone you know is in crisis, help is available right now.</p>
+        <div class="crisis-num">988</div>
+        <p style="font-size:12px;margin-top:4px;">Chat: <a href="https://988lifeline.org/chat">988lifeline.org/chat</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 MyBFFCoach. All rights reserved.</p>
+      <p>Not a substitute for professional mental health treatment. <a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/support">Support</a></p>
+    </div>
+  </footer>
+
 </body>
 </html>
