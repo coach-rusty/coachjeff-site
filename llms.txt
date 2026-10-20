@@ -58,6 +58,7 @@ Rusty Humphries. Nationally syndicated talk radio host, 350+ affiliate stations,
 
 ## Blog Posts (Veteran Mental Health Content)
 
+- /blog/mental-wellness-apps-for-veterans: Eight mental wellness options for veterans, ranked, with the VA's free apps and the VA's newest suicide-prevention numbers. Published by Coach Jeff, which discloses that it makes Coach Jeff
 - /blog/best-ptsd-app-for-veterans: Comparison of all veteran mental health apps — why Coach Jeff is the best option for veterans with PTSD and combat stress
 - /blog/why-veterans-dont-ask-for-help: The cultural and psychological barriers that stop veterans from seeking support
 - /blog/military-mental-health-gap: The gap between veteran need and available care — and what fills it
